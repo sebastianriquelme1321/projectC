@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePropietariosTable extends Migration
+class CreateJefeDeHogarsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,18 @@ class CreatePropietariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('propietarios', function (Blueprint $table) {
-            $table->id('ID_prop');
-            $table->integer('Rut_emp');
-            $table->char('Ver_emp',1);
-            $table->integer('Rut_ind');
-            $table->char('Ver_ind',1);
+        Schema::create('jefe_de_hogars', function (Blueprint $table) {
+            $table->id('ID_jefe');
+            $table->integer('ID_dept')->unsigned();
+            $table->foreign('ID_dept')->references('ID_dept')->on('departamentos');
+            $table->integer('Rut_jefe');
+            $table->char('Ver_jefe',1);
             $table->char('Nombre',30);
             $table->char('Apellido',30);
             $table->char('Fono',9);
             $table->char('Correo',60);
-            $table->char('Razon_Social',100);
             $table->timestamps();
-        });   
+        });
     }
 
     /**
@@ -35,6 +34,6 @@ class CreatePropietariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('propietarios');
+        Schema::dropIfExists('jefe_de_hogars');
     }
 }
