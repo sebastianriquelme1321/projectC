@@ -20,7 +20,7 @@ class CreatePagosTable extends Migration
             $table->integer('Monto');
             $table->char('Fecha_de_pago',10);
             $table->char('Mes_de_pago',7);
-            $table->bytea('ComprobanteIMG');
+            $table->binary('ComprobanteIMG');
             $table->text('Detalle');
             $table->timestamps();
         });
