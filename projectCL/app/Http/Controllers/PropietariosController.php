@@ -40,9 +40,6 @@ class PropietariosController extends Controller
         $datosPropietario=request()->all();
         $datosPropietario=
         $request->except('_token');
-        DB::insert('insert into users (id, name) values (?, ?)', [1, 'Dayle'])
-        
-        
         return response()->json($datosPropietario );
         
 
