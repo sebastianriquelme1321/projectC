@@ -21,3 +21,6 @@ Route::resource('Propietarios', '\App\Http\Controllers\PropietariosController');
 Route::get('/', function() {
     return view('welcome');
 });
+
+
+Route::resource('propietarios', 'PropietarioController');
