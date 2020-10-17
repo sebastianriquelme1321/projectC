@@ -73,8 +73,8 @@ class PropietariosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Propietarios  $propietarios
      * @return \Illuminate\Http\Response
-     */create
-    }
+     */
+    
 
     /**
      * Remove the specified resource from storage.
