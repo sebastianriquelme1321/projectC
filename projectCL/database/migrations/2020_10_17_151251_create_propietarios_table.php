@@ -17,6 +17,7 @@ class CreatePropietariosTable extends Migration
             $table->id();
             $table->String('Nombre');
             $table->timestamps();
+            
         });
     }
 
