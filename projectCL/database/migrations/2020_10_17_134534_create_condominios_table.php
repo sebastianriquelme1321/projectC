@@ -21,7 +21,7 @@ class CreateCondominiosTable extends Migration
             $table->char('Ciudad',25);
             $table->char('Calle',100);
             $table->integer('Numero');
-            $table->integer('ID_ad')->unsigned()->autoIncrement();
+            $table->integer('ID_ad')->from(1);
             $table->integer('Rut_ad');
             $table->char('Ver_ad',1);
             $table->char('Nombre',30);
