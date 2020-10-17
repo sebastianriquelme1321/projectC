@@ -23,7 +23,7 @@ class CreatePropietariosTable extends Migration
             $table->char('Apellido',30);
             $table->char('Fono',9);
             $table->char('Correo',60);
-            $table->char('Razon_Social',100);
+            $table->char('Razon_Social',100)->nullable(true);
             $table->timestamps();
         });   
     }
