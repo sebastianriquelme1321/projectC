@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+
+Route::resource('Propietarios', '\App\Http\Controllers\PropietariosController');
+
+
+
+Route::get('/', function() {
     return view('welcome');
 });

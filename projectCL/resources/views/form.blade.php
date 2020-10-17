@@ -1,0 +1,1 @@
+Formulaio de datos propietario

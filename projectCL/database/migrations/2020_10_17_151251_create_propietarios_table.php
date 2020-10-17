@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePropieatariosTable extends Migration
+class CreatePropietariosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreatePropieatariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('propieatarios', function (Blueprint $table) {
+        Schema::create('propietarios', function (Blueprint $table) {
             $table->id();
+            $table->String('Nombre');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreatePropieatariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('propieatarios');
+        Schema::dropIfExists('propietarios');
     }
 }
