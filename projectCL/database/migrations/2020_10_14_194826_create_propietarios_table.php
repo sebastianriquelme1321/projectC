@@ -15,10 +15,10 @@ class CreatePropietariosTable extends Migration
     {
         Schema::create('propietarios', function (Blueprint $table) {
             $table->id('ID_prop');
-            $table->integer('Rut_emp');
-            $table->char('Ver_emp',1);
-            $table->integer('Rut_ind');
-            $table->char('Ver_ind',1);
+            $table->integer('Rut_emp')->nullable(true);
+            $table->char('Ver_emp',1)->nullable(true);
+            $table->integer('Rut_ind')->nullable(true);
+            $table->char('Ver_ind',1)->nullable(true);
             $table->char('Nombre',30);
             $table->char('Apellido',30);
             $table->char('Fono',9);
