@@ -25,7 +25,7 @@ class PropietariosController extends Controller
     public function create()
     {
         //
-        return view('create');
+        return view('Propietario/create');
     }
 
     /**
