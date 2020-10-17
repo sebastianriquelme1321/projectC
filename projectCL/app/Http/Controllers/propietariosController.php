@@ -19,7 +19,7 @@ class PropietariosController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
+     *s
      * @return \Illuminate\Http\Response
      */
     public function create()
