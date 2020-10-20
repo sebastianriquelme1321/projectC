@@ -90,7 +90,7 @@ class PropietariosController extends Controller
     {
         //
         propietarios::destroy($ID_prop);
-        return redirect('/Propietarios');
+        return redirect('/Propietarios/');
         
     }
 }

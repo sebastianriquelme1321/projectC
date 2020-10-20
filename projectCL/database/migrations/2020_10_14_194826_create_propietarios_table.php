@@ -14,7 +14,7 @@ class CreatePropietariosTable extends Migration
     public function up()
     {
         Schema::create('propietarios', function (Blueprint $table) {
-            $table->id('ID_prop');
+            $table->id('ID_prop')->onDelete('cascade');
             $table->integer('Rut_emp')->nullable(true);
             $table->char('Ver_emp',1)->nullable(true);
             $table->integer('Rut_ind')->nullable(true);
