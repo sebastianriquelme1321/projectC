@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Propietario extends Model
 {
     use HasFactory;
+    protected $primaryKey='ID_prop';
+   
 }

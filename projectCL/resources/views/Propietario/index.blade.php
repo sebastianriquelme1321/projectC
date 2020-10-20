@@ -25,8 +25,13 @@ Este es el index
             <td>{{$propietario->Apellido}}</td>
             <td>{{$propietario->Fono}}</td>
             <td>{{$propietario->Correo}}</td>
-            <td>Editar| Borarr</td>
-            <td></td>
+            <td>Editar| 
+             <form method="post" action="{{url('/propietarios/'.$propietario->id)}}">
+             {{ csrf_field()}}
+             {{method_field('DELETE')}}
+             <button type="submit" onclick="return confirm('Borrar?');">Borrar</button>
+             </form></td>
+            </td>
            
         </tr>
         @endforeach

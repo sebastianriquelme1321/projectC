@@ -86,8 +86,11 @@ class PropietariosController extends Controller
      * @param  \App\Models\Propietarios  $propietarios
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Propietarios $propietarios)
+    public function destroy($ID_prop)
     {
         //
+        propietarios::destroy($ID_prop);
+        return redirect('/Propietarios');
+        
     }
 }
