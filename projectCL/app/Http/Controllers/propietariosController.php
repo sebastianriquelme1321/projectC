@@ -14,7 +14,8 @@ class PropietariosController extends Controller
      */
     public function index()
     {
-        return view('Propietario/index');
+        $datos['propietarios']= Propietarios::paginate(5);
+        return view('propietario.index',$datos);
     }
 
     /**
@@ -25,7 +26,7 @@ class PropietariosController extends Controller
     public function create()
     {
         //
-        return view('Propietario/create');
+        return view('propietario/create');
     }
 
     /**
@@ -62,9 +63,11 @@ class PropietariosController extends Controller
      * @param  \App\Models\Propietarios  $propietarios
      * @return \Illuminate\Http\Response
      */
-    public function edit(Propietarios $propietarios)
+    public function edit($ID_prop)
     {
         //
+        $empleado=Propietarios::findOrFail($ID_prop);
+        return view('propietarios.edit', compact('propietario'));
     }
 
     /**
@@ -82,8 +85,10 @@ class PropietariosController extends Controller
      * @param  \App\Models\Propietarios  $propietarios
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Propietarios $propietarios)
+    public function destroy($ID_prop)
     {
-        //
+        Propietarios::destroy($ID_prop);
+        
+        return redirect('propietarios');
     }
 }

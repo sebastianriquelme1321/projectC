@@ -1,1 +1,0 @@
-Seccion para editar propietario
