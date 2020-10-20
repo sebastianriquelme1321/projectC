@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::resource('Propietarios', '\App\Http\Controllers\propietariosController');
+Route::resource('propietarios', '\App\Http\Controllers\propietariosController');
 
 
 
