@@ -18,6 +18,7 @@ class PropietariosController extends Controller
 
         return view('Propietario/index',$datos);
 
+        
     }
 
     /**
