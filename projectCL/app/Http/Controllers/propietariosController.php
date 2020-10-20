@@ -14,15 +14,8 @@ class PropietariosController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
         $datos['propietarios']= Propietarios::paginate(5);
         return view('propietario.index',$datos);
-=======
-        $datos['propietarios']=propietarios::paginate(5);
-
-        return view('Propietario/index',$datos);
-
->>>>>>> 454946bb9dfd7e92fce8290ed61b56f59c987f47
     }
 
     /**
@@ -33,12 +26,7 @@ class PropietariosController extends Controller
     public function create()
     {
         //
-<<<<<<< HEAD
         return view('propietario/create');
-=======
-        return view('Propietario/create');
-
->>>>>>> 454946bb9dfd7e92fce8290ed61b56f59c987f47
     }
 
     /**
@@ -99,15 +87,8 @@ class PropietariosController extends Controller
      */
     public function destroy($ID_prop)
     {
-<<<<<<< HEAD
         Propietarios::destroy($ID_prop);
         
         return redirect('propietarios');
-=======
-        //
-        propietarios::destroy($ID_prop);
-        return redirect('/Propietarios/');
-        
->>>>>>> 454946bb9dfd7e92fce8290ed61b56f59c987f47
     }
 }
