@@ -52,9 +52,11 @@ class PropietariosController extends Controller
      * @param  \App\Models\Propietarios  $propietarios
      * @return \Illuminate\Http\Response
      */
-    public function show(Propietarios $propietarios)
-    {
+    public function show($ID_prop)
+    {       
         //
+        $datosVERMAS = propietarios::find($ID_prop);       
+        return view('propietario.show', compact('datosVERMAS'));
     }
 
     /**

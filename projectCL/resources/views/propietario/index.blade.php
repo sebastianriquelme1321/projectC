@@ -22,6 +22,15 @@
             <td>{{$propietario->Apellido}}</td>
             <td>{{$propietario->fono}}</td>
             <td>
+                <form method="post" action="{{url('/propietarios/'.$propietario->ID_prop)}}">
+                {{csrf_field() }}
+                {{method_field('GET')}}
+                <button type="submit">Ver mas</button>
+                    
+                </form>
+            </td>
+
+            <td>
             <form method="post" action="{{url('/propietarios/'.$propietario->ID_prop)}}">
             {{csrf_field() }}
             {{method_field('DELETE')}}
