@@ -14,8 +14,10 @@ class PropietariosController extends Controller
      */
     public function index()
     {
-        $datos['propietarios']= Propietarios::paginate(5);
-        return view('propietario.index',$datos);
+        $datos['propietarios']=Propietarios::paginate(5);
+
+        return view('propietario/index',$datos);
+
     }
 
     /**
@@ -27,6 +29,7 @@ class PropietariosController extends Controller
     {
         //
         return view('propietario/create');
+
     }
 
     /**
@@ -41,7 +44,7 @@ class PropietariosController extends Controller
         $datosPropietario=request()->all();
         $datosPropietario=$request->except('_token');
         propietarios::insert($datosPropietario);
-        return response()->json($datosPropietario );
+        return redirect('/propietarios');
         
 
     }
@@ -57,6 +60,10 @@ class PropietariosController extends Controller
         //
     }
 
+
+
+
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -65,11 +72,19 @@ class PropietariosController extends Controller
      */
     public function edit($ID_prop)
     {
-        //
-        $empleado=Propietarios::findOrFail($ID_prop);
-        return view('propietarios.edit', compact('propietario'));
+        $propietario=propietarios::findOrFail($ID_prop);
+
+        return view('propietario/edit',compact('propietario'));
     }
 
+
+    public function update(Request $request,$ID_prop)
+    {
+        $datosPropietario=$request->except(['_token','_method']);
+        propietarios::where('ID_prop','=',$ID_prop)->update($datosPropietario);
+        return redirect('/propietarios');
+        
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -87,8 +102,10 @@ class PropietariosController extends Controller
      */
     public function destroy($ID_prop)
     {
-        Propietarios::destroy($ID_prop);
+        //
+        propietarios::destroy($ID_prop);
+        return redirect('/propietarios');
         
-        return redirect('propietarios');
     }
+    
 }

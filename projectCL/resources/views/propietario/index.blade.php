@@ -20,8 +20,13 @@
            
             <td>{{$propietario->Nombre}}</td>
             <td>{{$propietario->Apellido}}</td>
-            <td>{{$propietario->fono}}</td>
+            <td>{{$propietario->Fono}}</td>
             <td>
+            <a href="{{url('/propietarios/'.$propietario->ID_prop.'/edit')}}">
+             <button type="submit" onclick="return confirm('Editar');">Editar</button>
+            </a>
+
+
             <form method="post" action="{{url('/propietarios/'.$propietario->ID_prop)}}">
             {{csrf_field() }}
             {{method_field('DELETE')}}
