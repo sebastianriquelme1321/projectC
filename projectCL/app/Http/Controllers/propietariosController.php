@@ -41,7 +41,7 @@ class PropietariosController extends Controller
         $datosPropietario=request()->all();
         $datosPropietario=$request->except('_token');
         propietarios::insert($datosPropietario);
-        return response()->json($datosPropietario );
+        return redirect('propietarios');
         
 
     }
