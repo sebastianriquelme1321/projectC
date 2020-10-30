@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Estacionamiento extends Model
 {
-    use HasFactory;
+    protected $primaryKey='ID_est';
 }
