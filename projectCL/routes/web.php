@@ -18,6 +18,8 @@ Route::resource('propietarios', '\App\Http\Controllers\propietariosController');
 
 Route::resource('departamento', '\App\Http\Controllers\departamentosController');
 
+Route::resource('jefe_de_hogar', '\App\Http\Controllers\jefe_de_hogarController');
+
 Route::get('/', function() {
     return view('welcome');
 });

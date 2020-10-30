@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class JefeDeHogar extends Model
 {
-    use HasFactory;
+    protected $primaryKey='ID_jefe';
 }
