@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Condominio extends Model
 {
-    use HasFactory;
+    protected $primaryKey='ID_condominio';
 }
