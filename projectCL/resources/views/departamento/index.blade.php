@@ -5,6 +5,7 @@
             <th></th>
            
             <th>ID Depto</th>
+            <th>ID Condominio</th>
             <th>ID Propietario</th>
             <th>Numero</th>
             <th>Bloque</th>            
@@ -18,6 +19,7 @@
             <td>{{$loop->iteration}}</td>
            
             <td>{{$departamento->ID_dept}}</td>
+            <td>{{$departamento->ID_condominio}}</td>
             <td>{{$departamento->ID_prop}}</td>
             <td>{{$departamento->Numero}}</td>
             <td>{{$departamento->Bloque}}</td>

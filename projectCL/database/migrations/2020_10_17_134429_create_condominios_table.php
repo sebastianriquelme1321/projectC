@@ -14,9 +14,7 @@ class CreateCondominiosTable extends Migration
     public function up()
     {
         Schema::create('condominios', function (Blueprint $table) {
-            $table->id('ID_condominio');
-            $table->integer('ID_dept')->unsigned();
-            $table->foreign('ID_dept')->references('ID_dept')->on('departamentos');
+            $table->id('ID_condominio');            
             $table->char('Region',25);
             $table->char('Ciudad',25);
             $table->char('Calle',100);

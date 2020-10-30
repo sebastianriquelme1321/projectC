@@ -15,6 +15,8 @@ class CreateDepartamentosTable extends Migration
     {
         Schema::create('departamentos', function (Blueprint $table) {
             $table->id('ID_dept');
+            $table->integer('ID_condominio')->unsigned();
+            $table->foreign('ID_condominio')->references('ID_condominio')->on('condominios');
             $table->integer('ID_prop')->unsigned();
             $table->foreign('ID_prop')->references('ID_prop')->on('propietarios');
             $table->integer('Numero');

@@ -1,9 +1,11 @@
 
 <form action="{{url('/departamento')}}" method="post" enctype="multipart/form-data">
     {{csrf_field()}}    
-    <label for="ID_prop">{{'ID_prop'}}</label>
-    <input type="text" name="ID_prop" id="ID_prop" value="">
+    <label for="ID_condominio">{{'ID condominio'}}</label>
+    <input type="text" name="ID_condominio" id="ID_condominio" value="">
     <br>
+    <label for="ID_prop">{{'ID prop'}}</label>
+    <input type="text" name="ID_prop" id="ID_prop" value="">
     <br>
     <label for="Numero">{{'Numero'}}</label>
     <input type="text" name="Numero" id="Numero" value="">
