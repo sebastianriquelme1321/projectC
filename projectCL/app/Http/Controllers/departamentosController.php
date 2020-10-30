@@ -65,11 +65,19 @@ class departamentosController extends Controller
      * @param  \App\Models\Departamento  $departamento
      * @return \Illuminate\Http\Response
      */
-    public function edit($ID_prop)
+    public function edit($ID_dept)
     {
         //
-        $empleado=Departamento::findOrFail($ID_prop);
-        return view('departamento.edit', compact('propietario'));
+        $departamento=Departamento::findOrFail($ID_dept);
+        return view('departamento.edit', compact('departamento'));
+    }
+
+    public function update(Request $request,$ID_dept)
+    {
+        $datosDepartamento=$request->except(['_token','_method']);
+        departamento::where('ID_dept','=',$ID_dept)->update($datosDepartamento);
+        return redirect('departamento');
+
     }
 
     /**
@@ -87,9 +95,9 @@ class departamentosController extends Controller
      * @param  \App\Models\Departamento  $departamento
      * @return \Illuminate\Http\Response
      */
-    public function destroy($ID_prop)
+    public function destroy($ID_dept)
     {
-        Departamento::destroy($ID_prop);
+        Departamento::destroy($ID_dept);
         
         return redirect('departamento');
     }

@@ -29,9 +29,14 @@
                     
                 </form>
             </td>
+            <td>
+                <a href="{{url('/departamento/'.$departamento->ID_dept.'/edit')}}">
+                 <button type="submit" onclick="return confirm('Editar');">Editar</button>
+                </a>
 
             <td>
-            <form method="post" action="{{url('/departamento/'.$departamento->ID_prop)}}">
+            <td>
+            <form method="post" action="{{url('/departamento/'.$departamento->ID_dept)}}">
             {{csrf_field() }}
             {{method_field('DELETE')}}
             <button type="submit" onclick="return confirm('Borrar');">Borrar</button>

@@ -29,6 +29,10 @@
                     
                 </form>
             </td>
+            <td>
+                <a href="{{url('/propietarios/'.$propietario->ID_prop.'/edit')}}">
+                 <button type="submit" onclick="return confirm('Editar');">Editar</button>
+                </a>
 
             <td>
             <form method="post" action="{{url('/propietarios/'.$propietario->ID_prop)}}">

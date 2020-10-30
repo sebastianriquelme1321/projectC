@@ -68,8 +68,17 @@ class PropietariosController extends Controller
     public function edit($ID_prop)
     {
         //
-        $empleado=Propietarios::findOrFail($ID_prop);
-        return view('propietarios.edit', compact('propietario'));
+        $propietario=propietarios::findOrFail($ID_prop);
+
+        return view('propietario/edit',compact('propietario'));
+    }
+
+    public function update(Request $request,$ID_prop)
+    {
+        $datosPropietario=$request->except(['_token','_method']);
+        propietarios::where('ID_prop','=',$ID_prop)->update($datosPropietario);
+        return redirect('/propietarios');
+
     }
 
     /**
