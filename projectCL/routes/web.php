@@ -24,6 +24,9 @@ Route::resource('condominio','\App\Http\Controllers\condominiosController');
 
 Route::resource('estacionamiento', '\App\Http\Controllers\estacionamientosController');
 
+Route::resource('pagos', '\App\Http\Controllers\pagosController');
+
+
 Route::get('/', function() {
     return view('welcome');
 });

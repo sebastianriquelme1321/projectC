@@ -11,6 +11,8 @@ class CreatePagosTable extends Migration
      *
      * @return void
      */
+    protected $dateFormat = 'd/m/Y';
+
     public function up()
     {
         Schema::create('pagos', function (Blueprint $table) {
@@ -18,9 +20,9 @@ class CreatePagosTable extends Migration
             $table->integer('ID_dept')->unsigned();
             $table->foreign('ID_dept')->references('ID_dept')->on('departamentos');
             $table->integer('Monto');
-            $table->char('Fecha_de_pago',10);
-            $table->char('Mes_de_pago',7);
-            $table->binary('ComprobanteIMG');
+            $table->date('Fecha_de_pago');
+            $table->date('Mes_de_pago');
+            $table->char('ComprobanteIMG',100);
             $table->text('Detalle');
             $table->timestamps();
         });
