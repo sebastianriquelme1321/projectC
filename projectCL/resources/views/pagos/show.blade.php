@@ -22,7 +22,7 @@
             <td>{{$datosVERMAS->Monto}}</td>
             <td>{{$datosVERMAS->Fecha_de_pago}}</td>
             <td>{{$datosVERMAS->Mes_de_pago}}</td> 
-            <td>{{$datosVERMAS->ComprobanteIMG}}</td>    
+            <td><img src="{{asset('storage').'/'.$datosVERMAS->ComprobanteIMG}}" alt="" width="200"></td>   
             <td>{{$datosVERMAS->Detalle}}</td>               
             
         </tr>

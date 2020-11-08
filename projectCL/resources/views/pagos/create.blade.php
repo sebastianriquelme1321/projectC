@@ -14,7 +14,7 @@
     <input type="text" name="Mes_de_pago" id="Mes_de_pago" value="">
     <br>
     <label for="ComprobanteIMG">{{'Comprobante'}}</label>
-    <input type="text" name="ComprobanteIMG" id="ComprobanteIMG" value="">
+    <input type="file" name="ComprobanteIMG" id="ComprobanteIMG" value="">
     <br>
     <label for="Detalle">{{'Detalle'}}</label>
     <input type="text" name="Detalle" id="Detalle" value="">

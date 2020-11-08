@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pagos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class pagosController extends Controller
 {
@@ -40,6 +41,13 @@ class pagosController extends Controller
         //
         $datospago=request()->all();
         $datospago=$request->except('_token');
+
+        if($request->hasFile('ComprobanteIMG')){
+
+            $datospago['ComprobanteIMG']=$request->file('ComprobanteIMG')->store('uploads','public');
+
+        }
+
         pagos::insert($datospago);
         return redirect('pagos');  
 
@@ -73,9 +81,18 @@ class pagosController extends Controller
 
     public function update(Request $request,$ID_pagos)
     {
-        $datospago=$request->except(['_token','_method']);
+        //
+        $datospago=$request->except(['_token','_method']);        
+
+        if($request->hasFile('ComprobanteIMG')){
+
+            $datospago['ComprobanteIMG']=$request->file('ComprobanteIMG')->store('uploads','public');
+            
+        }
+
         pagos::where('ID_pagos','=',$ID_pagos)->update($datospago);
-        return redirect('pagos');
+        
+        return redirect('pagos'); 
 
     }
 

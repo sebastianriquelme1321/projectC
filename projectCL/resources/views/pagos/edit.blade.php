@@ -1,4 +1,4 @@
-<form action="{{url('/pago/'.$pago->ID_dept)}}" method="post" enctype=" multipart/form-data">
+<form action="{{url('/pagos/'.$pago->ID_pagos)}}" method="post" enctype=" multipart/form-data">
     {{csrf_field()}}
     {{method_field('PATCH')}}  
       
@@ -15,7 +15,8 @@
     <input type="text" name="Mes_de_pago" id="Mes_de_pago" value="{{$pago->Mes_de_pago}}">
     <br>
     <label for="ComprobanteIMG">{{'Comprobante'}}</label>
-    <input type="text" name="ComprobanteIMG" id="ComprobanteIMG" value="{{$pago->ComprobanteIMG}}">
+    <img src="{{asset('storage').'/'.$pago->ComprobanteIMG}}" alt="" width="200">
+    <input type="file" name="ComprobanteIMG" id="ComprobanteIMG" value="">
     <br>
     <label for="Detalle">{{'Detalle'}}</label>
     <input type="text" name="Detalle" id="Detalle" value="{{$pago->Detalle}}">

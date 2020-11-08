@@ -25,7 +25,9 @@
             <td>{{$pago->Monto}}</td>
             <td>{{$pago->Fecha_de_pago}}</td>
             <td>{{$pago->Mes_de_pago}}</td>
-            <td>{{$pago->ComprobanteIMG}}</td>
+
+            <td><img src="{{asset('storage').'/'.$pago->ComprobanteIMG}}" alt="" width="200"></td>
+
             <td>{{$pago->Detalle}}</td>
             
             <td>
