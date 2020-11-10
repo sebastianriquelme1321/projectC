@@ -7,6 +7,7 @@
             <th>ID Pago</th>
             <th>ID Dept</th>
             <th>Monto</th>
+            <th>Monto Deuda</th>
             <th>Fecha de Pago</th>
             <th>Mes de Pago</th>
             <th>Comprobante</th>
@@ -23,6 +24,7 @@
             <td>{{$pago->ID_pagos}}</td>
             <td>{{$pago->ID_dept}}</td>
             <td>{{$pago->Monto}}</td>
+            <td>{{$pago->Monto_deuda}}</td>
             <td>{{$pago->Fecha_de_pago}}</td>
             <td>{{$pago->Mes_de_pago}}</td>
 

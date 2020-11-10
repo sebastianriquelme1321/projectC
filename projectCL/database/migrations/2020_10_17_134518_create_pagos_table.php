@@ -19,10 +19,11 @@ class CreatePagosTable extends Migration
             $table->id('ID_pagos');
             $table->integer('ID_dept')->unsigned();
             $table->foreign('ID_dept')->references('ID_dept')->on('departamentos');
-            $table->integer('Monto');
-            $table->date('Fecha_de_pago');
+            $table->integer('Monto')->nullable(true);
+            $table->integer('Monto_deuda');
+            $table->date('Fecha_de_pago')->nullable(true);
             $table->date('Mes_de_pago');
-            $table->char('ComprobanteIMG',100);
+            $table->char('ComprobanteIMG',100)->nullable(true);
             $table->text('Detalle');
             $table->timestamps();
         });

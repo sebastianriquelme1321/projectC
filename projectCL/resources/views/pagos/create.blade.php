@@ -7,6 +7,9 @@
     <label for="Monto">{{'Monto'}}</label>
     <input type="text" name="Monto" id="Monto" value="">
     <br>
+    <label for="Monto_deuda">{{'Monto Deuda'}}</label>
+    <input type="text" name="Monto_deuda" id="Monto_deuda" value="">
+    <br>
     <label for="Fecha_de_pago">{{'Fecha de pago'}}</label>
     <input type="text" name="Fecha_de_pago" id="Fecha_de_pago" value="">
     <br>
