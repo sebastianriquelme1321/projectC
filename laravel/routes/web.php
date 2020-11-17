@@ -13,6 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+
+Route::resource('propietarios', '\App\Http\Controllers\propietariosController');
+
+Route::resource('departamento', '\App\Http\Controllers\departamentosController');
+
+Route::resource('jefe_de_hogar', '\App\Http\Controllers\jefe_de_hogarController');
+
+Route::resource('condominio','\App\Http\Controllers\condominiosController');
+
+Route::resource('estacionamiento', '\App\Http\Controllers\estacionamientosController');
+
+Route::resource('pagos', '\App\Http\Controllers\pagosController');
+
+Route::resource('registro', '\App\Http\Controllers\RegistroController');
+
+
+Route::get('/', function() {
     return view('welcome');
 });
+
