@@ -33,19 +33,9 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="Fecha_de_pago">{{'Fecha de pago'}}</label>
+                        <label for="Fecha_de_pago">{{'Fecha'}}</label>
                         <input type="text" name="Fecha_de_pago"id="Fecha_de_pago" value="" class="form-control" 
-                    </div>
-
-                    <div class="form-group">
-                        <label for="Mes_de_pago">{{'Mes_de_pago'}}</label>
-                        <input type="text" name="Mes_de_pago"id="Mes_de_pago" value="" class="form-control" 
-                    </div>
-
-                    <div class="form-group">
-                        <label for="ComprobanteIMG">{{'Comprobante'}}</label>
-                        <input type="text" name="ComprobanteIMG"id="ComprobanteIMG" value="" class="form-control" 
-                    </div>
+                    </div>              
 
                     <div class="form-group">
                         <label for="Detalle">{{'Detalle'}}</label>

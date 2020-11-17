@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Condominio')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>Condominio</h1>
     <form action="{{url('/condominio')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <section class="content">
@@ -29,41 +29,29 @@
                     <div class="form-group">
                         <label for="Numero">{{'Numero'}}</label>
                         <input type="text" name="Numero"id="Numero" value="" class="form-control" 
-                    </div>
+                    </div>                    
                     <div class="form-group">
-                        <label for="ID_ad">{{'ID_ad'}}</label>
-                        <input type="text" name="ID_ad"id="ID_ad" value="" class="form-control" 
-                    </div>
-                    <div class="form-group">
-                        <label for="Rut_ad">{{'Rut_ad'}}</label>
+                        <label for="Rut_ad">{{'Rut Admin'}}</label>
                         <input type="text" name="Rut_ad"id="Rut_ad" value="" class="form-control" 
-                    </div>
+                    </div>                
                     <div class="form-group">
-                        <label for="Ver_ad">{{'Ver_ad'}}</label>
-                        <input type="text" name="Ver_ad"id="Ver_ad" value="" class="form-control" 
-                    </div>
-                    <div class="form-group">
-                        <label for="Calle">{{'Calle'}}</label>
-                        <input type="text" name="Calle"id="Calle" value="" class="form-control" 
-                    </div>
-                    <div class="form-group">
-                        <label for="Nombre">{{'Nombre'}}</label>
+                        <label for="Nombre">{{'Nombre Admin'}}</label>
                         <input type="text" name="Nombre"id="Nombre" value="" class="form-control" 
                     </div>
                     <div class="form-group">
-                        <label for="Apellido">{{'Apellido'}}</label>
+                        <label for="Apellido">{{'Apellido Admin'}}</label>
                         <input type="text" name="Apellido"id="Apellido" value="" class="form-control" 
                     </div>
                     <div class="form-group">
-                        <label for="Fono">{{'Fono'}}</label>
+                        <label for="Fono">{{'Fono Admin'}}</label>
                         <input type="text" name="Fono"id="Fono" value="" class="form-control" 
                     </div>
                     <div class="form-group">
-                        <label for="Correo">{{'Correo'}}</label>
+                        <label for="Correo">{{'Correo Admin'}}</label>
                         <input type="text" name="Correo"id="Correo" value="" class="form-control" 
                     </div>
                     <div class="form-group">
-                        <label for="Password">{{'Password'}}</label>
+                        <label for="Password">{{'Password Admin'}}</label>
                         <input type="text" name="Password"id="Password" value="" class="form-control" 
                     </div>
                     </div>
@@ -77,7 +65,7 @@
             </div>
             <div class="row">
               <div class="col-12">
-                <a href="#" class="btn btn-secondary">Cancel</a>
+                <a href="{{url('/condominio')}}" class="btn btn-secondary">Cancel</a>
                 <input type="submit" value="Agregar" class="btn btn-success float-right">
               </div>
             </div>

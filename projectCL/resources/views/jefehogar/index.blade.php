@@ -1,57 +1,86 @@
-<table class="table table-light">
+@extends('adminlte::page')
 
-    <thead class="thead-light">
-        <tr>
-            <th></th>
-           
-            <th>ID Jefe</th>
-            <th>ID Depto</th>
-            <th>Rut Jefe</th>
-            <th>Ver Jefe</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Fono</th>
-            <th>Correo</th> 
+@section('title', 'Jefe de Hogar')
 
-        </tr>
-    </thead>
+@section('content_header')
+    <h1>Jefe de Hogar</h1>
 
-    <tbody>
-    @foreach($jefe_de_hogars as $jefe_de_hogar)
-        <tr>
+@stop
+
+@section('content')
+    <div class="row">
+      <div class="col-12"> 
+        <a href="{{url('/jefe_de_hogar/create')}}" class="btn btn-primary btn-lg float-right" >Agregar</a>
+        
+        
+      </div>
+    </div>
+    <br>
+    <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Jefe de Hogar</h3>
+
+
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0" style="height: 700px;">
+                <table class="table table-head-fixed text-nowrap">
+                  <thead>
+                    <tr>
+                        <th>ID Jefe</th>                       
+                        <th>Rut Jefe</th>                        
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                                   
+ 
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @foreach($jefe_de_hogars as $jefe_de_hogar)
+                    <tr>         
             
-            <td>{{$loop->iteration}}</td>
-           
-            <td>{{$jefe_de_hogar->ID_jefe}}</td>
-            <td>{{$jefe_de_hogar->ID_dept}}</td>
-            <td>{{$jefe_de_hogar->Rut_jefe}}</td>
-            <td>{{$jefe_de_hogar->Ver_jefe}}</td>
-            <td>{{$jefe_de_hogar->Nombre}}</td>
-            <td>{{$jefe_de_hogar->Apellido}}</td>
-            <td>{{$jefe_de_hogar->Fono}}</td>
-            <td>{{$jefe_de_hogar->Correo}}</td>
-            <td>
-                <form method="post" action="{{url('/jefe_de_hogar/'.$jefe_de_hogar->ID_jefe)}}">
-                {{csrf_field() }}
-                {{method_field('GET')}}
-                <button type="submit">Ver mas</button>                    
-                </form>
-            </td>
-            <td>
-                <a href="{{url('/jefe_de_hogar/'.$jefe_de_hogar->ID_jefe.'/edit')}}">
-                 <button type="submit" onclick="return confirm('Editar');">Editar</button>
-                </a>
-            </td>
-            <td>
-            <form method="post" action="{{url('/jefe_de_hogar/'.$jefe_de_hogar->ID_jefe)}}">
-            {{csrf_field() }}
-            {{method_field('DELETE')}}
-            <button type="submit" onclick="return confirm('Borrar');">Borrar</button>
-                
-            </form>
-        </td>
-        </tr>
-    @endforeach
-    </tbody>
+                        <td>{{$jefe_de_hogar->ID_jefe}}</td>                        
+                        <td>{{$jefe_de_hogar->Rut_jefe}}</td>                        
+                        <td>{{$jefe_de_hogar->Nombre}}</td>
+                        <td>{{$jefe_de_hogar->Apellido}}</td>
+                                             
+                        
+                        <td>
+                          <form method="post" action="{{url('/jefe_de_hogar/'.$jefe_de_hogar->ID_jefe)}}">
+                          {{csrf_field() }}
+                          {{method_field('GET')}}
+                          <button type="submit" class="btn btn-block btn-success">Ver mas</button>
+          
+                          </form>
+                      </td>
+                      <td>
+                        <a href="{{url('/jefe_de_hogar/'.$jefe_de_hogar->ID_jefe.'/edit')}}">
+                         <button type="submit" class="btn btn-block btn-warning" onclick="return confirm('Editar');">Editar</button>
+                        </a>
+        
+                      </td>
+                      <td>
+                        <form method="post" action="{{url('/jefe_de_hogar/'.$jefe_de_hogar->ID_jefe)}}">
+                        {{csrf_field() }}
+                        {{method_field('DELETE')}}
+                        <button type="submit" class="btn btn-block btn-danger" onclick="return confirm('Borrar');">Borrar</button>
+            
+                        </form>
+                    </td>
 
-</table>
+                   </tr>
+                 @endforeach
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop

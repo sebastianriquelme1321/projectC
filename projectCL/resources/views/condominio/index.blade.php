@@ -1,69 +1,86 @@
-<table class="table table-light">
+@extends('adminlte::page')
 
-    <thead class="thead-light">
-        <tr>
-            <th></th>
-           
-            <th>ID condominios</th>
-            <th>Region</th>
-            <th>Ciudad</th>
-            <th>Calle</th>
-            <th>Número</th>
-            <th>Id Administrador</th>
-            <th>rut </th>
-            <th> </th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Fono</th>
-            <th>Correo</th>
-            <th>Password</th>
-            <th>Bloque</th>            
-        </tr>
-    </thead>
+@section('title', 'Condominio')
 
-    <tbody>
-    @foreach($Condominios as $condominio)
-        <tr>
+@section('content_header')
+    <h1>Condominio</h1>
+
+@stop
+
+@section('content')
+    <div class="row">
+      <div class="col-12"> 
+        <a href="{{url('/condominio/create')}}" class="btn btn-primary btn-lg float-right" >Agregar</a>
+        
+        
+      </div>
+    </div>
+    <br>
+    <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Condominio y Administrador</h3>
+
+
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0" style="height: 700px;">
+                <table class="table table-head-fixed text-nowrap">
+                  <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Region</th>
+                        <th>Ciudad</th>
+                        <th>Calle</th>
+                        <th>Número</th>           
+ 
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @foreach($Condominios as $condominio)
+                    <tr> 
+                                   
+                        <td>{{$condominio->ID_condominio}}</td>
+                        <td>{{$condominio->Region}}</td>
+                        <td>{{$condominio->Ciudad}}</td>
+                        <td>{{$condominio->Calle}}</td>
+                        <td>{{$condominio->Numero}}</td>                      
+                        
+                        <td>
+                          <form method="post" action="{{url('/condominio/'.$condominio->ID_condominio)}}">
+                          {{csrf_field() }}
+                          {{method_field('GET')}}
+                          <button type="submit" class="btn btn-block btn-success">Ver mas</button>
+          
+                          </form>
+                      </td>
+                      <td>
+                        <a href="{{url('/condominio/'.$condominio->ID_condominio.'/edit')}}">
+                         <button type="submit" class="btn btn-block btn-warning" onclick="return confirm('Editar');">Editar</button>
+                        </a>
+        
+                      </td>
+                      <td>
+                        <form method="post" action="{{url('/condominio/'.$condominio->ID_condominio)}}">
+                        {{csrf_field() }}
+                        {{method_field('DELETE')}}
+                        <button type="submit" class="btn btn-block btn-danger" onclick="return confirm('Borrar');">Borrar</button>
             
-            <td>{{$loop->iteration}}</td>
-           
-            <td>{{$condominio->ID_condominio}}</td>
-            <td>{{$condominio->Region}}</td>
-            <td>{{$condominio->Ciudad}}</td>
-            <td>{{$condominio->Calle}}</td>
-            <td>{{$condominio->Numero}}</td>
-            <td>{{$condominio->ID_ad}}</td>
-            <td>{{$condominio->Rut_ad}}</td>
-            <td>{{$condominio->Ver_ad}}</td>
-            <td>{{$condominio->Nombre}}</td>
-            <td>{{$condominio->Apellido}}</td>
-            <td>{{$condominio->Fono}}</td>
-            <td>{{$condominio->Correo}}</td>
-            <td>{{$condominio->Password}}</td>
-            <td>
-                <form method="post" action="{{url('/condominio/'.$condominio->ID_condominio)}}">
-                {{csrf_field() }}
-                {{method_field('GET')}}
-                <button type="submit">Ver mas</button>
-                    
-                </form>
-            </td>
-            <td>
-                <a href="{{url('/condominio/'.$condominio->ID_condominio.'/edit')}}">
-                 <button type="submit" onclick="return confirm('Editar');">Editar</button>
-                </a>
+                        </form>
+                    </td>
 
-            <td>
-            <td>
-            <form method="post" action="{{url('/condominio/'.$condominio->ID_condominio)}}">
-            {{csrf_field() }}
-            {{method_field('DELETE')}}
-            <button type="submit" onclick="return confirm('Borrar');">Borrar</button>
-                
-            </form>
-        </td>
-        </tr>
-    @endforeach
-    </tbody>
+                   </tr>
+                 @endforeach
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+@stop
 
-</table>
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop

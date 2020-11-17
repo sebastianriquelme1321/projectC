@@ -86,6 +86,10 @@ class pagosController extends Controller
 
         if($request->hasFile('ComprobanteIMG')){
 
+            $pago=Pagos::findOrFail($ID_pagos); 
+
+            Storage::delete('public/'.$pago->ComprobanteIMG);
+
             $datospago['ComprobanteIMG']=$request->file('ComprobanteIMG')->store('uploads','public');
             
         }

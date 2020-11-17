@@ -4,8 +4,9 @@
 
 @section('content_header')
     <h1>Dashboard</h1>
-    <form action="{{url('/departamento')}}" method="post" enctype="multipart/form-data">
+    <form action="{{url('/departamento/'.$departamento->ID_dept)}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
+        {{method_field('PATCH')}}
         <section class="content">
             <div class="row">
               <div class="col-md-6">
@@ -19,22 +20,22 @@
 
                     <div class="form-group">
                       <label for="ID_prop">{{'ID_prop'}}</label>
-                      <input type="text" name="ID_prop"id="ID_prop" value="" class="form-control" >
+                      <input type="text" name="ID_prop"id="ID_prop" value="{{$departamento->ID_prop}}" class="form-control" >
+                    </div>
+
+                    <div class="form-group">
+                      <label for="Bloque">{{'Bloque'}}</label>
+                      <input type="text" name="Bloque"id="Bloque" value="{{$departamento->Bloque}}" class="form-control" >
                     </div>
 
                     <div class="form-group">
                         <label for="Numero">{{'Numero'}}</label>
-                        <input type="text" name="Numero"id="Numero" value="" class="form-control" 
-                    </div>
-
-                    <div class="form-group">
-                        <label for="Bloque">{{'Bloque'}}</label>
-                        <input type="text" name="Bloque"id="Bloque" value="" class="form-control" >
-                    </div>
+                        <input type="text" name="Numero"id="Numero" value="{{$departamento->Numero}}" class="form-control" 
+                    </div>                   
 
                     <div class="form-group">
                         <label for="Password">{{'Password'}}</label>
-                        <input type="text" name="Password"id="Password" value="" class="form-control" >
+                        <input type="text" name="Password"id="Password" value="{{$departamento->Password}}" class="form-control" >
                     </div>
                             
                    
@@ -50,7 +51,7 @@
             </div>
             <div class="row">
               <div class="col-12">
-                <a href="#" class="btn btn-secondary">Cancel</a>
+                <a href="{{url('/departamento')}}" class="btn btn-secondary">Cancel</a>
                 <input type="submit" value="Editar" class="btn btn-success float-right">
               </div>
             </div>

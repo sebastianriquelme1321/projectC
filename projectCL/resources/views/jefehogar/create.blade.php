@@ -25,12 +25,7 @@
                     <div class="form-group">
                         <label for="Rut_jefe">{{'Rut jefe'}}</label>
                         <input type="text" name="Rut_jefe"id="Rut_jefe" value="" class="form-control" 
-                    </div> 
-                    
-                    <div class="form-group">
-                        <label for="Ver_jefe">{{'Ver jefe'}}</label>
-                        <input type="text" name="Ver_jefe"id="Ver_jefe" value="" class="form-control" 
-                    </div>
+                    </div>      
 
                     <div class="form-group">
                         <label for="Nombre">{{'Nombre'}}</label>

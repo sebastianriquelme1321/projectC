@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Departamento')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>Departamento</h1>
     <form action="{{url('/departamento')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <section class="content">
@@ -11,7 +11,7 @@
               <div class="col-md-6">
                 <div class="card card-primary">
                   <div class="card-header">
-                    <h3 class="card-title">General</h3>
+                    <h3 class="card-title">Departamento</h3>
       
                    
                   </div>
@@ -27,14 +27,14 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="Numero">{{'Numero'}}</label>
-                        <input type="text" name="Numero"id="Numero" value="" class="form-control" 
-                    </div>
-
-                    <div class="form-group">
                         <label for="Bloque">{{'Bloque'}}</label>
                         <input type="text" name="Bloque"id="Bloque" value="" class="form-control" >
                     </div>
+
+                    <div class="form-group">
+                        <label for="Numero">{{'Numero'}}</label>
+                        <input type="text" name="Numero"id="Numero" value="" class="form-control" 
+                    </div>                    
 
                     <div class="form-group">
                         <label for="Password">{{'Password'}}</label>
@@ -54,7 +54,7 @@
             </div>
             <div class="row">
               <div class="col-12">
-                <a href="#" class="btn btn-secondary">Cancel</a>
+                <a href="{{url('/departamento')}}" class="btn btn-secondary">Cancel</a>
                 <input type="submit" value="Agregar" class="btn btn-success float-right">
               </div>
             </div>

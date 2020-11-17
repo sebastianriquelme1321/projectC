@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Pagos')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>Pagos</h1>
     <form action="{{url('/pagos')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <section class="content">
@@ -28,23 +28,23 @@
                     </div> 
                     
                     <div class="form-group">
-                        <label for="Monto_deuda">{{'Monto_deuda jefe'}}</label>
+                        <label for="Monto_deuda">{{'Monto Deuda'}}</label>
                         <input type="text" name="Monto_deuda"id="Monto_deuda" value="" class="form-control" 
                     </div>
 
                     <div class="form-group">
-                        <label for="Fecha_de_pago">{{'Fecha_de_pago'}}</label>
+                        <label for="Fecha_de_pago">{{'Fecha del pago'}}</label>
                         <input type="text" name="Fecha_de_pago"id="Fecha_de_pago" value="" class="form-control" 
                     </div>
 
                     <div class="form-group">
-                        <label for="Mes_de_pago">{{'Mes_de_pago'}}</label>
+                        <label for="Mes_de_pago">{{'Mes del pago'}}</label>
                         <input type="text" name="Mes_de_pago"id="Mes_de_pago" value="" class="form-control" 
                     </div>
 
                     <div class="form-group">
                         <label for="ComprobanteIMG">{{'Comprobante'}}</label>
-                        <input type="text" name="ComprobanteIMG"id="ComprobanteIMG" value="" class="form-control" 
+                        <input type="file" name="ComprobanteIMG"id="ComprobanteIMG" value="" class="form-control" 
                     </div>
 
                     <div class="form-group">

@@ -28,8 +28,7 @@
                   <thead>
                     <tr>
                       <th>ID</th>
-                      <th>Nombre</th>
-                      <th>Apellido</th>
+                      <th>Nombre</th>                      
                       <th>Fono</th>
                     </tr>
                   </thead>
@@ -37,8 +36,7 @@
                  @foreach($propietarios as $propietario)
                    <tr> 
                         <td>{{$propietario->ID_prop}}</td>
-                        <td>{{$propietario->Nombre}}</td>
-                        <td>{{$propietario->Apellido}}</td>
+                        <td>{{$propietario->Nombre}}</td>                        
                         <td>{{$propietario->Fono}}</td>
                         <td>
                           <form method="post" action="{{url('/propietarios/'.$propietario->ID_prop)}}">

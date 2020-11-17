@@ -17,18 +17,14 @@
                   </div>
                   <div class="card-body" style="display: block;">
                     <div class="form-group">
-                      <label for="Nombre">{{'Nombre'}}</label>
+                      <label for="Nombre">{{'Nombre Completo'}}</label>
                       <input type="text" name="Nombre" id="Nombre" value="" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label for="Apellido">{{'Apellido'}}</label>
-                      <input type="text" name="Apellido"id="Apellido" value="" class="form-control" >
-                    </div>
+                    </div>                   
                     <div class="form-group">
                       <label for="Rut">{{'Rut'}}</label>
                       <p style="color:#5a5a5ae7";>Formato:12345678-9</p>
                       
-                      <input type="text" name="Rut_ind"id="Rut_ind" value="" class="form-control"
+                      <input type="text" name="Rut_prop"id="Rut_prop" value="" class="form-control"
                   </div>
               
                     <div class="form-group">

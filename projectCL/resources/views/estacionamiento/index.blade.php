@@ -1,45 +1,81 @@
-<table class="table table-light">
+@extends('adminlte::page')
 
-    <thead class="thead-light">
-        <tr>
-            <th></th>
-            <th>ID estacionamiento</th>
-            <th>ID Propietario</th>
-            <th>Numero</th>     
-        </tr>
-    </thead>
+@section('title', 'Estacionamiento')
 
-    <tbody>
-    @foreach($estacionamientos as $estacionamiento)
-        <tr>
-            <td>{{$loop->iteration}}</td>
-            <td>{{$estacionamiento->ID_est}}</td>
-            <td>{{$estacionamiento->ID_prop}}</td>
-            <td>{{$estacionamiento->Numero}}</td>
-            <td>
-                <form method="post" action="{{url('/estacionamiento/'.$estacionamiento->ID_est)}}">
-                {{csrf_field() }}
-                {{method_field('GET')}}
-                <button type="submit">Ver mas</button>
-                    
-                </form>
-            </td>
-            <td>
-                <a href="{{url('/estacionamiento/'.$estacionamiento->ID_est.'/edit')}}">
-                 <button type="submit" onclick="return confirm('Editar');">Editar</button>
-                </a>
+@section('content_header')
+    <h1>Estacionamiento</h1>
 
-            <td>
-            <td>
-            <form method="post" action="{{url('/estacionamiento/'.$estacionamiento->ID_est)}}">
-            {{csrf_field() }}
-            {{method_field('DELETE')}}
-            <button type="submit" onclick="return confirm('Borrar');">Borrar</button>
-                
-            </form>
-        </td>
-        </tr>
-    @endforeach
-    </tbody>
+@stop
 
-</table>
+@section('content')
+    <div class="row">
+      <div class="col-12"> 
+        <a href="{{url('/estacionamiento/create')}}" class="btn btn-primary btn-lg float-right" >Agregar</a>
+        
+        
+      </div>
+    </div>
+    <br>
+    <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Estacionamiento</h3>
+
+
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0" style="height: 700px;">
+                <table class="table table-head-fixed text-nowrap">
+                  <thead>
+                    <tr>
+                        <th>ID Est</th>
+                        <th>ID Prop</th>
+                        <th>Numero</th>                                  
+ 
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @foreach($estacionamientos as $estacionamiento)
+                    <tr>                        
+                        <td>{{$estacionamiento->ID_est}}</td>
+                        <td>{{$estacionamiento->ID_prop}}</td>
+                        <td>{{$estacionamiento->Numero}}</td>                   
+                        
+                        <td>
+                          <form method="post" action="{{url('/estacionamiento/'.$estacionamiento->ID_est)}}">
+                          {{csrf_field() }}
+                          {{method_field('GET')}}
+                          <button type="submit" class="btn btn-block btn-success">Ver mas</button>
+          
+                          </form>
+                      </td>
+                      <td>
+                        <a href="{{url('/estacionamiento/'.$estacionamiento->ID_est.'/edit')}}">
+                         <button type="submit" class="btn btn-block btn-warning" onclick="return confirm('Editar');">Editar</button>
+                        </a>
+        
+                      </td>
+                      <td>
+                        <form method="post" action="{{url('/estacionamiento/'.$estacionamiento->ID_est)}}">
+                        {{csrf_field() }}
+                        {{method_field('DELETE')}}
+                        <button type="submit" class="btn btn-block btn-danger" onclick="return confirm('Borrar');">Borrar</button>
+            
+                        </form>
+                    </td>
+
+                   </tr>
+                 @endforeach
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop

@@ -1,11 +1,12 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Estacionamiento')
 
 @section('content_header')
-    <h1>Dashboard</h1>
-    <form action="{{url('/estacionamiento')}}" method="post" enctype="multipart/form-data">
+    <h1>Estacionamiento</h1>
+    <form action="{{url('/estacionamiento/'.$estacionamiento->ID_est)}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
+        {{method_field('PATCH')}}
         <section class="content">
             <div class="row">
               <div class="col-md-6">
@@ -19,12 +20,12 @@
 
                     <div class="form-group">
                       <label for="ID_prop">{{'ID_prop'}}</label>
-                      <input type="text" name="ID_prop"id="ID_prop" value="" class="form-control" >
+                      <input type="text" name="ID_prop"id="ID_prop" value="{{$estacionamiento->ID_prop}}" class="form-control" >
                     </div>
 
                     <div class="form-group">
                         <label for="Numero">{{'Numero'}}</label>
-                        <input type="text" name="Numero"id="Numero" value="" class="form-control" 
+                        <input type="text" name="Numero"id="Numero" value="{{$estacionamiento->Numero}}" class="form-control" 
                     </div>
                                         
                     </div>

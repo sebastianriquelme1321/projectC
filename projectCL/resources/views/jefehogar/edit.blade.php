@@ -1,11 +1,12 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Jefe de Hogar')
 
 @section('content_header')
-    <h1>Dashboard</h1>
-    <form action="{{url('/jefe_de_hogar')}}" method="post" enctype="multipart/form-data">
+    <h1>Jefe de Hogar</h1>
+    <form action="{{url('/jefe_de_hogar/'.$jefe_de_hogar->ID_jefe)}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
+        {{method_field('PATCH')}}
         <section class="content">
             <div class="row">
               <div class="col-md-6">
@@ -19,37 +20,32 @@
 
                     <div class="form-group">
                       <label for="ID_dept">{{'ID dept'}}</label>
-                      <input type="text" name="ID_dept"id="ID_dept" value="" class="form-control" >
+                      <input type="text" name="ID_dept"id="ID_dept" value="{{$jefe_de_hogar->ID_dept}}" class="form-control" >
                     </div>
 
                     <div class="form-group">
                         <label for="Rut_jefe">{{'Rut jefe'}}</label>
-                        <input type="text" name="Rut_jefe"id="Rut_jefe" value="" class="form-control" 
-                    </div> 
+                        <input type="text" name="Rut_jefe"id="Rut_jefe" value="{{$jefe_de_hogar->Rut_jefe}}" class="form-control" 
+                    </div>                
                     
                     <div class="form-group">
-                        <label for="Ver_jefe">{{'Ver jefe'}}</label>
-                        <input type="text" name="Ver_jefe"id="Ver_jefe" value="" class="form-control" 
-                    </div>
-
-                    <div class="form-group">
                         <label for="Nombre">{{'Nombre'}}</label>
-                        <input type="text" name="Nombre"id="Nombre" value="" class="form-control" 
+                        <input type="text" name="Nombre"id="Nombre" value="{{$jefe_de_hogar->Nombre}}" class="form-control" 
                     </div>
 
                     <div class="form-group">
                         <label for="Apellido">{{'Apellido'}}</label>
-                        <input type="text" name="Apellido"id="Apellido" value="" class="form-control" 
+                        <input type="text" name="Apellido"id="Apellido" value="{{$jefe_de_hogar->Apellido}}" class="form-control" 
                     </div>
 
                     <div class="form-group">
                         <label for="Fono">{{'Fono'}}</label>
-                        <input type="text" name="Fono"id="Fono" value="" class="form-control" 
+                        <input type="text" name="Fono"id="Fono" value="{{$jefe_de_hogar->Fono}}" class="form-control" 
                     </div>
 
                     <div class="form-group">
                         <label for="Correo">{{'Correo'}}</label>
-                        <input type="text" name="Correo"id="Correo" value="" class="form-control" 
+                        <input type="text" name="Correo"id="Correo" value="{{$jefe_de_hogar->Correo}}" class="form-control" 
                     </div>
                                         
                     </div>
