@@ -14,7 +14,7 @@ class RegistroController extends Controller
      */
     public function index()
     {
-        $datos['registros']= Registro::paginate(5);
+        $datos['registros']= Registro::paginate();
         return view('registro.index',$datos);
     }
 

@@ -15,7 +15,7 @@ class jefe_de_hogarController extends Controller
      */
     public function index()
     {
-        $datos['jefe_de_hogars']= JefeDeHogar::paginate(5);
+        $datos['jefe_de_hogars']= JefeDeHogar::paginate();
         return view('jefehogar.index',$datos);
     }
 

@@ -15,7 +15,7 @@ class pagosController extends Controller
      */
     public function index()
     {
-        $datos['pagos']= Pagos::paginate(5);
+        $datos['pagos']= Pagos::paginate();
         return view('pagos.index',$datos);
     }
 

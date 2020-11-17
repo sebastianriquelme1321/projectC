@@ -36,7 +36,7 @@
                   <tbody>
                  @foreach($propietarios as $propietario)
                    <tr> 
-                        <td>{{$loop->iteration}}</td>
+                        <td>{{$propietario->ID_prop}}</td>
                         <td>{{$propietario->Nombre}}</td>
                         <td>{{$propietario->Apellido}}</td>
                         <td>{{$propietario->Fono}}</td>

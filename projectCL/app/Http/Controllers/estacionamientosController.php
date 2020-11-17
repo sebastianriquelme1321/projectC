@@ -14,7 +14,7 @@ class estacionamientosController extends Controller
      */
     public function index()
     {
-        $datos['estacionamientos']= Estacionamiento::paginate(5);
+        $datos['estacionamientos']= Estacionamiento::paginate();
         return view('estacionamiento.index',$datos);
     }
 

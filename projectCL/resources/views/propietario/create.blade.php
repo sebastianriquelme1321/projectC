@@ -25,6 +25,13 @@
                       <input type="text" name="Apellido"id="Apellido" value="" class="form-control" >
                     </div>
                     <div class="form-group">
+                      <label for="Rut">{{'Rut'}}</label>
+                      <p style="color:#5a5a5ae7";>Formato:12345678-9</p>
+                      
+                      <input type="text" name="Rut_ind"id="Rut_ind" value="" class="form-control"
+                  </div>
+              
+                    <div class="form-group">
                         <label for="Correo">{{'Correo'}}</label>
                         <input type="text" name="Correo"id="Correo" value="" class="form-control" 
                     </div>
@@ -54,7 +61,7 @@
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    
 @stop
 
 @section('css')

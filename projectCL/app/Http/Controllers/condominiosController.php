@@ -17,7 +17,7 @@ class condominiosController extends Controller
      */
     public function index()
     {
-        $datos['Condominios']= Condominio::paginate(5);
+        $datos['Condominios']= Condominio::paginate();
         return view('condominio.index',$datos);
     }
 
