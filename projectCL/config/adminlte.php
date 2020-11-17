@@ -248,6 +248,10 @@ return [
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
+                    'text' => 'Deptos',
+                    'url'  => '/departamento/',
+                ],
+                [
                     'text' => 'Propietario',
                     'url'  => '/propietarios/',
                 ],
