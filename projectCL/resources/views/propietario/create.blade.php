@@ -7,7 +7,20 @@
     <form action="{{url('/propietarios')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <section class="content">
-            <div class="row">
+            
+          @if(count($errors)>0)
+          <div class="alert alert-danger" role="alert">
+            
+            <ul>
+              @foreach ($errors->all() as $error)    
+              <li>{{$error}} </li>
+              @endforeach
+            </ul>
+
+          </div>
+          @endif
+          
+          <div class="row">
               <div class="col-md-6">
                 <div class="card card-primary">
                   <div class="card-header">
@@ -16,25 +29,44 @@
                    
                   </div>
                   <div class="card-body" style="display: block;">
+
                     <div class="form-group">
                       <label for="Nombre">{{'Nombre Completo'}}</label>
-                      <input type="text" name="Nombre" id="Nombre" value="" class="form-control">
-                    </div>                   
+                      <input type="text" name="Nombre" id="Nombre" value="{{isset($propietario->Nombre)?$propietario->Nombre:old('Nombre')}}" class="form-control {{$errors->has('Nombre')?'is-invalid':''}}">
+                    
+                      {!! $errors->first('Nombre','<div class="invalid-feedback"> :message</div>') !!}
+                    
+                    </div>  
+
+
                     <div class="form-group">
                       <label for="Rut">{{'Rut'}}</label>
-                      <p style="color:#5a5a5ae7";>Formato:12345678-9</p>
-                      
-                      <input type="text" name="Rut_prop"id="Rut_prop" value="" class="form-control"
-                  </div>
+                      <p style="color:#5a5a5ae7";>Formato:12.345.678-9</p>
+                      <input type="text" name="Rut_prop"id="Rut_prop" value="{{isset($propietario->Rut_prop)?$propietario->Rut_prop:old('Rut_prop')}}" class="form-control {{$errors->has('Rut_prop')?'is-invalid':''}}">
+                      {!! $errors->first('Rut_prop','<div class="invalid-feedback"> :message</div>') !!}
+                    </div>
+
               
                     <div class="form-group">
                         <label for="Correo">{{'Correo'}}</label>
-                        <input type="text" name="Correo"id="Correo" value="" class="form-control" 
+                        <input type="text" name="Correo"id="Correo" value="{{isset($propietario->Correo)?$propietario->Correo:old('Correo')}}" class="form-control {{$errors->has('Correo')?'is-invalid':''}}"> 
+                        {!! $errors->first('Correo','<div class="invalid-feedback"> :message</div>') !!}
                     </div>
+
+
                     <div class="form-group">
                         <label for="Fono">{{'Fono'}}</label>
-                        <input type="text" name="Fono"id="Fono" value="" class="form-control" >
-                      </div>
+                        <p style="color:#5a5a5ae7";>Formato:912345678</p>
+                        <input type="text" name="Fono"id="Fono" value="{{isset($propietario->Fono)?$propietario->Fono:old('Fono')}}" class="form-control {{$errors->has('Fono')?'is-invalid':''}}"> 
+                        {!! $errors->first('Fono','<div class="invalid-feedback"> :message</div>') !!}
+                    </div>
+
+                    <div class="form-group">
+                      <label for="Razon_Social">{{'Razon Social'}}</label>
+                      <p style="color:#5a5a5ae7";> Opcional </p>
+                      <input type="text" name="Razon_Social"id="Razon_Social" value="{{isset($propietario->Nombre)?$propietario->Nombre:old('Nombre')}}" class="form-control">
+                      
+                    </div>
                    
                     </div>
                   </div>
