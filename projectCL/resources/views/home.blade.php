@@ -15,6 +15,7 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    <a href="{{url('/propietarios/create')}}" class="btn btn-secondary">Siguinte</a>
                 </div>
             </div>
         </div>

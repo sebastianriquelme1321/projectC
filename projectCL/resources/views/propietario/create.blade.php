@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content')
-<h1>Dashboard</h1>
+<h1>Propietario</h1>
 <form action="{{url('/propietarios')}}" method="post" enctype="multipart/form-data">
     {{csrf_field()}}
     <section class="content">
@@ -24,13 +24,13 @@
             <div class="col-md-6">
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">General</h3>
+                        <h3 class="card-title">Rellene los datos</h3>
                     </div>
                     <div class="card-body" style="display: block;">
                        
                         <div class="form-group">
-                            <label for="id">{{'ID USER'}}</label>
-                            <input type="text" name="id" id="id" value="{{isset($propietario->id)?$propietario->id:old('id')}}" class="form-control {{$errors->has('id')?'is-invalid':''}}">
+                           
+                            <input type="hidden"  name="id" id="id"  value="{{auth()->user()->id}}"  class="form-control {{$errors->has('id')?'is-invalid':''}}" >
       
                             {!! $errors->first('id','<div class="invalid-feedback"> :message</div>') !!}
       
