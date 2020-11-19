@@ -21,6 +21,8 @@ class CreatePropietariosTable extends Migration
             $table->char('Correo',60);
             $table->char('Razon_Social',100)->nullable(true);
             $table->timestamps();
+            $table->integer('id')->unsigned();
+            $table->foreign('id')->references('id')->on('users');
         });   
     }
 

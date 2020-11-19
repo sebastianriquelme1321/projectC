@@ -12,6 +12,8 @@ class PropietariosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+  
     public function index()
     {
         $datos['propietarios']= Propietarios::paginate();
