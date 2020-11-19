@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Departamento;
 use Illuminate\Http\Request;
 
+use App\Models\Condominio;
+use App\Models\Propietarios;
+
 class departamentosController extends Controller
 {
    /**
@@ -25,8 +28,11 @@ class departamentosController extends Controller
      */
     public function create()
     {
+
+        $condominios =  Condominio::all();
+        $propietarios = Propietarios::all();
         //
-        return view('departamento/create');
+        return view('departamento/create', compact('condominios'), compact('propietarios'));
     }
 
     /**
