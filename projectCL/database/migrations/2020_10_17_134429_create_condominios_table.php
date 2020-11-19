@@ -19,7 +19,7 @@ class CreateCondominiosTable extends Migration
             $table->char('Ciudad',25);
             $table->char('Calle',100);
             $table->integer('Numero');
-            $table->char('Rut_ad',10);
+            $table->char('Rut_ad',12);
             $table->char('Nombre',30);
             $table->char('Apellido',30);
             $table->char('Fono',9);

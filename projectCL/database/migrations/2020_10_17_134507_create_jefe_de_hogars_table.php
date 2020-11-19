@@ -17,7 +17,7 @@ class CreateJefeDeHogarsTable extends Migration
             $table->id('ID_jefe');
             $table->integer('ID_dept')->unsigned();
             $table->foreign('ID_dept')->references('ID_dept')->on('departamentos');
-            $table->char('Rut_jefe',10);
+            $table->char('Rut_jefe',12);
             $table->char('Nombre',30);
             $table->char('Apellido',30);
             $table->char('Fono',9);

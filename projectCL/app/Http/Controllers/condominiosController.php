@@ -41,25 +41,37 @@ class condominiosController extends Controller
     public function store(Request $request)
     {
         $campos=[
-            'Rut_prop' => 'required|regex:/^\d{1,2}.\d{3}.\d{3}[-][0-9kK]{1}$/',
-            'Nombre'   => 'required|string|max:100',
-            'Fono'     => 'required|digits:9',
-            'Correo'   => 'required|string|max:60|email',
-            'Razon_Social' => 'nullable|string|max:100'
+            'Region' => 'required|string|max:25',
+            'Ciudad' => 'required|string|max:25',
+            'Calle'  => 'required|string|max:100',
+            'Numero' => 'required|numeric',
+            'Rut_ad' => 'required|regex:/^\d{1,2}.\d{3}.\d{3}[-][0-9kK]{1}$/',
+            'Nombre' => 'required|string|max:30',
+            'Apellido' => 'required|string|max:30',
+            'Fono'   => 'required|digits:9',
+            'Correo' => 'required|string|max:60|email',
+            'Password' => 'required|string|max:20',
+
         ];
         $Mensaje=[
-            "numeric"=> 'El Fono debe ser un numero',
+            "numeric"=> 'Debe ser un numero',
+            "digits" => 'El Fono debe ser un numero',
             "email"=>'El Correo ingresado es invalido',
             "digits"=>'El Fono debe tener 9 digitos',
-            "Rut_prop.regex"=> 'El Rut debe ser valido',
-            "Rut_prop.required"=>'El Rut es requerido',
+            "Rut_ad.regex"=> 'El Rut debe ser valido',
+            "Rut_ad.required"=>'El Rut es requerido',
             "Nombre.required"=>'El Nombre es requerido',
             "Fono.required"=>'El Fono es requerido',
-            "Correo.required"=>'El Correo es requerido'   
+            "Region.required"=>'La Region es requerida',
+            "Ciudad.required"=>'La Ciudad es requerida',
+            "Calle.required" =>'La Calle es requerida',
+            "Numero.required"=>'El Numero es requerido',
+            "Correo.required"=>'El Correo es requerido',
+            "Password.required"=>'La Contraseña es requerida',
+            "Apellido.required"=> 'El Apellido es requerido'
         ];
         $this->validate($request,$campos,$Mensaje);
-
-
+ 
 
         $datoscondominios=$request->except('_token');
         Condominio::insert($datoscondominios);
@@ -96,6 +108,39 @@ class condominiosController extends Controller
 
     public function update(Request $request,$ID_condominio)
     {
+        $campos=[
+            'Region' => 'required|string|max:25',
+            'Ciudad' => 'required|string|max:25',
+            'Calle'  => 'required|string|max:100',
+            'Numero' => 'required|numeric',
+            'Rut_ad' => 'required|regex:/^\d{1,2}.\d{3}.\d{3}[-][0-9kK]{1}$/',
+            'Nombre' => 'required|string|max:30',
+            'Apellido' => 'required|string|max:30',
+            'Fono'   => 'required|digits:9',
+            'Correo' => 'required|string|max:60|email',
+            'Password' => 'required|string|max:20',
+
+        ];
+        $Mensaje=[
+            "numeric"=> 'Debe ser un numero',
+            "digits" => 'El Fono debe ser un numero',
+            "email"=>'El Correo ingresado es invalido',
+            "digits"=>'El Fono debe tener 9 digitos',
+            "Rut_ad.regex"=> 'El Rut debe ser valido',
+            "Rut_ad.required"=>'El Rut es requerido',
+            "Nombre.required"=>'El Nombre es requerido',
+            "Fono.required"=>'El Fono es requerido',
+            "Region.required"=>'La Region es requerida',
+            "Ciudad.required"=>'La Ciudad es requerida',
+            "Calle.required" =>'La Calle es requerida',
+            "Numero.required"=>'El Numero es requerido',
+            "Correo.required"=>'El Correo es requerido',
+            "Password.required"=>'La Contraseña es requerida',
+            "Apellido.required"=> 'El Apellido es requerido'
+        ];
+        $this->validate($request,$campos,$Mensaje);
+
+
         $datoscondominios=$request->except(['_token','_method']);
         Condominio::where('ID_condominio','=',$ID_condominio)->update($datoscondominios);
         return redirect('condominio');

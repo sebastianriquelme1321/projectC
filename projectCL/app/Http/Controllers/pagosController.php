@@ -39,7 +39,30 @@ class pagosController extends Controller
     public function store(Request $request)
     {
         //
-        $datospago=request()->all();
+        
+        $campos=[
+            'ID_dept'=>'required|numeric',
+            'Monto'=> 'required|numeric',
+            'Monto_deuda'=> 'required|numeric',
+            'Fecha_de_pago'   => 'date',
+            'Mes_de_pago' => 'date',
+            'ComprobanteIMG' => 'required|max:10000|mimes:jpeg,png,jpg',
+            'Detalle' => 'nullable|string|max:100'
+        ];
+        
+        
+        $Mensaje=[
+            "ID_dept.required"=>'El ID de departamento es requerido',
+            "Monto.required"=>'El Monto es requerido',
+            "Monto_deuda.required"=>'El Monto Deuda es requerido',
+            "ComprobanteIMG.required"=>'La Imagen del Comprobante es requerida',
+            "ID_dept.numeric"=> 'El ID del departamento debe ser un numero',
+            "Monto.numeric"=> 'El Monto debe ser un numero',
+            "Monto_deuda.numeric"=> 'El Monto Deuda debe ser un numero',
+            "date"=>'La Fecha es invalida'
+        ];
+        $this->validate($request,$campos,$Mensaje);
+
         $datospago=$request->except('_token');
 
         if($request->hasFile('ComprobanteIMG')){
@@ -82,8 +105,30 @@ class pagosController extends Controller
     public function update(Request $request,$ID_pagos)
     {
         //
-        $datospago=$request->except(['_token','_method']);        
+        $campos=[
+            'ID_dept'=>'required|numeric',
+            'Monto'=> 'required|numeric',
+            'Monto_deuda'=> 'required|numeric',
+            'Fecha_de_pago'   => 'date',
+            'Mes_de_pago' => 'date',
+            'ComprobanteIMG' => 'required|max:10000|mimes:jpeg,png,jpg',
+            'Detalle' => 'nullable|string|max:100'
+        ];
+        
+        
+        $Mensaje=[
+            "ID_dept.required"=>'El ID de departamento es requerido',
+            "Monto.required"=>'El Monto es requerido',
+            "Monto_deuda.required"=>'El Monto Deuda es requerido',
+            "ComprobanteIMG.required"=>'La Imagen del Comprobante es requerida',
+            "ID_dept.numeric"=> 'El ID del departamento debe ser un numero',
+            "Monto.numeric"=> 'El Monto debe ser un numero',
+            "Monto_deuda.numeric"=> 'El Monto Deuda debe ser un numero',
+            "date"=>'La Fecha es invalida'
+        ];
+        $this->validate($request,$campos,$Mensaje);
 
+        $datospago=$request->except(['_token','_method']);        
         if($request->hasFile('ComprobanteIMG')){
 
             $pago=Pagos::findOrFail($ID_pagos); 

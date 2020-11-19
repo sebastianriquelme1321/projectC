@@ -93,6 +93,26 @@ class PropietariosController extends Controller
 
     public function update(Request $request,$ID_prop)
     {
+        $campos=[
+            'Rut_prop' => 'required|regex:/^\d{1,2}.\d{3}.\d{3}[-][0-9kK]{1}$/',
+            'Nombre'   => 'required|string|max:100',
+            'Fono'     => 'required|digits:9',
+            'Correo'   => 'required|string|max:60|email',
+            'Razon_Social' => 'nullable|string|max:100'
+        ];
+        $Mensaje=[
+            "numeric"=> 'El Fono debe ser un numero',
+            "email"=>'El Correo ingresado es invalido',
+            "digits"=>'El Fono debe tener 9 digitos',
+            "Rut_prop.regex"=> 'El Rut debe ser valido',
+            "Rut_prop.required"=>'El Rut es requerido',
+            "Nombre.required"=>'El Nombre es requerido',
+            "Fono.required"=>'El Fono es requerido',
+            "Correo.required"=>'El Correo es requerido'   
+        ];
+        $this->validate($request,$campos,$Mensaje);
+
+
         $datosPropietario=$request->except(['_token','_method']);
         propietarios::where('ID_prop','=',$ID_prop)->update($datosPropietario);
         return redirect('/propietarios');

@@ -36,7 +36,20 @@ class estacionamientosController extends Controller
      */
     public function store(Request $request)
     {
-        $datosDepartamento=request()->all();
+        $campos=[
+            'ID_prop' => 'required|numeric',
+            'Numero' => 'required|numeric'
+        ];
+    
+        $Mensaje=[
+            
+            "ID_prop.required" => 'El ID del propietario es requerido',
+            "Numero.required" => 'El Numero del estacionamiento es requerido',
+            "ID_prop.numeric"=>'El ID del propietario tiene que ser un numero',
+            "Numero.numeric"=>'El  es requerido'   
+        ];
+        $this->validate($request,$campos,$Mensaje);
+
         $datosDepartamento=$request->except('_token');
         Estacionamiento::insert($datosDepartamento);
         return redirect('estacionamiento');
@@ -76,6 +89,20 @@ class estacionamientosController extends Controller
      */
     public function update(Request $request,$ID_est)
     {
+        $campos=[
+            'ID_prop' => 'required|numeric',
+            'Numero' => 'required|numeric'
+        ];
+    
+        $Mensaje=[
+            
+            "ID_prop.required" => 'El ID del propietario es requerido',
+            "Numero.required" => 'El Numero del estacionamiento es requerido',
+            "ID_prop.numeric"=>'El ID del propietario tiene que ser un numero',
+            "Numero.numeric"=>'El  es requerido'   
+        ];
+        $this->validate($request,$campos,$Mensaje);
+
         //
         $datosEstacionamiento=$request->except(['_token','_method']);
         Estacionamiento::where('ID_est','=',$ID_est)->update($datosEstacionamiento);

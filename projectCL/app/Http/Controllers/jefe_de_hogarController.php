@@ -39,7 +39,29 @@ class jefe_de_hogarController extends Controller
     public function store(Request $request)
     {
         //
-        $datosJefe=request()->all();
+
+        $campos=[
+            'ID_dept' => 'required|numeric',
+            'Rut_jefe' => 'required|regex:/^\d{1,2}.\d{3}.\d{3}[-][0-9kK]{1}$/',
+            'Nombre'   => 'required|string|max:30',
+            'Apellido'   => 'required|string|max:30',
+            'Fono'     => 'required|digits:9',
+            'Correo'   => 'required|string|max:60|email'
+        ];
+        $Mensaje=[
+            "numeric"=> 'El ID del departamento debe ser un numero',
+            "email"=>'El Correo ingresado es invalido',
+            "digits"=>'El Fono debe tener 9 digitos',
+            "Rut_jefe.regex"=> 'El Rut debe ser valido',
+            "ID_dept.required"=>'El ID del departamento es requerido',
+            "Rut_jefe.required"=>'El Rut es requerido',
+            "Nombre.required"=>'El Nombre es requerido',
+            "Apellido.required"=>'El Apellido es requerido',
+            "Fono.required"=>'El Fono es requerido',
+            "Correo.required"=>'El Correo es requerido'   
+        ];
+        $this->validate($request,$campos,$Mensaje);
+    
         $datosJefe=$request->except('_token');
         JefeDeHogar::insert($datosJefe);
         return redirect('jefe_de_hogar');
@@ -75,6 +97,27 @@ class jefe_de_hogarController extends Controller
 
     public function update(Request $request,$ID_jefe)
     {
+        $campos=[
+            'ID_dept' => 'required|numeric',
+            'Rut_jefe' => 'required|regex:/^\d{1,2}.\d{3}.\d{3}[-][0-9kK]{1}$/',
+            'Nombre'   => 'required|string|max:30',
+            'Apellido'   => 'required|string|max:30',
+            'Fono'     => 'required|digits:9',
+            'Correo'   => 'required|string|max:60|email'
+        ];
+        $Mensaje=[
+            "numeric"=> 'El ID del departamento debe ser un numero',
+            "email"=>'El Correo ingresado es invalido',
+            "digits"=>'El Fono debe tener 9 digitos',
+            "Rut_jefe.regex"=> 'El Rut debe ser valido',
+            "ID_dept.required"=>'El ID del departamento es requerido',
+            "Rut_jefe.required"=>'El Rut es requerido',
+            "Nombre.required"=>'El Nombre es requerido',
+            "Apellido.required"=>'El Apellido es requerido',
+            "Fono.required"=>'El Fono es requerido',
+            "Correo.required"=>'El Correo es requerido'   
+        ];
+        $this->validate($request,$campos,$Mensaje);
         $datosJefe=$request->except(['_token','_method']);
         jefeDeHogar::where('ID_jefe','=',$ID_jefe)->update($datosJefe);
         return redirect('jefe_de_hogar');

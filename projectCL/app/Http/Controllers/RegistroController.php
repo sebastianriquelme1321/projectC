@@ -38,7 +38,26 @@ class RegistroController extends Controller
     public function store(Request $request)
     {
         //
-        $datospago=request()->all();
+        $campos=[
+            'ID_condominio' => 'required|numeric',
+            'Asunto'   => 'required|string|max:30',
+            'Monto'     => 'required|numeric',
+            'Fecha_de_pago' => 'date',
+            'Detalle' => 'required'
+        ];
+        $Mensaje=[
+            "ID_condominio.numeric"=> 'El ID debe ser un numero',
+            "ID_condominio.required"=> 'El ID es requerido',
+            "Asunto.max"=> 'El Asunto debe poseer menos de 30 caracteres',
+            "Asunto.required"=> 'El Asunto es requerido',
+            "Monto.numeric"=> 'El Monto debe ser un numero',
+            "Monto.required"=> 'El Monto es requerido',           
+            "Fecha_de_pago.date" => 'La Fecha es invalida',
+            "Detalle.required"  => 'El Detalle es requerido',         
+
+        ];
+
+        $this->validate($request,$campos,$Mensaje);
         $datospago=$request->except('_token');
         registro::insert($datospago);
         return redirect('registro');  
@@ -74,6 +93,25 @@ class RegistroController extends Controller
     public function update(Request $request,$ID_registro)
     {
         //
+
+        $campos=[            
+            'Asunto'   => 'required|string|max:30',
+            'Monto'     => 'required|numeric',
+            'Fecha_de_pago' => 'date',
+            'Detalle' => 'required'
+        ];
+        $Mensaje=[            
+            "Asunto.max"=> 'El Asunto debe poseer menos de 30 caracteres',
+            "Asunto.required"=> 'El Asunto es requerido',
+            "Monto.numeric"=> 'El Monto debe ser un numero',
+            "Monto.required"=> 'El Monto es requerido',            
+            "Fecha_de_pago.date" => 'La Fecha es invalida',
+            "Detalle.required"  => 'El Detalle es requerido',         
+
+        ];
+
+        $this->validate($request,$campos,$Mensaje);
+
         $datospago=$request->except(['_token','_method']); 
         registro::where('ID_registro','=',$ID_registro)->update($datospago);
         return redirect('registro'); 
