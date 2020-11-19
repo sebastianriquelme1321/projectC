@@ -47,7 +47,7 @@ class pagosController extends Controller
             'Fecha_de_pago'   => 'date',
             'Mes_de_pago' => 'date',
             'ComprobanteIMG' => 'required|max:10000|mimes:jpeg,png,jpg',
-            'Detalle' => 'nullable|string|max:100'
+            'Detalle' => 'required|string|max:100'
         ];
         
         
@@ -59,7 +59,9 @@ class pagosController extends Controller
             "ID_dept.numeric"=> 'El ID del departamento debe ser un numero',
             "Monto.numeric"=> 'El Monto debe ser un numero',
             "Monto_deuda.numeric"=> 'El Monto Deuda debe ser un numero',
-            "date"=>'La Fecha es invalida'
+            "date"=>'La Fecha es invalida',
+            "Detalle.required" => 'El Detalle es requerido'
+
         ];
         $this->validate($request,$campos,$Mensaje);
 
@@ -111,7 +113,8 @@ class pagosController extends Controller
             'Monto_deuda'=> 'required|numeric',
             'Fecha_de_pago'   => 'date',
             'Mes_de_pago' => 'date',           
-            'Detalle' => 'nullable|string|max:100'
+            'Detalle' => 'required|string|max:100'
+            
         ];
         
         if($request->hasFile('ComprobanteIMG')){
@@ -127,7 +130,8 @@ class pagosController extends Controller
             "ID_dept.numeric"=> 'El ID del departamento debe ser un numero',
             "Monto.numeric"=> 'El Monto debe ser un numero',
             "Monto_deuda.numeric"=> 'El Monto Deuda debe ser un numero',
-            "date"=>'La Fecha es invalida'
+            "date"=>'La Fecha es invalida',
+            "Detalle.required" => 'El Detalle es requerido'
         ];
 
 
