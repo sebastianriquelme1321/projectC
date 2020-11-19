@@ -27,6 +27,14 @@
                         <h3 class="card-title">General</h3>
                     </div>
                     <div class="card-body" style="display: block;">
+                       
+                        <div class="form-group">
+                            <label for="id">{{'ID USER'}}</label>
+                            <input type="text" name="id" id="id" value="{{isset($propietario->id)?$propietario->id:old('id')}}" class="form-control {{$errors->has('id')?'is-invalid':''}}">
+      
+                            {!! $errors->first('id','<div class="invalid-feedback"> :message</div>') !!}
+      
+                        </div>
 
                         <div class="form-group">
                             <label for="Nombre">{{'Nombre Completo'}}</label>
