@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('content')
 <div class="container">
@@ -62,6 +62,8 @@
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
+                                <br>
+                                <a href="{{url('/register')}}" class="btn btn-primary btn-l float-right" >Registrar</a>
                             </div>
                         </div>
                     </form>
