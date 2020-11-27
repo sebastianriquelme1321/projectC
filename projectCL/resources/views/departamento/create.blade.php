@@ -33,17 +33,12 @@
                         <div class="form-group">
                             <label for="ID_condominio">{{'Administrador'}}</label>
 
-                            <select name="ID_condominio" id="inputID_condominio" class="form-control" >
+                            <select name="ID_condominio" id="inputID_condominio" class="form-control custom-select {{$errors->has('ID_condominio')?'is-invalid':''}}" >
                                 <option value="">-- Escoja el nombre del Administrador --</option>
                                 @foreach ($condominios as $condominio)
                                 <option value="{{$condominio['ID_condominio']}}"> {{$condominio['Nombre']}} </option>   
                                 @endforeach
                             </select>
-
-                            {{--  <input type="text" name="ID_condominio" id="ID_condominio"
-                                value="{{isset($departamento->ID_condominio)?$departamento->ID_condominio:old('ID_condominio')}}"
-                                class="form-control {{$errors->has('ID_condominio')?'is-invalid':''}}">  --}}
-
                             {!! $errors->first('ID_condominio','<div class="invalid-feedback"> :message</div>') !!}
 
                         </div>
@@ -51,7 +46,7 @@
                         <div class="form-group">
                             <label for="ID_prop">{{'Nombre Propietario'}}</label>
 
-                            <select name="ID_prop" id="inputID_prop" class="form-control  {{$errors->has('ID_prop')?'is-invalid':''}}"     >
+                            <select name="ID_prop" id="ID_prop" class="form-control custom-select {{$errors->has('ID_prop')?'is-invalid':''}}"     >
                                 <option value="">-- Escoja el nombre del Propietario --</option>
                                 @foreach ($propietarios as $propietario)
                                 <option value="{{$propietario['ID_prop']}}"> {{$propietario['Nombre']}} </option>

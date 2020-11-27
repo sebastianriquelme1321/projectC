@@ -85,7 +85,7 @@
                           <img src="{{asset('storage').'/'.$pago->ComprobanteIMG}}" alt="" width="200">
                           <input type="file" name="ComprobanteIMG"id="ComprobanteIMG" 
                           value="{{asset('storage').'/'.$pago->ComprobanteIMG}}" 
-                          class="form-control {{$errors->has('ComprobanteIMG')?'is-invalid':''}}">
+                          class="form-control custom-file {{$errors->has('ComprobanteIMG')?'is-invalid':''}}">
                           {!! $errors->first('ComprobanteIMG','<div class="invalid-feedback"> :message</div>') !!}
                         </div>
 

@@ -41,15 +41,15 @@ class RegistroController extends Controller
     {
         //
         $campos=[
-            'ID_condominio' => 'required|numeric',
+            'Cateoria' => 'required|string|max:30',
             'Asunto'   => 'required|string|max:30',
             'Monto'     => 'required|numeric',
             'Fecha_de_pago' => 'date',
             'Detalle' => 'required'
         ];
         $Mensaje=[
-            "ID_condominio.numeric"=> 'El ID debe ser un numero',
-            "ID_condominio.required"=> 'El ID es requerido',
+            
+            "Cateoria.required"=> 'La Cateoria es requerida',
             "Asunto.max"=> 'El Asunto debe poseer menos de 30 caracteres',
             "Asunto.required"=> 'El Asunto es requerido',
             "Monto.numeric"=> 'El Monto debe ser un numero',

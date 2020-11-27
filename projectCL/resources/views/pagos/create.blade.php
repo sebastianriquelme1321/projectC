@@ -29,7 +29,7 @@
                         <div class="form-group">
                             <label for="ID_dept">{{'Departamento asociado'}}</label>
                             
-                                <select name="ID_dept" id="ID_dept" class="form-control  {{$errors->has('ID_dept')?'is-invalid':''}}"     >
+                                <select name="ID_dept" id="ID_dept" class="form-control custom-select {{$errors->has('ID_dept')?'is-invalid':''}}"     >
                                     <option value="">-- Seleccione Departamento --</option>
                                     @foreach ($departamentos as $departamento)
                                     <option value="{{$departamento['ID_dept']}}"> {{$departamento['Numero']}} - {{ $departamento['Bloque']}} </option>
@@ -75,7 +75,7 @@
                             <label for="ComprobanteIMG">{{'Comprobante'}}</label>
                             <input type="file" name="ComprobanteIMG" id="ComprobanteIMG"
                                 value="{{isset($pago->ComprobanteIMG)?$pago->ComprobanteIMG:old('ComprobanteIMG')}}"
-                                class="form-control {{$errors->has('ComprobanteIMG')?'is-invalid':''}}">
+                                class="form-control custom-file {{$errors->has('ComprobanteIMG')?'is-invalid':''}}">
                             {!! $errors->first('ComprobanteIMG','<div class="invalid-feedback"> :message</div>') !!}
                         </div>
 

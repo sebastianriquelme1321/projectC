@@ -27,19 +27,22 @@
                         <h3 class="card-title">General</h3>
                     </div>
                     <div class="card-body" style="display: block;">
-
+  
+                        <input type="hidden" name="ID_condominio"id="ID_condominio" value="1" class="form-control" >
                         
-
                         <div class="form-group">
-                            <label for="ID_condominio">{{'Nombre del Administrador'}}</label>
-                            <select name="ID_condominio" id="inputID_condominio" class="form-control" >
-                                <option value="">-- Escoja el nombre del Administrador --</option>
-                                @foreach ($condominios as $condominio)
-                                <option value="{{$condominio['ID_condominio']}}"> {{$condominio['Nombre']}} </option>   
-                                @endforeach
+                            <label for="Categoria">{{'Categoria'}}</label>
+                            <select name="Categoria" id="Categoria" class="form-control  custom-select {{$errors->has('Asunto')?'is-invalid':''}}" >
+                                <option value="">-- Escoja la categoria --</option>
+                                <option value="Sueldos"> Sueldos </option>
+                                <option value="Reparaciones"> Reparaciones </option>
+                                <option value="Equipo"> Equipo </option>
+                                <option value="Otros"> Otros </option>
+                                
                             </select>
-                            {!! $errors->first('ID_condominio','<div class="invalid-feedback"> :message</div>') !!}
+                            {!! $errors->first('Categoria','<div class="invalid-feedback"> :message</div>') !!}
                         </div>
+
 
                         <div class="form-group">
                             <label for="Asunto">{{'Asunto'}}</label>

@@ -32,12 +32,7 @@
                         <th>Ciudad</th>
                         <th>Calle</th>
                         <th>Número</th>                        
-                        <th>Rut Admin</th>                        
-                        <th>Nombre Admin</th>
-                        <th>Apellido Admin</th>
-                        <th>Fono Admin</th>
-                        <th>Correo Admin</th>                                         
-
+                          
                     </tr>
                   </thead>
                   <tbody>
@@ -46,12 +41,7 @@
                     <td>{{$datosVERMAS->Region}}</td>
                     <td>{{$datosVERMAS->Ciudad}}</td>
                     <td>{{$datosVERMAS->Calle}}</td>
-                    <td>{{$datosVERMAS->Numero}}</td>                    
-                    <td>{{$datosVERMAS->Rut_ad}}</td>                    
-                    <td>{{$datosVERMAS->Nombre}}</td>
-                    <td>{{$datosVERMAS->Apellido}}</td>
-                    <td>{{$datosVERMAS->Fono}}</td>
-                    <td>{{$datosVERMAS->Correo}}</td>                    
+                    <td>{{$datosVERMAS->Numero}}</td>                 
                    
                    </tr>
                 </table>

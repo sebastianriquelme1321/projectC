@@ -32,7 +32,7 @@
                         <div class="form-group">
                             <label for="ID_prop">{{'Nombre Propietario'}}</label>
                             
-                            <select name="ID_prop" id="ID_prop" class="form-control  {{$errors->has('ID_prop')?'is-invalid':''}}">
+                            <select name="ID_prop" id="ID_prop" class="form-control custom-select {{$errors->has('ID_prop')?'is-invalid':''}}">
                                 
                                 <option value=" {{$departamento->ID_prop}}">  {{$listaprop[$departamento->ID_prop-1]->Nombre}} </option>
     

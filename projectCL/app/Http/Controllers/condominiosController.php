@@ -44,31 +44,16 @@ class condominiosController extends Controller
             'Region' => 'required|string|max:25',
             'Ciudad' => 'required|string|max:25',
             'Calle'  => 'required|string|max:100',
-            'Numero' => 'required|numeric',
-            'Rut_ad' => 'required|regex:/^\d{1,2}.\d{3}.\d{3}[-][0-9kK]{1}$/',
-            'Nombre' => 'required|string|max:30',
-            'Apellido' => 'required|string|max:30',
-            'Fono'   => 'required|digits:9',
-            'Correo' => 'required|string|max:60|email',
-            'Password' => 'required|string|max:20',
+            'Numero' => 'required|numeric' 
 
         ];
         $Mensaje=[
             "numeric"=> 'Debe ser un numero',
-            "digits" => 'El Fono debe ser un numero',
-            "email"=>'El Correo ingresado es invalido',
-            "digits"=>'El Fono debe tener 9 digitos',
-            "Rut_ad.regex"=> 'El Rut debe ser valido',
-            "Rut_ad.required"=>'El Rut es requerido',
-            "Nombre.required"=>'El Nombre es requerido',
-            "Fono.required"=>'El Fono es requerido',
             "Region.required"=>'La Region es requerida',
             "Ciudad.required"=>'La Ciudad es requerida',
             "Calle.required" =>'La Calle es requerida',
-            "Numero.required"=>'El Numero es requerido',
-            "Correo.required"=>'El Correo es requerido',
-            "Password.required"=>'La Contraseña es requerida',
-            "Apellido.required"=> 'El Apellido es requerido'
+            "Numero.required"=>'El Numero es requerido'
+            
         ];
         $this->validate($request,$campos,$Mensaje);
  
@@ -112,31 +97,16 @@ class condominiosController extends Controller
             'Region' => 'required|string|max:25',
             'Ciudad' => 'required|string|max:25',
             'Calle'  => 'required|string|max:100',
-            'Numero' => 'required|numeric',
-            'Rut_ad' => 'required|regex:/^\d{1,2}.\d{3}.\d{3}[-][0-9kK]{1}$/',
-            'Nombre' => 'required|string|max:30',
-            'Apellido' => 'required|string|max:30',
-            'Fono'   => 'required|digits:9',
-            'Correo' => 'required|string|max:60|email',
-            'Password' => 'required|string|max:20',
+            'Numero' => 'required|numeric' 
 
         ];
         $Mensaje=[
             "numeric"=> 'Debe ser un numero',
-            "digits" => 'El Fono debe ser un numero',
-            "email"=>'El Correo ingresado es invalido',
-            "digits"=>'El Fono debe tener 9 digitos',
-            "Rut_ad.regex"=> 'El Rut debe ser valido',
-            "Rut_ad.required"=>'El Rut es requerido',
-            "Nombre.required"=>'El Nombre es requerido',
-            "Fono.required"=>'El Fono es requerido',
             "Region.required"=>'La Region es requerida',
             "Ciudad.required"=>'La Ciudad es requerida',
             "Calle.required" =>'La Calle es requerida',
-            "Numero.required"=>'El Numero es requerido',
-            "Correo.required"=>'El Correo es requerido',
-            "Password.required"=>'La Contraseña es requerida',
-            "Apellido.required"=> 'El Apellido es requerido'
+            "Numero.required"=>'El Numero es requerido'
+            
         ];
         $this->validate($request,$campos,$Mensaje);
 

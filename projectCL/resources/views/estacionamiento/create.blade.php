@@ -29,7 +29,7 @@
                     <div class="card-body" style="display: block;">
 
                         <label for="ID_prop">{{'Nombre Propietario'}}</label>
-                        <select name="ID_prop" id="inputID_prop" class="form-control{{$errors->has('ID_prop')?'is-invalid':''}}" >
+                        <select name="ID_prop" id="inputID_prop" class="form-control custom-select {{$errors->has('ID_prop')?'is-invalid':''}}" >
                             <option value="">-- Escoja el nombre del Propietario --</option>
                             @foreach ($listaprop as $propietario)
                             <option value="{{$propietario['ID_prop']}}"> {{$propietario['Nombre']}} </option>   
