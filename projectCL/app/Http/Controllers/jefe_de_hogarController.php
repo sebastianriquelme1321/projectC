@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\JefeDeHogar;
+use App\Models\Departamento;
 use Illuminate\Http\Request;
 
 class jefe_de_hogarController extends Controller
@@ -26,8 +27,9 @@ class jefe_de_hogarController extends Controller
      */
     public function create()
     {
+        $departamentos = Departamento::all();
         //
-        return view('jefehogar/create');
+        return view('jefehogar/create', compact('departamentos'));
     }
 
     /**

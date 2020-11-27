@@ -101,7 +101,6 @@ class PropietariosController extends Controller
             'Razon_Social' => 'nullable|string|max:100'
         ];
         $Mensaje=[
-            "numeric"=> 'El Fono debe ser un numero',
             "email"=>'El Correo ingresado es invalido',
             "digits"=>'El Fono debe tener 9 digitos',
             "Rut_prop.regex"=> 'El Rut debe ser valido',

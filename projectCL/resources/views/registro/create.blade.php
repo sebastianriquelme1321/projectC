@@ -29,10 +29,13 @@
                     <div class="card-body" style="display: block;">
 
                         <div class="form-group">
-                            <label for="ID_condominio">{{'ID condominio'}}</label>
-                            <input type="text" name="ID_condominio" id="ID_condominio"
-                                value="{{isset($registro->ID_condominio)?$registro->ID_condominio:old('ID_condominio')}}"
-                                class="form-control {{$errors->has('ID_condominio')?'is-invalid':''}}">
+                            <label for="ID_condominio">{{'Nombre del Administrador'}}</label>
+                            <select name="ID_condominio" id="inputID_condominio" class="form-control" >
+                                <option value="">-- Escoja el nombre del Administrador --</option>
+                                @foreach ($condominios as $condominio)
+                                <option value="{{$condominio['ID_condominio']}}"> {{$condominio['Nombre']}} </option>   
+                                @endforeach
+                            </select>
                             {!! $errors->first('ID_condominio','<div class="invalid-feedback"> :message</div>') !!}
                         </div>
 

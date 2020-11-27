@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Registro;
+use App\Models\Condominio;
 use Illuminate\Http\Request;
 
 class RegistroController extends Controller
@@ -25,8 +26,9 @@ class RegistroController extends Controller
      */
     public function create()
     {
+        $condominios =  Condominio::all();
         //
-        return view('registro/create');
+        return view('registro/create', compact('condominios'));
     }
 
     /**

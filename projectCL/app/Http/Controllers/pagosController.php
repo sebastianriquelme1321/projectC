@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pagos;
+use App\Models\Departamento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -26,8 +27,9 @@ class pagosController extends Controller
      */
     public function create()
     {
+        $departamentos = Departamento::all();
         //
-        return view('pagos/create');
+        return view('pagos/create', compact('departamentos'));
     }
 
     /**
@@ -99,9 +101,10 @@ class pagosController extends Controller
      */
     public function edit($ID_pagos)
     {
+        $listadepartamentos = Departamento::all();
         //
         $pago=Pagos::findOrFail($ID_pagos);
-        return view('pagos.edit', compact('pago'));
+        return view('pagos.edit', compact('pago'),compact('listadepartamentos'));
     }
 
     public function update(Request $request,$ID_pagos)

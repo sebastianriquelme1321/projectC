@@ -31,13 +31,22 @@
 
                     <div class="card-body" style="display: block;">
 
-                        <div class="form-group">
+                        {{--  <div class="form-group">
                             <label for="ID_dept">{{'ID dept'}}</label>
-                            <input type="text" name="ID_dept" id="ID_dept"
-                                value="{{$pago->ID_dept}}"
-                                class="form-control {{$errors->has('ID_dept')?'is-invalid':''}}">
+                            <select name="ID_dept" id="ID_dept" class="form-control  {{$errors->has('ID_dept')?'is-invalid':''}}">
+
+                                <option value="{{$pago->ID_dept}}">  {{$listadepartamentos[$pago->ID_dept-1]->Numero}} </option>
+    
+                                @foreach ($listadepartamentos as $auxdepartamento)
+                                @if ($auxdepartamento->ID_dept != $pago->ID_dept)
+                                <option value="{{$auxdepartamento['ID_dept']}}"> {{$auxdepartamento['Numero']}} </option>
+                                @endif
+                                @endforeach
+
+                            </select>
+                            
                             {!! $errors->first('ID_dept','<div class="invalid-feedback"> :message</div>') !!}
-                        </div>
+                        </div>  --}}
 
                         <div class="form-group">
                             <label for="Monto">{{'Monto'}}</label>

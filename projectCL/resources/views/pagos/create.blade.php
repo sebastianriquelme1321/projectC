@@ -27,10 +27,15 @@
                     <div class="card-body" style="display: block;">
 
                         <div class="form-group">
-                            <label for="ID_dept">{{'ID dept'}}</label>
-                            <input type="text" name="ID_dept" id="ID_dept"
-                                value="{{isset($pago->ID_dept)?$pago->ID_dept:old('ID_dept')}}"
-                                class="form-control {{$errors->has('ID_dept')?'is-invalid':''}}">
+                            <label for="ID_dept">{{'Departamento asociado'}}</label>
+                            
+                                <select name="ID_dept" id="ID_dept" class="form-control  {{$errors->has('ID_dept')?'is-invalid':''}}"     >
+                                    <option value="">-- Seleccione Departamento --</option>
+                                    @foreach ($departamentos as $departamento)
+                                    <option value="{{$departamento['ID_dept']}}"> {{$departamento['Numero']}} - {{ $departamento['Bloque']}} </option>
+                                    @endforeach
+                                </select>
+
                             {!! $errors->first('ID_dept','<div class="invalid-feedback"> :message</div>') !!}
                         </div>
 
