@@ -21,6 +21,7 @@ class CreateRegistrosTable extends Migration
             $table->integer('Monto');              
             $table->date('Fecha_de_pago');           
             $table->text('Detalle');
+            $table->char('Categoria',30);
             $table->timestamps();
         });
     }

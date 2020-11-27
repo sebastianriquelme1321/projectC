@@ -18,13 +18,7 @@ class CreateCondominiosTable extends Migration
             $table->char('Region',25);
             $table->char('Ciudad',25);
             $table->char('Calle',100);
-            $table->integer('Numero');
-            $table->char('Rut_ad',12);
-            $table->char('Nombre',30);
-            $table->char('Apellido',30);
-            $table->char('Fono',9);
-            $table->char('Correo',60);
-            $table->char('Password',20);
+            $table->integer('Numero');            
             $table->timestamps();
         });
     }
