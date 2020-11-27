@@ -29,14 +29,13 @@
                     </div>
                     <div class="card-body" style="display: block;">
 
-                        <div class="form-group">
-                          <label for="ID_dept">{{'ID dept'}}</label>
-                          <input type="text" name="ID_dept" id="ID_dept"
+                                                 
+                          <input type="hidden" name="ID_dept" id="ID_dept"
                               value="{{$jefe_de_hogar->ID_dept}}"
                               class="form-control {{$errors->has('ID_dept')?'is-invalid':''}}">
                           {!! $errors->first('ID_dept','<div class="invalid-feedback"> :message</div>') !!}
 
-                      </div>
+                      
 
                       <div class="form-group">
                           <label for="Rut_jefe">{{'Rut jefe'}}</label>

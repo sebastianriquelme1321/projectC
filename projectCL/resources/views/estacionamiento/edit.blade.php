@@ -19,9 +19,18 @@
                     <div class="card-body" style="display: block;">
 
                         <div class="form-group">
-                            <label for="ID_prop">{{'ID Propietario'}}</label>
-                            <input type="text" name="ID_prop" id="ID_prop" value="{{$estacionamiento->ID_prop}}"
-                                class="form-control {{$errors->has('ID_prop')?'is-invalid':''}}">
+                            <label for="ID_prop">{{'Nombre Propietario'}}</label>
+                            <select name="ID_prop" id="ID_prop" class="form-control  {{$errors->has('ID_prop')?'is-invalid':''}}">
+                                
+                                <option value=" {{$estacionamiento->ID_prop}}">  {{$listaprop[$estacionamiento->ID_prop-1]->Nombre}} </option>
+    
+                                @foreach ($listaprop as $propietario)
+                                @if ($propietario->ID_prop != $estacionamiento->ID_prop)
+                                <option value="{{$propietario['ID_prop']}}"> {{$propietario['Nombre']}} </option>
+                                @endif
+                                @endforeach
+    
+                            </select>
                             {!! $errors->first('ID_prop','<div class="invalid-feedback"> :message</div>') !!}
                         </div>
 

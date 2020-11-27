@@ -27,10 +27,15 @@
                     <div class="card-body" style="display: block;">
 
                         <div class="form-group">
-                            <label for="ID_dept">{{'ID dept'}}</label>
-                            <input type="text" name="ID_dept" id="ID_dept"
-                                value="{{isset($pago->ID_dept)?$pago->ID_dept:old('ID_dept')}}"
-                                class="form-control {{$errors->has('ID_dept')?'is-invalid':''}}">
+                            <label for="ID_dept">{{'Departamento asociado'}}</label>
+                            
+                                <select name="ID_dept" id="ID_dept" class="form-control  {{$errors->has('ID_dept')?'is-invalid':''}}"     >
+                                    <option value="">-- Seleccione Departamento --</option>
+                                    @foreach ($departamentos as $departamento)
+                                    <option value="{{$departamento['ID_dept']}}"> {{$departamento['Numero']}} - {{ $departamento['Bloque']}} </option>
+                                    @endforeach
+                                </select>
+
                             {!! $errors->first('ID_dept','<div class="invalid-feedback"> :message</div>') !!}
                         </div>
 
@@ -51,18 +56,16 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="Fecha_de_pago">{{'Fecha del pago'}}</label>
-                            <p style="color:#5a5a5ae7" ;>Formato:YYYY-MM-DD</p>
-                            <input type="text" name="Fecha_de_pago" id="Fecha_de_pago"
+                            <label for="Fecha_de_pago">{{'Fecha del pago'}}</label>                           
+                            <input type="date" name="Fecha_de_pago" id="Fecha_de_pago"
                                 value="{{isset($pago->Fecha_de_pago)?$pago->Fecha_de_pago:old('Fecha_de_pago')}}"
                                 class="form-control {{$errors->has('Fecha_de_pago')?'is-invalid':''}}">
                             {!! $errors->first('Fecha_de_pago','<div class="invalid-feedback"> :message</div>') !!}
                         </div>
 
                         <div class="form-group">
-                            <label for="Mes_de_pago">{{'Mes del pago'}}</label>
-                            <p style="color:#5a5a5ae7" ;>Formato:YYYY-MM-DD</p>
-                            <input type="text" name="Mes_de_pago" id="Mes_de_pago"
+                            <label for="Mes_de_pago">{{'Mes del pago'}}</label>                            
+                            <input type="date" name="Mes_de_pago" id="Mes_de_pago"
                                 value="{{isset($pago->Mes_de_pago)?$pago->Mes_de_pago:old('Mes_de_pago')}}"
                                 class="form-control {{$errors->has('Mes_de_pago')?'is-invalid':''}}">
                             {!! $errors->first('Mes_de_pago','<div class="invalid-feedback"> :message</div>') !!}

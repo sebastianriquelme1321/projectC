@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Propietarios;
 use Illuminate\Http\Request;
+use Freshwork\ChileanBundle\Rut;
 
 class PropietariosController extends Controller
 {
@@ -38,7 +39,7 @@ class PropietariosController extends Controller
     public function store(Request $request)
     {
         $campos=[
-            'Rut_prop' => 'required|regex:/^\d{1,2}.\d{3}.\d{3}[-][0-9kK]{1}$/',
+            'Rut_prop' => 'required|cl_rut',
             'Nombre'   => 'required|string|max:100',
             'Fono'     => 'required|digits:9',
             'Correo'   => 'required|string|max:60|email',
@@ -48,7 +49,7 @@ class PropietariosController extends Controller
             "numeric"=> 'El Fono debe ser un numero',
             "email"=>'El Correo ingresado es invalido',
             "digits"=>'El Fono debe tener 9 digitos',
-            "Rut_prop.regex"=> 'El Rut debe ser valido',
+            "Rut_prop.cl_rut"=> 'El Rut debe ser valido',
             "Rut_prop.required"=>'El Rut es requerido',
             "Nombre.required"=>'El Nombre es requerido',
             "Fono.required"=>'El Fono es requerido',
@@ -58,6 +59,7 @@ class PropietariosController extends Controller
         
         
         $datosPropietario=$request->except('_token');
+        $datosPropietario['Rut_prop'] = Rut::parse($datosPropietario['Rut_prop'])->format(Rut::FORMAT_COMPLETE);
         propietarios::insert($datosPropietario);
         return redirect('propietarios');
         
@@ -94,7 +96,7 @@ class PropietariosController extends Controller
     public function update(Request $request,$ID_prop)
     {
         $campos=[
-            'Rut_prop' => 'required|regex:/^\d{1,2}.\d{3}.\d{3}[-][0-9kK]{1}$/',
+            'Rut_prop' => 'required|cl_rut',
             'Nombre'   => 'required|string|max:100',
             'Fono'     => 'required|digits:9',
             'Correo'   => 'required|string|max:60|email',
@@ -104,7 +106,7 @@ class PropietariosController extends Controller
             "numeric"=> 'El Fono debe ser un numero',
             "email"=>'El Correo ingresado es invalido',
             "digits"=>'El Fono debe tener 9 digitos',
-            "Rut_prop.regex"=> 'El Rut debe ser valido',
+            "Rut_prop.cl_rut"=> 'El Rut debe ser valido',
             "Rut_prop.required"=>'El Rut es requerido',
             "Nombre.required"=>'El Nombre es requerido',
             "Fono.required"=>'El Fono es requerido',
@@ -114,6 +116,7 @@ class PropietariosController extends Controller
 
 
         $datosPropietario=$request->except(['_token','_method']);
+        $datosPropietario['Rut_prop'] = Rut::parse($datosPropietario['Rut_prop'])->format(Rut::FORMAT_COMPLETE);
         propietarios::where('ID_prop','=',$ID_prop)->update($datosPropietario);
         return redirect('/propietarios');
 

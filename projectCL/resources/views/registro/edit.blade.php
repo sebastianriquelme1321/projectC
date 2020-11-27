@@ -45,8 +45,8 @@
 
                         <div class="form-group">
                             <label for="Fecha_de_pago">{{'Fecha'}}</label>
-                            <p style="color:#5a5a5ae7" ;>Formato:YYYY-MM-DD</p>
-                            <input type="text" name="Fecha_de_pago" id="Fecha_de_pago"
+                            
+                            <input type="date" name="Fecha_de_pago" id="Fecha_de_pago"
                                 value="{{$registro->Fecha_de_pago}}"
                                 class="form-control {{$errors->has('Fecha_de_pago')?'is-invalid':''}}">
                             {!! $errors->first('Fecha_de_pago','<div class="invalid-feedback"> :message</div>') !!}

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Departamento;
 use Illuminate\Http\Request;
+
 use App\Models\Condominio;
 use App\Models\Propietarios;
 
@@ -27,6 +28,7 @@ class departamentosController extends Controller
      */
     public function create()
     {
+
         $condominios =  Condominio::all();
         $propietarios = Propietarios::all();
         //
@@ -93,18 +95,21 @@ class departamentosController extends Controller
      */
     public function edit($ID_dept)
     {
+        
+        $listaprop = propietarios::all();
+    
         //
         $departamento=Departamento::findOrFail($ID_dept);
-        return view('departamento.edit', compact('departamento'));
+        return view('departamento.edit', compact('departamento'), compact('listaprop'));
     }
 
     public function update(Request $request,$ID_dept)
     {
-
+      
         $campos=[
             
-            'ID_prop'   => 'required|numeric',
-            'Numero'     => 'required|numeric',
+            'ID_prop'  => 'required|numeric',
+            'Numero'   => 'required|numeric',
             'Bloque'   => 'required|string|size:1|alpha',
             'Password' => 'required|string|max:20'
         ];

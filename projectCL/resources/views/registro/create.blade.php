@@ -28,11 +28,16 @@
                     </div>
                     <div class="card-body" style="display: block;">
 
+                        
+
                         <div class="form-group">
-                            <label for="ID_condominio">{{'ID condominio'}}</label>
-                            <input type="text" name="ID_condominio" id="ID_condominio"
-                                value="{{isset($registro->ID_condominio)?$registro->ID_condominio:old('ID_condominio')}}"
-                                class="form-control {{$errors->has('ID_condominio')?'is-invalid':''}}">
+                            <label for="ID_condominio">{{'Nombre del Administrador'}}</label>
+                            <select name="ID_condominio" id="inputID_condominio" class="form-control" >
+                                <option value="">-- Escoja el nombre del Administrador --</option>
+                                @foreach ($condominios as $condominio)
+                                <option value="{{$condominio['ID_condominio']}}"> {{$condominio['Nombre']}} </option>   
+                                @endforeach
+                            </select>
                             {!! $errors->first('ID_condominio','<div class="invalid-feedback"> :message</div>') !!}
                         </div>
 
@@ -53,9 +58,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="Fecha_de_pago">{{'Fecha'}}</label>
-                            <p style="color:#5a5a5ae7" ;>Formato:YYYY-MM-DD</p>
-                            <input type="text" name="Fecha_de_pago" id="Fecha_de_pago"
+                            <label for="Fecha_de_pago">{{'Fecha'}}</label>                            
+                            <input type="date" name="Fecha_de_pago" id="Fecha_de_pago" 
                                 value="{{isset($registro->Fecha_de_pago)?$registro->Fecha_de_pago:old('Fecha_de_pago')}}"
                                 class="form-control {{$errors->has('Fecha_de_pago')?'is-invalid':''}}">
                             {!! $errors->first('Fecha_de_pago','<div class="invalid-feedback"> :message</div>') !!}

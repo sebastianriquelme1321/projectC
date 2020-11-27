@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\JefeDeHogar;
 use Illuminate\Http\Request;
+use Freshwork\ChileanBundle\Rut;
+use App\Models\Departamento;
 
 class jefe_de_hogarController extends Controller
 {
@@ -26,8 +28,9 @@ class jefe_de_hogarController extends Controller
      */
     public function create()
     {
+        $departamentos = Departamento::all();
         //
-        return view('jefehogar/create');
+        return view('jefehogar/create', compact('departamentos'));
     }
 
     /**
@@ -42,7 +45,7 @@ class jefe_de_hogarController extends Controller
 
         $campos=[
             'ID_dept' => 'required|numeric',
-            'Rut_jefe' => 'required|regex:/^\d{1,2}.\d{3}.\d{3}[-][0-9kK]{1}$/',
+            'Rut_jefe' => 'required|cl_rut',
             'Nombre'   => 'required|string|max:30',
             'Apellido'   => 'required|string|max:30',
             'Fono'     => 'required|digits:9',
@@ -52,7 +55,7 @@ class jefe_de_hogarController extends Controller
             "numeric"=> 'El ID del departamento debe ser un numero',
             "email"=>'El Correo ingresado es invalido',
             "digits"=>'El Fono debe tener 9 digitos',
-            "Rut_jefe.regex"=> 'El Rut debe ser valido',
+            "Rut_jefe.cl_rut"=> 'El Rut debe ser valido',
             "ID_dept.required"=>'El ID del departamento es requerido',
             "Rut_jefe.required"=>'El Rut es requerido',
             "Nombre.required"=>'El Nombre es requerido',
@@ -63,6 +66,7 @@ class jefe_de_hogarController extends Controller
         $this->validate($request,$campos,$Mensaje);
     
         $datosJefe=$request->except('_token');
+        $datosJefe['Rut_jefe'] = Rut::parse($datosJefe['Rut_jefe'])->format(Rut::FORMAT_COMPLETE);
         JefeDeHogar::insert($datosJefe);
         return redirect('jefe_de_hogar');
         
@@ -99,7 +103,7 @@ class jefe_de_hogarController extends Controller
     {
         $campos=[
             'ID_dept' => 'required|numeric',
-            'Rut_jefe' => 'required|regex:/^\d{1,2}.\d{3}.\d{3}[-][0-9kK]{1}$/',
+            'Rut_jefe' => 'required|cl_rut',
             'Nombre'   => 'required|string|max:30',
             'Apellido'   => 'required|string|max:30',
             'Fono'     => 'required|digits:9',
@@ -109,7 +113,7 @@ class jefe_de_hogarController extends Controller
             "numeric"=> 'El ID del departamento debe ser un numero',
             "email"=>'El Correo ingresado es invalido',
             "digits"=>'El Fono debe tener 9 digitos',
-            "Rut_jefe.regex"=> 'El Rut debe ser valido',
+            "Rut_jefe.cl_rut"=> 'El Rut debe ser valido',
             "ID_dept.required"=>'El ID del departamento es requerido',
             "Rut_jefe.required"=>'El Rut es requerido',
             "Nombre.required"=>'El Nombre es requerido',
@@ -119,6 +123,7 @@ class jefe_de_hogarController extends Controller
         ];
         $this->validate($request,$campos,$Mensaje);
         $datosJefe=$request->except(['_token','_method']);
+        $datosJefe['Rut_jefe'] = Rut::parse($datosJefe['Rut_jefe'])->format(Rut::FORMAT_COMPLETE);
         jefeDeHogar::where('ID_jefe','=',$ID_jefe)->update($datosJefe);
         return redirect('jefe_de_hogar');
 

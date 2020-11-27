@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Estacionamiento;
+use App\Models\Propietarios;
 use Illuminate\Http\Request;
 
 class estacionamientosController extends Controller
@@ -25,7 +26,8 @@ class estacionamientosController extends Controller
      */
     public function create()
     {
-        return view('estacionamiento/create');
+        $listaprop=Propietarios::all();
+        return view('estacionamiento/create',compact('listaprop'));
     }
 
     /**
@@ -76,8 +78,10 @@ class estacionamientosController extends Controller
     public function edit($ID_est)
     {
         //
+        $listaprop=Propietarios::all();
         $estacionamiento=Estacionamiento::findOrFail($ID_est);
-        return view('estacionamiento.edit', compact('estacionamiento'));
+
+        return view('estacionamiento.edit', compact('estacionamiento'),compact('listaprop'));
     }
 
     /**
