@@ -20,7 +20,11 @@ Route::resource('departamento', '\App\Http\Controllers\departamentosController')
 
 Route::resource('jefe_de_hogar', '\App\Http\Controllers\jefe_de_hogarController');
 
-Route::resource('condominio','\App\Http\Controllers\condominiosController');
+
+Route::group(['middleware' => 'admin'], function() {
+    Route::resource('condominio','\App\Http\Controllers\condominiosController'); 
+});
+
 
 Route::resource('estacionamiento', '\App\Http\Controllers\estacionamientosController');
 

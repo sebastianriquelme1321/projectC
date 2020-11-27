@@ -52,11 +52,6 @@
                                 <option value="{{$propietario['ID_prop']}}"> {{$propietario['Nombre']}} </option>
                                 @endforeach
                             </select>
-
-                            {{--  <input type="text" name="ID_prop" id="ID_prop"
-                                value="{{isset($departamento->ID_prop)?$departamento->ID_prop:old('ID_prop')}}"
-                                class="form-control {{$errors->has('ID_prop')?'is-invalid':''}}">  --}}
-
                             {!! $errors->first('ID_prop','<div class="invalid-feedback"> :message</div>') !!}
 
                         </div>
