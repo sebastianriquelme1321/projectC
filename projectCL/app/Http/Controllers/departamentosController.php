@@ -84,7 +84,8 @@ class departamentosController extends Controller
     {       
         //
         $datosVERMAS = departamento::find($ID_dept);       
-        return view('departamento.show', compact('datosVERMAS'));
+        $propietarios = Propietarios::all();
+        return view('departamento.show', compact('datosVERMAS'),compact('propietarios'));
     }
 
     /**

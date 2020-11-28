@@ -16,7 +16,8 @@ class estacionamientosController extends Controller
     public function index()
     {
         $datos['estacionamientos']= Estacionamiento::paginate();
-        return view('estacionamiento.index',$datos);
+        $listaprop=Propietarios::all();
+        return view('estacionamiento.index',$datos,compact('listaprop'));
     }
 
     /**

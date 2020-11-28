@@ -28,7 +28,7 @@
                   <thead>
                     <tr>
                         <th>Numero</th>     
-                        <th>Propetario</th>
+                        <th>Propietario</th>
                                                     
  
                     </tr>
@@ -37,17 +37,17 @@
                     @foreach($estacionamientos as $estacionamiento)
                     <tr>       
                         <td>{{$estacionamiento->Numero}}</td>                 
-                        <td>{{$estacionamiento->ID_prop}}</td>
+                        <td>{{$listaprop[$estacionamiento->ID_prop-1]->Nombre}}</td>
                                            
                         
-                        <td>
+                        {{-- <td>
                           <form method="post" action="{{url('/estacionamiento/'.$estacionamiento->ID_est)}}">
                           {{csrf_field() }}
                           {{method_field('GET')}}
                           <button type="submit" class="btn btn-block btn-success">Ver mas</button>
           
                           </form>
-                      </td>
+                      </td> --}}
                       <td>
                         <a href="{{url('/estacionamiento/'.$estacionamiento->ID_est.'/edit')}}">
                          <button type="submit" class="btn btn-block btn-warning" onclick="return confirm('Editar');">Editar</button>

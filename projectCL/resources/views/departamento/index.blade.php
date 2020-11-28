@@ -27,7 +27,7 @@
                 <table class="table table-head-fixed text-nowrap">
                   <thead>
                     <tr>
-                        <th>Depto<                                                                                                          /th>                             
+                        <th>Departamento</th>                             
  
                     </tr>
                   </thead>
@@ -35,7 +35,7 @@
                     @foreach($departamentos as $departamento)
                     <tr>
             
-                        <td>{{$departamento->Numero.$dpartamento->Bloque}}</td>
+                        <td>{{$departamento->Numero}} - {{$departamento->Bloque}}</td>
                         <td>
                           <form method="post" action="{{url('/departamento/'.$departamento->ID_dept)}}">
                           {{csrf_field() }}

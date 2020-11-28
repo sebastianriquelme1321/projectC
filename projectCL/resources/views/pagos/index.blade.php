@@ -26,9 +26,8 @@
               <div class="card-body table-responsive p-0" style="height: 700px;">
                 <table class="table table-head-fixed text-nowrap">
                   <thead>
-                    <tr>
-                        <th>ID Pago</th>
-                        <th>ID Dept</th>
+                    <tr>                        
+                        <th>Departamento</th>
                         <th>Monto</th>                        
                         <th>Fecha de Pago</th>                      
                                   
@@ -38,9 +37,8 @@
                   <tbody>
                     @foreach($pagos as $pago)
                         <tr>
-                         
-                            <td>{{$pago->ID_pagos}}</td>
-                            <td>{{$pago->ID_dept}}</td>
+                                           
+                            <td>{{$departamentos[$pago->ID_dept-1]->Numero}} - {{$departamentos[$pago->ID_dept-1]->Bloque}}</td>
                             <td>{{$pago->Monto}}</td>                            
                             <td>{{$pago->Fecha_de_pago}}</td>                         
        

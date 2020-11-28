@@ -40,7 +40,7 @@
                   <tbody>
                    <tr> 
                     <td>{{$datosVERMAS->ID_jefe}}</td>
-                    <td>{{$datosVERMAS->ID_dept}}</td>
+                    <td>{{$departamentos[$datosVERMAS->ID_dept-1]->Numero}} - {{$departamentos[$datosVERMAS->ID_dept-1]->Bloque}}</td>
                     <td>{{$datosVERMAS->Rut_jefe}}</td>                    
                     <td>{{$datosVERMAS->Nombre}}</td>
                     <td>{{$datosVERMAS->Apellido}}</td>

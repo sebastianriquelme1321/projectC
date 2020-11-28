@@ -82,8 +82,9 @@ class jefe_de_hogarController extends Controller
     public function show($ID_jefe)
     {       
         //
-        $datosVERMAS = JefeDeHogar::find($ID_jefe);       
-        return view('jefehogar.show', compact('datosVERMAS'));
+        $datosVERMAS = JefeDeHogar::find($ID_jefe);  
+        $departamentos = Departamento::all();     
+        return view('jefehogar.show', compact('datosVERMAS'),compact('departamentos'));
     }
 
     /**

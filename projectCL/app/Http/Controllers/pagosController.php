@@ -16,8 +16,9 @@ class pagosController extends Controller
      */
     public function index()
     {
+        $departamentos = Departamento::all();
         $datos['pagos']= Pagos::paginate();
-        return view('pagos.index',$datos);
+        return view('pagos.index',$datos,compact('departamentos'));
     }
 
     /**
@@ -89,8 +90,9 @@ class pagosController extends Controller
     public function show($ID_pagos)
     {       
         //
-        $datosVERMAS = pagos::find($ID_pagos);       
-        return view('pagos.show', compact('datosVERMAS'));
+        $datosVERMAS = pagos::find($ID_pagos); 
+        $departamentos = Departamento::all();      
+        return view('pagos.show', compact('datosVERMAS'),compact('departamentos'));
     }
 
     /**

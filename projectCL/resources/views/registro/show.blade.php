@@ -28,7 +28,7 @@
                   <thead>
                     <tr>
                         <th>ID Registro</th>
-                        <th>ID Condominio</th>
+                        {{-- <th>ID Condominio</th> --}}
                         <th>Asunto</th>
                         <th>Monto</th>
                         <th>Fecha</th>
@@ -40,7 +40,7 @@
                    <tr> 
                     
                         <td>{{$datosVERMAS->ID_registro}}</td>
-                        <td>{{$datosVERMAS->ID_condominio}}</td>
+                        {{-- <td>{{$datosVERMAS->ID_condominio}}</td> --}}
                         <td>{{$datosVERMAS->Asunto}}</td>
                         <td>{{$datosVERMAS->Monto}}</td>
                         <td>{{$datosVERMAS->Fecha_de_pago}}</td> 

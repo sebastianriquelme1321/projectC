@@ -28,7 +28,7 @@
                   <thead>
                     <tr>
                         <th>ID Depto</th>
-                        <th>ID Propietario</th>
+                        <th>Propietario</th>
                         <th>Numero</th>
                         <th>Bloque</th>                                       
 
@@ -37,7 +37,7 @@
                   <tbody>
                    <tr> 
                     <td>{{$datosVERMAS->ID_dept}}</td>
-                    <td>{{$datosVERMAS->ID_prop}}</td>
+                    <td>{{$propietarios[$datosVERMAS->ID_prop-1]->Nombre}}</td>
                     <td>{{$datosVERMAS->Numero}}</td>
                     <td>{{$datosVERMAS->Bloque}}</td>              
                    

@@ -28,7 +28,7 @@
                   <thead>
                     <tr>
                         <th>ID Pago</th>
-                        <th>ID Dept</th>
+                        <th>Departamento</th>
                         <th>Monto</th>
                         <th>Monto Deuda</th>
                         <th>Fecha de Pago</th>
@@ -41,7 +41,7 @@
                   <tbody>
                    <tr> 
                     <td>{{$datosVERMAS->ID_pagos}}</td>
-                    <td>{{$datosVERMAS->ID_dept}}</td>
+                    <td>{{$departamentos[$datosVERMAS->ID_dept-1]->Numero}} - {{$departamentos[$datosVERMAS->ID_dept-1]->Bloque}}</td>
                     <td>{{$datosVERMAS->Monto}}</td>
                     <td>{{$datosVERMAS->Monto_deuda}}</td>
                     <td>{{$datosVERMAS->Fecha_de_pago}}</td>

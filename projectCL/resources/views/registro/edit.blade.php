@@ -28,7 +28,7 @@
                         <h3 class="card-title">General</h3>
                     </div>
                     <div class="card-body" style="display: block;">
-
+                                            
                         <div class="form-group">
                             <label for="Asunto">{{'Asunto'}}</label>
                             <input type="text" name="Asunto" id="Asunto" value="{{$registro->Asunto}}"

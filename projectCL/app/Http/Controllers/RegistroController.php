@@ -41,7 +41,7 @@ class RegistroController extends Controller
     {
         //
         $campos=[
-            'Cateoria' => 'required|string|max:30',
+            'Categoria' => 'required|string|max:30',
             'Asunto'   => 'required|string|max:30',
             'Monto'     => 'required|numeric',
             'Fecha_de_pago' => 'date',
@@ -49,7 +49,7 @@ class RegistroController extends Controller
         ];
         $Mensaje=[
             
-            "Cateoria.required"=> 'La Cateoria es requerida',
+            "Categoria.required"=> 'La Categoria es requerida',
             "Asunto.max"=> 'El Asunto debe poseer menos de 30 caracteres',
             "Asunto.required"=> 'El Asunto es requerido',
             "Monto.numeric"=> 'El Monto debe ser un numero',
