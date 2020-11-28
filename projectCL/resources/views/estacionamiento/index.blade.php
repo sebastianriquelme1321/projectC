@@ -27,18 +27,18 @@
                 <table class="table table-head-fixed text-nowrap">
                   <thead>
                     <tr>
-                        <th>ID Est</th>
-                        <th>ID Prop</th>
-                        <th>Numero</th>                                  
+                        <th>Numero</th>     
+                        <th>Propetario</th>
+                                                    
  
                     </tr>
                   </thead>
                   <tbody>
                     @foreach($estacionamientos as $estacionamiento)
-                    <tr>                        
-                        <td>{{$estacionamiento->ID_est}}</td>
+                    <tr>       
+                        <td>{{$estacionamiento->Numero}}</td>                 
                         <td>{{$estacionamiento->ID_prop}}</td>
-                        <td>{{$estacionamiento->Numero}}</td>                   
+                                           
                         
                         <td>
                           <form method="post" action="{{url('/estacionamiento/'.$estacionamiento->ID_est)}}">

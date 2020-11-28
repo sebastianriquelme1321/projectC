@@ -27,9 +27,10 @@
                 <table class="table table-head-fixed text-nowrap">
                   <thead>
                     <tr>
-                        <th>ID Jefe</th>                       
-                        <th>Rut Jefe</th>                        
+                                           
+                                              
                         <th>Nombre</th>
+                        <th>Rut Jefe</th>  
                         <th>Apellido</th>
                                    
  
@@ -38,10 +39,9 @@
                   <tbody>
                     @foreach($jefe_de_hogars as $jefe_de_hogar)
                     <tr>         
-            
-                        <td>{{$jefe_de_hogar->ID_jefe}}</td>                        
-                        <td>{{$jefe_de_hogar->Rut_jefe}}</td>                        
+                         
                         <td>{{$jefe_de_hogar->Nombre}}</td>
+                        <td>{{$jefe_de_hogar->Rut_jefe}}</td>     
                         <td>{{$jefe_de_hogar->Apellido}}</td>
                                              
                         

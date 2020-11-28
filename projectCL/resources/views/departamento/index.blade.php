@@ -27,11 +27,7 @@
                 <table class="table table-head-fixed text-nowrap">
                   <thead>
                     <tr>
-                        <th>ID Depto</th>
-                        <th>ID Condominio</th>
-                        <th>ID Propietario</th>
-                        <th>Bloque</th> 
-                        <th>Numero</th>                                 
+                        <th>Depto<                                                                                                          /th>                             
  
                     </tr>
                   </thead>
@@ -39,12 +35,7 @@
                     @foreach($departamentos as $departamento)
                     <tr>
             
-                        <td>{{$departamento->ID_dept}}</td>
-                        <td>{{$departamento->ID_condominio}}</td>
-                        <td>{{$departamento->ID_prop}}</td>
-                        <td>{{$departamento->Bloque}}</td>  
-                        <td>{{$departamento->Numero}}</td>                                          
-                        
+                        <td>{{$departamento->Numero.$dpartamento->Bloque}}</td>
                         <td>
                           <form method="post" action="{{url('/departamento/'.$departamento->ID_dept)}}">
                           {{csrf_field() }}

@@ -20,16 +20,14 @@
                 <table class="table table-head-fixed text-nowrap">
                   <thead>
                     <tr>
-                      <th>ID</th>
-                      <th>Nombre</th>                      
+                      <th>Nombre</th>                         
                       <th>Fono</th>
                     </tr>
                   </thead>
                   <tbody>
                  @foreach($propietarios as $propietario)
                    <tr> 
-                        <td>{{$propietario->ID_prop}}</td>
-                        <td>{{$propietario->Nombre}}</td>                        
+                        <td>{{$propietario->Nombre}}</td>        
                         <td>{{$propietario->Fono}}</td>
                         <td>
                           <form method="post" action="{{url('/propietarios/'.$propietario->ID_prop)}}">
