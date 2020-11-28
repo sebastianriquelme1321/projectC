@@ -29,8 +29,12 @@
 
                     </div>
                     <div class="card-body" style="display: block;">
+
+
+                        <input type="hidden" name="ID_condominio" id="ID_condominio" value="1" class="form-control">
+                         
                         
-                        <div class="form-group">
+                        {{--  <div class="form-group">
                             <label for="ID_condominio">{{'Administrador'}}</label>
 
                             <select name="ID_condominio" id="inputID_condominio" class="form-control custom-select {{$errors->has('ID_condominio')?'is-invalid':''}}" >
@@ -41,7 +45,7 @@
                             </select>
                             {!! $errors->first('ID_condominio','<div class="invalid-feedback"> :message</div>') !!}
 
-                        </div>
+                        </div>  --}}
 
                         <div class="form-group">
                             <label for="ID_prop">{{'Nombre Propietario'}}</label>
