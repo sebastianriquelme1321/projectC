@@ -18,6 +18,20 @@
 
                     <div class="card-body" style="display: block;">
 
+                        <div class="form-group">
+                            <label for="id">{{'Usuario a enlazar'}}</label>
+                            <select name="id" id="id" class="form-control custom-select {{$errors->has('id')?'is-invalid':''}}"     >
+                               
+                                <option value="$propietario->id">{{$users[$propietario->id-1]->email}}</option>
+                                @foreach ($users as $user)
+                                @if ($user->id != $propietario->id)   
+                                <option value="{{$user->id}}"> {{$user->email}} </option>
+                                @endif
+                                @endforeach
+                            </select>
+                            {!! $errors->first('ID_prop','<div class="invalid-feedback"> :message</div>') !!}
+      
+                        </div>
 
                         <div class="form-group">
                             <label for="Nombre">{{'Nombre Completo'}}</label>

@@ -29,12 +29,16 @@
                     <div class="card-body" style="display: block;">
                        
                         <div class="form-group">
-                           
-                            <input type="hidden"  name="id" id="id"  value="{{auth()->user()->id}}"  class="form-control {{$errors->has('id')?'is-invalid':''}}" >
+                            <label for="id">{{'Usuario a enlazar'}}</label>
+                            <select name="id" id="id" class="form-control custom-select {{$errors->has('id')?'is-invalid':''}}"     >
+                                <option value="">-- Escoja el correo del Usuario --</option>
+                                @foreach ($users as $user)
+                                <option value="{{$user->id}}"> {{$user->email}} </option>
+                                @endforeach
+                            </select>
+                            {!! $errors->first('ID_prop','<div class="invalid-feedback"> :message</div>') !!}
       
-                            {!! $errors->first('id','<div class="invalid-feedback"> :message</div>') !!}
-      
-                        </div>
+                        </div>                       
 
                         <div class="form-group">
                             <label for="Nombre">{{'Nombre Completo'}}</label>

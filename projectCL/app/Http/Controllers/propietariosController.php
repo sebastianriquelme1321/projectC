@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Propietarios;
 use Illuminate\Http\Request;
 use Freshwork\ChileanBundle\Rut;
+use App\Models\User;
 
 class PropietariosController extends Controller
 {
@@ -27,7 +28,8 @@ class PropietariosController extends Controller
     public function create()
     {
         //
-        return view('propietario/create');
+        $users = User::all();
+        return view('propietario/create',compact('users'));
     }
 
     /**
@@ -89,8 +91,9 @@ class PropietariosController extends Controller
     {
         //
         $propietario=propietarios::findOrFail($ID_prop);
+        $users = User::all();
 
-        return view('propietario/edit',compact('propietario'));
+        return view('propietario/edit',compact('propietario'),compact('users'));
     }
 
     public function update(Request $request,$ID_prop)

@@ -8,8 +8,15 @@
 @stop
 
 @section('content')
-
-    <div class="card">
+    <div class="row">
+      <div class="col-12"> 
+        <a href="{{url('/propietarios/create')}}" class="btn btn-primary btn-lg float-right" >Agregar</a>
+        
+        
+      </div>
+    </div>
+    <br>
+    <div class="card">      
               <div class="card-header">
                 <h3 class="card-title">Propietarios</h3>
 
