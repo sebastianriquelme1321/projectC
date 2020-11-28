@@ -48,8 +48,7 @@ class departamentosController extends Controller
             'ID_condominio' => 'required|numeric',
             'ID_prop'   => 'required|numeric',
             'Numero'     => 'required|numeric',
-            'Bloque'   => 'required|string|size:1|alpha',
-            'Password' => 'required|string|max:20'
+            'Bloque'   => 'required|string|size:1|alpha',            
         ];
         $Mensaje=[
             "ID_condominio.numeric"=> 'El ID debe ser un numero',
@@ -61,9 +60,7 @@ class departamentosController extends Controller
             "Bloque.size"=> 'Debe poseer 1 caracter',
             "Bloque.string"=> 'Debe ser caracter',
             "Bloque.alpha"=> 'Debe ser caracter',
-            "Bloque.required"=> 'El Bloque es requerido',
-            "Password.required"=> 'El Password es requerido',
-            "Password.max"=> 'El Password debe poseer menos de 20 caracteres',
+            "Bloque.required"=> 'El Bloque es requerido',            
         ];
 
         $this->validate($request,$campos,$Mensaje);
@@ -111,8 +108,7 @@ class departamentosController extends Controller
             
             'ID_prop'  => 'required|numeric',
             'Numero'   => 'required|numeric',
-            'Bloque'   => 'required|string|size:1|alpha',
-            'Password' => 'required|string|max:20'
+            'Bloque'   => 'required|string|size:1|alpha',            
         ];
         $Mensaje=[
             
@@ -124,8 +120,6 @@ class departamentosController extends Controller
             "Bloque.string"=> 'Debe ser caracter',
             "Bloque.alpha"=> 'Debe ser caracter',
             "Bloque.required"=> 'El Bloque es requerido',
-            "Password.required"=> 'El Password es requerido',
-            "Password.max"=> 'El Password debe poseer menos de 20 caracteres',
         ];
 
         $this->validate($request,$campos,$Mensaje);

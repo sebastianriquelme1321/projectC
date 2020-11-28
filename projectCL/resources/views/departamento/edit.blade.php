@@ -65,12 +65,6 @@
                             {!! $errors->first('Numero','<div class="invalid-feedback"> :message</div>') !!}
                         </div>
 
-                        <div class="form-group">
-                            <label for="Password">{{'Password'}}</label>
-                            <input type="text" name="Password" id="Password" value="{{$departamento->Password}}"
-                                class="form-control {{$errors->has('Password')?'is-invalid':''}}">
-                            {!! $errors->first('Password','<div class="invalid-feedback"> :message</div>') !!}
-                        </div>
 
                     </div>
                 </div>

@@ -20,8 +20,7 @@ class CreateDepartamentosTable extends Migration
             $table->integer('ID_prop')->unsigned();
             $table->foreign('ID_prop')->references('ID_prop')->on('propietarios');
             $table->integer('Numero');
-            $table->char('Bloque',1);
-            $table->char('Password',20);
+            $table->char('Bloque',1);            
             $table->timestamps();
         });
     }
