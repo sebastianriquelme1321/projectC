@@ -234,6 +234,7 @@ return [
         
         ['header' => 'Controles'],        
         [
+            'can' => 'admin-only',
             'text'    => 'Condominio',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
@@ -244,6 +245,7 @@ return [
             ],
         ],
         [
+            'can' => 'admin-only',
             'text'    => 'Departamento',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
