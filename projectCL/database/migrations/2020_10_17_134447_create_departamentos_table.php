@@ -21,6 +21,7 @@ class CreateDepartamentosTable extends Migration
             $table->foreign('ID_prop')->references('ID_prop')->on('propietarios');
             $table->integer('Numero');
             $table->char('Bloque',1);            
+            $table->unique(['Bloque','Numero'],'Combinacion');
             $table->timestamps();
         });
     }

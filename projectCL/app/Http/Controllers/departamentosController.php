@@ -47,20 +47,24 @@ class departamentosController extends Controller
         $campos=[
             'ID_condominio' => 'required|numeric',
             'ID_prop'   => 'required|numeric',
-            'Numero'     => 'required|numeric',
-            'Bloque'   => 'required|string|size:1|alpha',            
+            'Numero'     => 'required|numeric|unique:departamentos,Numero,Null,Null,Bloque, '.$request['Bloque'],
+            'Bloque'   => 'required|string|size:1|alpha|unique:departamentos,Bloque,Null,Null,Numero, '.$request['Numero'],
+
+
         ];
         $Mensaje=[
             "ID_condominio.numeric"=> 'El ID debe ser un numero',
             "ID_condominio.required"=> 'El ID es requerido',
-            "ID_prop.numeric"=> 'El ID debe ser un numero',  
+            "ID_prop.numeric"=> 'El ID debe ser un numero',
             "ID_prop.required"=> 'El ID es requerido', 
             "Numero.numeric"=> 'Debe ser un numero',
             "Numero.required"=> 'El Numero es requerido',
             "Bloque.size"=> 'Debe poseer 1 caracter',
             "Bloque.string"=> 'Debe ser caracter',
             "Bloque.alpha"=> 'Debe ser caracter',
-            "Bloque.required"=> 'El Bloque es requerido',            
+            "Bloque.required"=> 'El Bloque es requerido', 
+            "Numero.unique"=> 'El departamento ya existe',
+            "Bloque.unique"=> 'El departamento ya existe',
         ];
 
         $this->validate($request,$campos,$Mensaje);
@@ -105,14 +109,15 @@ class departamentosController extends Controller
     {
       
         $campos=[
-            
+
             'ID_prop'  => 'required|numeric',
-            'Numero'   => 'required|numeric',
-            'Bloque'   => 'required|string|size:1|alpha',            
+            'Numero'     => 'required|numeric|unique:departamentos,Numero,Null,Null,Bloque, '.$request['Bloque'],
+            'Bloque'   => 'required|string|size:1|alpha|unique:departamentos,Bloque,Null,Null,Numero, '.$request['Numero'],
+
         ];
         $Mensaje=[
-            
-            "ID_prop.numeric"=> 'El ID debe ser un numero',  
+
+            "ID_prop.numeric"=> 'El ID debe ser un numero',
             "ID_prop.required"=> 'El ID es requerido', 
             "Numero.numeric"=> 'Debe ser un numero',
             "Numero.required"=> 'El Numero es requerido',
@@ -120,6 +125,8 @@ class departamentosController extends Controller
             "Bloque.string"=> 'Debe ser caracter',
             "Bloque.alpha"=> 'Debe ser caracter',
             "Bloque.required"=> 'El Bloque es requerido',
+            "Numero.unique"=> 'El departamento ya existe',
+            "Bloque.unique"=> 'El departamento ya existe',
         ];
 
         $this->validate($request,$campos,$Mensaje);
