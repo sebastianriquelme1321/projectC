@@ -15,12 +15,13 @@ class CreateDepartamentosTable extends Migration
     {
         Schema::create('departamentos', function (Blueprint $table) {
             $table->id('ID_dept');
-            $table->integer('ID_condominio')->unsigned();
-            $table->foreign('ID_condominio')->references('ID_condominio')->on('condominios');
-            $table->integer('ID_prop')->unsigned();
-            $table->foreign('ID_prop')->references('ID_prop')->on('propietarios');
+            $table->integer('ID_condominio')->unsigned()->default(1);
+            $table->foreign('ID_condominio')->references('ID_condominio')->on('condominios')->onDelete('set default');
+            $table->integer('ID_prop')->unsigned()->default(1);
+            $table->foreign('ID_prop')->references('ID_prop')->on('propietarios')->onDelete('set default');
             $table->integer('Numero');
-            $table->char('Bloque',1);            
+            $table->char('Bloque',1); 
+            $table->unique(['Bloque','Numero'],'Combinacion');
             $table->timestamps();
         });
     }

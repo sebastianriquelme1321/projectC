@@ -37,7 +37,11 @@
                   <tbody>
                    <tr> 
                     <td>{{$datosVERMAS->ID_dept}}</td>
-                    <td>{{$propietarios[$datosVERMAS->ID_prop-1]->Nombre}}</td>
+                    @foreach ($propietarios as $propietario)
+                        @if ($propietario->ID_prop == $datosVERMAS->ID_prop)
+                        <td>{{$propietario->Nombre}}</td>
+                        @endif
+                    @endforeach                   
                     <td>{{$datosVERMAS->Numero}}</td>
                     <td>{{$datosVERMAS->Bloque}}</td>              
                    

@@ -38,7 +38,11 @@
                     @foreach($pagos as $pago)
                         <tr>
                                            
-                            <td>{{$departamentos[$pago->ID_dept-1]->Numero}} - {{$departamentos[$pago->ID_dept-1]->Bloque}}</td>
+                            @foreach ($departamentos as $departamento)
+                                @if ($pago->ID_dept == $departamento->ID_dept)
+                                <td>{{$departamento->Numero}} - {{$departamento->Bloque}}</td>
+                                @endif
+                            @endforeach
                             <td>{{$pago->Monto}}</td>                            
                             <td>{{$pago->Fecha_de_pago}}</td>                         
        
