@@ -34,7 +34,14 @@
                             
                             <select name="ID_prop" id="ID_prop" class="form-control custom-select {{$errors->has('ID_prop')?'is-invalid':''}}">
                                 
-                                <option value=" {{$departamento->ID_prop}}">  {{$listaprop[$departamento->ID_prop-1]->Nombre}} </option>
+                                
+                                <option value=" {{$departamento->ID_prop}}">
+                                    @foreach ($listaprop as $propietario)
+                                        @if ($propietario->ID_prop == $departamento->ID_prop)
+                                            {{$propietario->Nombre}}
+                                        @endif
+                                    @endforeach                                
+                                </option>
     
                                 @foreach ($listaprop as $propietario)
                                 @if ($propietario->ID_prop != $departamento->ID_prop)
@@ -51,7 +58,7 @@
                             {!! $errors->first('ID_prop','<div class="invalid-feedback"> :message</div>') !!}
                         </div>
 
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="Bloque">{{'Bloque'}}</label>
                             <input type="text" name="Bloque" id="Bloque" value="{{$departamento->Bloque}}"
                                 class="form-control {{$errors->has('Bloque')?'is-invalid':''}}">
@@ -63,7 +70,7 @@
                             <input type="text" name="Numero" id="Numero" value="{{$departamento->Numero}}"
                                 class="form-control {{$errors->has('Numero')?'is-invalid':''}}">
                             {!! $errors->first('Numero','<div class="invalid-feedback"> :message</div>') !!}
-                        </div>
+                        </div> --}}
 
 
                     </div>

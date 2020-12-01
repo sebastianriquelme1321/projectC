@@ -36,8 +36,12 @@
                   <tbody>
                     @foreach($estacionamientos as $estacionamiento)
                     <tr>       
-                        <td>{{$estacionamiento->Numero}}</td>                 
-                        <td>{{$listaprop[$estacionamiento->ID_prop-1]->Nombre}}</td>
+                        <td>{{$estacionamiento->Numero}}</td>
+                        @foreach ($listaprop as $lista)
+                            @if ($estacionamiento->ID_prop == $lista->ID_prop)
+                            <td>{{$lista->Nombre}}</td>
+                            @endif
+                        @endforeach                                        
                                            
                         
                         {{-- <td>

@@ -17,7 +17,7 @@ class departamentosController extends Controller
      */
     public function index()
     {
-        $datos['departamentos']= Departamento::paginate(5);
+        $datos['departamentos']= Departamento::all();
         return view('departamento.index',$datos);
     }
 
@@ -47,8 +47,10 @@ class departamentosController extends Controller
         $campos=[
             'ID_condominio' => 'required|numeric',
             'ID_prop'   => 'required|numeric',
-            'Numero'     => 'required|numeric',
-            'Bloque'   => 'required|string|size:1|alpha',            
+            'Numero'     => 'required|numeric|unique:departamentos,Numero,Null,Null,Bloque, '.$request['Bloque'],
+            'Bloque'   => 'required|string|size:1|alpha|unique:departamentos,Bloque,Null,Null,Numero, '.$request['Numero'],
+            
+                        
         ];
         $Mensaje=[
             "ID_condominio.numeric"=> 'El ID debe ser un numero',
@@ -60,7 +62,9 @@ class departamentosController extends Controller
             "Bloque.size"=> 'Debe poseer 1 caracter',
             "Bloque.string"=> 'Debe ser caracter',
             "Bloque.alpha"=> 'Debe ser caracter',
-            "Bloque.required"=> 'El Bloque es requerido',            
+            "Bloque.required"=> 'El Bloque es requerido', 
+            "Numero.unique"=> 'El departamento ya existe',
+            "Bloque.unique"=> 'El departamento ya existe',           
         ];
 
         $this->validate($request,$campos,$Mensaje);
@@ -107,8 +111,8 @@ class departamentosController extends Controller
         $campos=[
             
             'ID_prop'  => 'required|numeric',
-            'Numero'   => 'required|numeric',
-            'Bloque'   => 'required|string|size:1|alpha',            
+                      
+                     
         ];
         $Mensaje=[
             
@@ -120,6 +124,8 @@ class departamentosController extends Controller
             "Bloque.string"=> 'Debe ser caracter',
             "Bloque.alpha"=> 'Debe ser caracter',
             "Bloque.required"=> 'El Bloque es requerido',
+            "Numero.unique"=> 'El departamento ya existe',
+            "Bloque.unique"=> 'El departamento ya existe',   
         ];
 
         $this->validate($request,$campos,$Mensaje);
