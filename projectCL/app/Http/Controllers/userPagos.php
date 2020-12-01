@@ -20,24 +20,29 @@ class userPagos extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $propietariob=propietarios::where("id","=",Auth::user()->id)->pluck('ID_prop');
-        $dpto=Departamento::where("ID_prop","=",$propietariob)->get()->toJson();
-        $dptomostrar=Departamento::where("ID_prop","=",$propietariob)->get()->toJson();
+    {   $viewpagos=Array();
+        $propietariob=propietarios::where("id","=",Auth::user()->id)->get()->toJson();
+        $propietariob=json_decode($propietariob);
+     
         
-        $dptomostrar=json_decode($dptomostrar);
-        $buscar=Array();
-        foreach($dptomostrar as $mos)
+        if(count($propietariob)!=0)
         {
+            $dpto=Departamento::where("ID_prop","=",$propietariob[0]->ID_prop)->get()->toJson();
+            $dptomostrar=Departamento::where("ID_prop","=",$propietariob[0]->ID_prop)->get()->toJson();
+        
+            $dptomostrar=json_decode($dptomostrar);
+            $buscar=Array();
+             foreach($dptomostrar as $mos)
+            {
            
             $pago=Pagos::where("ID_dept","=",$mos->ID_dept)->get()->toJson();
             array_push($buscar,$pago);
 
-        }
-        $viewpagos=Array();
+            }
+          
        
-        foreach($buscar as $mostrar)
-        {
+           foreach($buscar as $mostrar)
+          {
            
            
            $xd=json_decode ($mostrar);
@@ -52,6 +57,12 @@ class userPagos extends Controller
            
         }
 
+        }else{
+        
+         $dptomostrar="no hay";
+        
+
+        }
     
 
         

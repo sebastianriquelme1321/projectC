@@ -28,6 +28,8 @@
                     </tr>
                   </thead>
                   <tbody>
+                    @if($dptomostrar!="no hay")
+
                     @foreach($viewpagos as $pago)
                        
                     @foreach($dptomostrar as $muestro)
@@ -53,6 +55,8 @@
                     @endforeach
                  @endforeach
                   </tbody>
+                        
+                    @endif
                 </table>
               </div>
               <!-- /.card-body -->

@@ -35,7 +35,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach($buscar as $pago)
+                    @foreach($pagos as $pago)
                         <tr>
                                            
                             @foreach ($departamentos as $departamento)
