@@ -35,7 +35,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach($pagos as $pago)
+                    @foreach($buscar as $pago)
                         <tr>
                                            
                             <td>{{$departamentos[$pago->ID_dept-1]->Numero}} - {{$departamentos[$pago->ID_dept-1]->Bloque}}</td>
