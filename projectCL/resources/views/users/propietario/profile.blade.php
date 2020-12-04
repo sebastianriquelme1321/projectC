@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Propietarios')
+@section('title', 'Mi perfil')
 
 @section('content_header')
-    <h1>Propietarios</h1>
+    <h1>Perfil</h1>
 
 @stop
 
@@ -18,7 +18,7 @@
     
     <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Propietarios</h3>
+                <h3 class="card-title"></h3>
 
 
               </div>

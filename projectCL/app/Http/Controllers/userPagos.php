@@ -70,5 +70,17 @@ class userPagos extends Controller
         return view('users.pagos.pagos',compact('viewpagos'), compact('dptomostrar')); 
     }
 
-        
+    /**
+    * Display the specified resource.
+    *
+    * @param  \App\Models\Pagos  $pago
+    * @return \Illuminate\Http\Response
+    */
+   public function show($ID_pagos)
+   {       
+       //
+       $datosVERMAS = pagos::find($ID_pagos); 
+       $departamentos = Departamento::all();      
+       return view('users.pagos.show', compact('datosVERMAS'),compact('departamentos'));
+   }
 }
