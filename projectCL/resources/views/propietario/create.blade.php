@@ -58,9 +58,9 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="Correo">{{'Correo'}}</label>
-                            <input type="text" name="Correo" id="Correo"
-                                value="{{isset($propietario->Correo)?$propietario->Correo:old('Correo')}}"
+                            
+                            <input type="hidden" name="Correo" id="Correo" 
+                                value="{{$user->email}}"
                                 class="form-control {{$errors->has('Correo')?'is-invalid':''}}">
                             {!! $errors->first('Correo','<div class="invalid-feedback"> :message</div>') !!}
                         </div>
@@ -79,7 +79,7 @@
                             <label for="Razon_Social">{{'Razon Social'}}</label>
                             <p style="color:#5a5a5ae7" ;> Opcional </p>
                             <input type="text" name="Razon_Social" id="Razon_Social"
-                                value="{{isset($propietario->Nombre)?$propietario->Nombre:old('Nombre')}}"
+                                value=""
                                 class="form-control">
                         </div>
 

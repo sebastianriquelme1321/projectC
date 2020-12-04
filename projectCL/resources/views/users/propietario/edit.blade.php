@@ -4,7 +4,7 @@
 
 @section('content')
 
-<form action="{{url('/propietarios/'.$propietario->ID_prop)}}" method="post" enctype=" multipart/form-data">
+<form action="{{url('/user/profile/'.$propietario->ID_prop)}}" method="post" enctype=" multipart/form-data">
     {{csrf_field()}}
     {{method_field('PATCH')}}
     <section class="content">
@@ -18,28 +18,7 @@
 
                     <div class="card-body" style="display: block;">
 
-                        <div class="form-group">
-                            <label for="id">{{'Usuario a enlazar'}}</label>
-                            <select name="id" id="id" class="form-control custom-select {{$errors->has('id')?'is-invalid':''}}"     >
-
-                                <option value=" {{$propietario->id}}">
-                                    @foreach ($users as $user)
-                                        @if ($user->id == $propietario->id)
-                                            {{$user->email}}
-                                        @endif
-                                    @endforeach                                
-                                </option>                              
-                                
-                                @foreach ($users as $user)
-                                @if ($user->id != $propietario->id)   
-                                <option value="{{$user->id}}"> {{$user->email}} </option>
-                                @endif
-                                @endforeach
-                            </select>
-                            {!! $errors->first('ID_prop','<div class="invalid-feedback"> :message</div>') !!}
-      
-                        </div>
-
+                        
                         <div class="form-group">
                             <label for="Nombre">{{'Nombre Completo'}}</label>
                             <input type="text" name="Nombre" id="Nombre" value="{{$propietario->Nombre}}"
@@ -48,9 +27,10 @@
                         </div>
 
 
-                        <div class="form-group">                          
-                            
-                            <input type="hidden" name="Rut_prop" id="Rut_prop" value="{{$propietario->Rut_prop}}"
+                        <div class="form-group">
+                            <label for="Rut">{{'Rut'}}</label>
+                            <p style="color:#5a5a5ae7" ;>Formato:12.345.678-9</p>
+                            <input type="text" name="Rut_prop" id="Rut_prop" value="{{$propietario->Rut_prop}}"
                                 class="form-control {{$errors->has('Rut_prop')?'is-invalid':''}}">
                             {!! $errors->first('Rut_prop','<div class="invalid-feedback"> :message</div>') !!}
                         </div>
@@ -75,9 +55,9 @@
                         <div class="form-group">
                             <label for="Razon_Social">{{'Razon Social'}}</label>
                             <p style="color:#5a5a5ae7" ;> Opcional </p>
-                            <input type="text" name="Razon_Social" id="Razon_Social" value="{{$propietario->Razon_Social}}"
-                            class="form-control {{$errors->has('Razon_Social')?'is-invalid':''}}">
-                        {!! $errors->first('Razon_Social','<div class="invalid-feedback"> :message</div>') !!}
+                            <input type="text" name="Razon_Social" id="Razon_Social"
+                                value="{{isset($propietario->Nombre)?$propietario->Nombre:old('Nombre')}}"
+                                class="form-control">
                         </div>
 
                     </div>
@@ -88,7 +68,7 @@
 
         <div class="row">
             <div class="col-12">
-                <a href="{{url('/propietarios')}}" class="btn btn-secondary">Cancel</a>
+                <a href="{{url('/user/profile')}}" class="btn btn-secondary">Cancel</a>
                 <input type="submit" value="Editar" class="btn btn-success float-right">
             </div>
         </div>

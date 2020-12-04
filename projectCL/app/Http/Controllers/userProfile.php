@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Freshwork\ChileanBundle\Rut;
 use App\Models\User;
 
-class PropietariosController extends Controller
+class userProfile extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class PropietariosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $datos['propietarios']= Propietarios::paginate();
-        return view('propietario.index',$datos);
+    {  
+        $datosVERMAS = propietarios::all();
+        return view('users.propietario.profile', compact('datosVERMAS'));
     }
 
     /**
@@ -27,9 +27,7 @@ class PropietariosController extends Controller
      */
     public function create()
     {
-        //
-        $users = User::all();
-        return view('propietario/create',compact('users'));
+        
     }
 
     /**
@@ -40,32 +38,7 @@ class PropietariosController extends Controller
      */
     public function store(Request $request)
     {
-        $campos=[
-            'Rut_prop' => 'required|cl_rut|unique:propietarios,Rut_prop',
-            'Nombre'   => 'required|string|max:100',
-            'Fono'     => 'required|digits:9',
-            'Correo'   => 'required|string|max:60|email',
-            'Razon_Social' => 'nullable|string|max:100'
-        ];
-        $Mensaje=[
-            "numeric"=> 'El Fono debe ser un numero',
-            "email"=>'El Correo ingresado es invalido',
-            "digits"=>'El Fono debe tener 9 digitos',
-            "Rut_prop.cl_rut"=> 'El Rut debe ser valido',
-            "Rut_prop.required"=>'El Rut es requerido',
-            "Nombre.required"=>'El Nombre es requerido',
-            "Fono.required"=>'El Fono es requerido',
-            "Correo.required"=>'El Correo es requerido',
-            "Rut_prop.unique"=> 'El Rut ya esta siendo utilizado'   
-        ];
-        $this->validate($request,$campos,$Mensaje);
-        
-        
-        $datosPropietario=$request->except('_token');
-        $datosPropietario['Rut_prop'] = Rut::parse($datosPropietario['Rut_prop'])->format(Rut::FORMAT_COMPLETE);
-        propietarios::insert($datosPropietario);
-        return redirect('propietarios');
-        
+       
 
     }
 
@@ -93,8 +66,7 @@ class PropietariosController extends Controller
         //
         $propietario=propietarios::findOrFail($ID_prop);
         $users = User::all();
-
-        return view('propietario/edit',compact('propietario'),compact('users'));
+        return view('users/propietario/edit',compact('propietario'),compact('users'));
     }
 
     public function update(Request $request,$ID_prop)
@@ -122,8 +94,7 @@ class PropietariosController extends Controller
         $datosPropietario=$request->except(['_token','_method']);
         $datosPropietario['Rut_prop'] = Rut::parse($datosPropietario['Rut_prop'])->format(Rut::FORMAT_COMPLETE);
         propietarios::where('ID_prop','=',$ID_prop)->update($datosPropietario);
-        return redirect('/propietarios');
-
+        return redirect('user/profile');
     }
 
     /**

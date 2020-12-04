@@ -15,8 +15,8 @@ class CreateEstacionamientosTable extends Migration
     {
         Schema::create('estacionamientos', function (Blueprint $table) {
             $table->id('ID_est');
-            $table->integer('ID_prop')->unsigned();
-            $table->foreign('ID_prop')->references('ID_prop')->on('propietarios');
+            $table->integer('ID_prop')->unsigned()->default(1);
+            $table->foreign('ID_prop')->references('ID_prop')->on('propietarios')->onDelete('set default');
             $table->integer('Numero');
             $table->timestamps();
         });

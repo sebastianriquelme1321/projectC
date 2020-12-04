@@ -232,23 +232,17 @@ return [
 
     'menu' => [        
         
-        ['header' => 'Controles'],        
+        ['can' => 'admin-only','header' => 'Controles'],        
         [
             'can' => 'admin-only',
-            'text'    => 'Condominio',
-            'icon'    => 'fas fa-fw fa-share',
+            'text'    => 'Panel Administrador',
+            'icon'    => 'fas fa-cogs',
             'submenu' => [
                 [
                     'text' => 'Registro de Gastos',
                     'url'  => '/registro/',
+                    'icon'=>'fas fa-money-bill-alt',
                 ],
-            ],
-        ],
-        [
-            'can' => 'admin-only',
-            'text'    => 'Departamento',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
                 [
                     'text' => 'Deptos',
                     'url'  => '/departamento/',
@@ -272,6 +266,22 @@ return [
             ],
         ],
         
+        [
+            'text'    => 'Mi Perfil',
+            'icon'    => 'fas fa-house-user fa-fw',
+            'url'  => 'user/profile',
+        ],
+        [
+            'text'    => 'Mis Pagos',
+            'icon'    => 'fas fa-money-bill-alt',
+            'url'  => 'user/pagos',
+        ],
+        [
+            'text'    => 'Contacto',
+            'icon'    => 'fas fa-id-card',
+            'url'  => 'user/contact',
+        ],
+
     ],
 
     /*

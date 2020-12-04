@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-
 Route::group(['middleware' => 'admin'], function() {
     Route::resource('condominio','\App\Http\Controllers\condominiosController'); 
     Route::resource('propietarios', '\App\Http\Controllers\propietariosController');
@@ -26,11 +27,29 @@ Route::group(['middleware' => 'admin'], function() {
 });
 
 
-Route::get('/', function() {
-    return view('welcome');
-});
-
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::group(['middleware' => 'auth'], function() {
+    
+  Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+  Route::get('/', function() {return view('welcome');});
+
+
+   Route::group(['prefix' => 'user'], function() {
+    //
+    Route::resource('registro', '\App\Http\Controllers\userRegistro');
+    
+    Route::resource('profile', '\App\Http\Controllers\userProfile');
+    Route::resource('pagos', '\App\Http\Controllers\userPagos'); 
+    Route::get('contact', function() {return view('users.contact');});
+   
+    
+    
+
+
+ });
+
+});
