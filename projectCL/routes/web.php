@@ -41,15 +41,10 @@ Route::group(['middleware' => 'auth'], function() {
    Route::group(['prefix' => 'user'], function() {
     //
     Route::resource('registro', '\App\Http\Controllers\userRegistro');
-    
     Route::resource('profile', '\App\Http\Controllers\userProfile');
     Route::resource('pagos', '\App\Http\Controllers\userPagos'); 
     Route::get('contact', function() {return view('users.contact');});
    
-    
-    
-
-
- });
+  });
 
 });

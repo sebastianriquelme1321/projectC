@@ -238,7 +238,7 @@ return [
             'text'    => 'Panel Administrador',
             'icon'    => 'fas fa-cogs',
             'submenu' => [
-                [
+                [   
                     'text' => 'Registro de Gastos',
                     'url'  => '/registro/',
                     'icon'=>'fas fa-cash-register',
@@ -246,7 +246,7 @@ return [
                 [
                     'text' => 'Deptos',
                     'url'  => '/departamento/',
-                    'icon'=>'fas fas fa-building',
+                    'icon'=>'fas fa-building',
                 ],
                 [
                     'text' => 'Propietario',
@@ -272,18 +272,50 @@ return [
                 ],
             ],
         ],
-        
+
+
         [
+            'can' => 'admin-only',
+            'text'    => 'Panel de Usuario',
+            'icon'    => 'fas fa-users-cog',
+            'submenu' => [
+                [
+                    'text'    => 'Mi Perfil',
+                    'icon'    => 'fas fa-house-user fa-fw',
+                    'url'  => 'user/profile',
+                ],
+                
+                [
+                    'text'    => 'Mis Pagos',
+                    'icon'    => 'fas fa-money-bill-alt',
+                    'url'  => 'user/pagos',
+                ],
+        
+                [
+                    'text'    => 'Contacto',
+                    'icon'    => 'fas fa-id-card',
+                    'url'  => 'user/contact',
+                ],
+            ],
+        ],
+
+
+        [
+            'can' => 'user-only',
             'text'    => 'Mi Perfil',
             'icon'    => 'fas fa-house-user fa-fw',
             'url'  => 'user/profile',
         ],
+        
         [
+            'can' => 'user-only',
             'text'    => 'Mis Pagos',
             'icon'    => 'fas fa-money-bill-alt',
             'url'  => 'user/pagos',
         ],
+
         [
+            'can' => 'user-only',
             'text'    => 'Contacto',
             'icon'    => 'fas fa-id-card',
             'url'  => 'user/contact',
