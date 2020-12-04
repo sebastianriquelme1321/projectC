@@ -15,7 +15,7 @@ class CreatePropietariosTable extends Migration
     {
         Schema::create('propietarios', function (Blueprint $table) {
             $table->id('ID_prop')->onDelete('cascade');
-            $table->char('Rut_prop',12);    
+            $table->char('Rut_prop',12)->unique();    
             $table->char('Nombre',100);
             $table->char('Fono',9);
             $table->char('Correo',60);

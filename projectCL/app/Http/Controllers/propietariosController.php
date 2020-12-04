@@ -41,7 +41,7 @@ class PropietariosController extends Controller
     public function store(Request $request)
     {
         $campos=[
-            'Rut_prop' => 'required|cl_rut',
+            'Rut_prop' => 'required|cl_rut|unique:propietarios,Rut_prop',
             'Nombre'   => 'required|string|max:100',
             'Fono'     => 'required|digits:9',
             'Correo'   => 'required|string|max:60|email',
@@ -55,7 +55,8 @@ class PropietariosController extends Controller
             "Rut_prop.required"=>'El Rut es requerido',
             "Nombre.required"=>'El Nombre es requerido',
             "Fono.required"=>'El Fono es requerido',
-            "Correo.required"=>'El Correo es requerido'   
+            "Correo.required"=>'El Correo es requerido',
+            "Rut_prop.unique"=> 'El Rut ya esta siendo utilizado'   
         ];
         $this->validate($request,$campos,$Mensaje);
         

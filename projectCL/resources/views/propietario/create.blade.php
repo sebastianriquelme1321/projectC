@@ -79,7 +79,7 @@
                             <label for="Razon_Social">{{'Razon Social'}}</label>
                             <p style="color:#5a5a5ae7" ;> Opcional </p>
                             <input type="text" name="Razon_Social" id="Razon_Social"
-                                value="{{isset($propietario->Nombre)?$propietario->Nombre:old('Nombre')}}"
+                                value=""
                                 class="form-control">
                         </div>
 
