@@ -241,27 +241,34 @@ return [
                 [
                     'text' => 'Registro de Gastos',
                     'url'  => '/registro/',
-                    'icon'=>'fas fa-money-bill-alt',
+                    'icon'=>'fas fa-cash-register',
                 ],
                 [
                     'text' => 'Deptos',
                     'url'  => '/departamento/',
+                    'icon'=>'fas fas fa-building',
                 ],
                 [
                     'text' => 'Propietario',
                     'url'  => '/propietarios/',
+                    'icon'=>'fas fa-users',
                 ],
                 [
                     'text' => 'Jefe de Hogar',
                     'url'  => '/jefe_de_hogar/',
+                    'icon'=>'fas fa-user-secret',
                 ],
                 [
                     'text' => 'Pagos',
                     'url'  => '/pagos/',
+                    'icon'    => 'fas fa-money-bill-alt',
+
                 ],
                 [
                     'text' => 'Estacionamiento',
                     'url'  => '/estacionamiento/',
+                    'icon'    => 'fas fa-car',
+                    
                 ],
             ],
         ],
