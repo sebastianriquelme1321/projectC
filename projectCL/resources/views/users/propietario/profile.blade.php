@@ -45,7 +45,7 @@
                     <td>{{$datos->Nombre}}</td>                    
                     <td>{{$datos->Rut_prop}}</td>                    
                     <td>{{$datos->Fono}}</td>
-                    <td>{{$datos->Correo}}</td>
+                    <td>{{auth()->user()->email}}</td>
                     <td>{{$datos->Razon_Social}}</td>                
                     <td>
                         <a href="{{url('/user/profile/'.$datos->ID_prop.'/edit')}}">

@@ -43,19 +43,16 @@ class PropietariosController extends Controller
         $campos=[
             'Rut_prop' => 'required|cl_rut|unique:propietarios,Rut_prop',
             'Nombre'   => 'required|string|max:100',
-            'Fono'     => 'required|digits:9',
-            'Correo'   => 'required|string|max:60|email',
+            'Fono'     => 'required|digits:9',            
             'Razon_Social' => 'nullable|string|max:100'
         ];
         $Mensaje=[
-            "numeric"=> 'El Fono debe ser un numero',
-            "email"=>'El Correo ingresado es invalido',
+            "numeric"=> 'El Fono debe ser un numero',            
             "digits"=>'El Fono debe tener 9 digitos',
             "Rut_prop.cl_rut"=> 'El Rut debe ser valido',
             "Rut_prop.required"=>'El Rut es requerido',
             "Nombre.required"=>'El Nombre es requerido',
-            "Fono.required"=>'El Fono es requerido',
-            "Correo.required"=>'El Correo es requerido',
+            "Fono.required"=>'El Fono es requerido',            
             "Rut_prop.unique"=> 'El Rut ya esta siendo utilizado'   
         ];
         $this->validate($request,$campos,$Mensaje);
@@ -78,8 +75,9 @@ class PropietariosController extends Controller
     public function show($ID_prop)
     {       
         //
+        $users = User::all();
         $datosVERMAS = propietarios::find($ID_prop);       
-        return view('propietario.show', compact('datosVERMAS'));
+        return view('propietario.show', compact('datosVERMAS'), compact('users'));
     }
 
     /**
@@ -102,19 +100,16 @@ class PropietariosController extends Controller
         $campos=[
             'Rut_prop' => 'required|cl_rut',
             'Nombre'   => 'required|string|max:100',
-            'Fono'     => 'required|digits:9',
-            'Correo'   => 'required|string|max:60|email',
+            'Fono'     => 'required|digits:9',            
             'Razon_Social' => 'nullable|string|max:100'
         ];
         $Mensaje=[
-            "numeric"=> 'El Fono debe ser un numero',
-            "email"=>'El Correo ingresado es invalido',
+            "numeric"=> 'El Fono debe ser un numero',            
             "digits"=>'El Fono debe tener 9 digitos',
             "Rut_prop.cl_rut"=> 'El Rut debe ser valido',
             "Rut_prop.required"=>'El Rut es requerido',
             "Nombre.required"=>'El Nombre es requerido',
-            "Fono.required"=>'El Fono es requerido',
-            "Correo.required"=>'El Correo es requerido'   
+            "Fono.required"=>'El Fono es requerido',              
         ];
         $this->validate($request,$campos,$Mensaje);
 

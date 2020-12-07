@@ -33,16 +33,8 @@
                             <input type="text" name="Rut_prop" id="Rut_prop" value="{{$propietario->Rut_prop}}"
                                 class="form-control {{$errors->has('Rut_prop')?'is-invalid':''}}">
                             {!! $errors->first('Rut_prop','<div class="invalid-feedback"> :message</div>') !!}
-                        </div>
-
-
-                        <div class="form-group">
-                            <label for="Correo">{{'Correo'}}</label>
-                            <input type="text" name="Correo" id="Correo" value="{{$propietario->Correo}}"
-                                class="form-control {{$errors->has('Correo')?'is-invalid':''}}">
-                            {!! $errors->first('Correo','<div class="invalid-feedback"> :message</div>') !!}
-                        </div>
-
+                        </div>   
+                                         
 
                         <div class="form-group">
                             <label for="Fono">{{'Fono'}}</label>
