@@ -38,7 +38,8 @@
                             </select>
                             {!! $errors->first('ID_prop','<div class="invalid-feedback"> :message</div>') !!}
       
-                        </div>                       
+                        </div>                  
+  
 
                         <div class="form-group">
                             <label for="Nombre">{{'Nombre Completo'}}</label>
@@ -55,16 +56,7 @@
                                 value="{{isset($propietario->Rut_prop)?$propietario->Rut_prop:old('Rut_prop')}}"
                                 class="form-control {{$errors->has('Rut_prop')?'is-invalid':''}}">
                             {!! $errors->first('Rut_prop','<div class="invalid-feedback"> :message</div>') !!}
-                        </div>
-
-                        <div class="form-group">
-                            
-                            <input type="hidden" name="Correo" id="Correo" 
-                                value="{{$user->email}}"
-                                class="form-control {{$errors->has('Correo')?'is-invalid':''}}">
-                            {!! $errors->first('Correo','<div class="invalid-feedback"> :message</div>') !!}
-                        </div>
-
+                        </div>                   
 
                         <div class="form-group">
                             <label for="Fono">{{'Fono'}}</label>
@@ -105,7 +97,14 @@
 
 @section('js')
 <script>
-    console.log('Hi!');
-
+    var dato = $('#id').val();
+    $.ajax({
+      data: {"dato" : dato},
+      url: "archivoEnviarDato.php",
+      type: "post",
+      success:  function (response) {
+        alert(response);
+      }
+    });
 </script>
 @stop

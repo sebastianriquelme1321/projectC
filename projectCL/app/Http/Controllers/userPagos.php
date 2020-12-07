@@ -8,6 +8,7 @@ use App\Models\Propietarios;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Crypt;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use PhpParser\Node\Expr\Cast\Array_;
@@ -37,36 +38,23 @@ class userPagos extends Controller
            
             $pago=Pagos::where("ID_dept","=",$mos->ID_dept)->get()->toJson();
             array_push($buscar,$pago);
-
             }
           
-       
            foreach($buscar as $mostrar)
           {
            
-           
-           $xd=json_decode ($mostrar);
-           foreach($xd as $coxis)
+           $Aux=json_decode ($mostrar);
+           foreach($Aux as $Aux2)
            {
-               array_push($viewpagos,$coxis);
+               array_push($viewpagos,$Aux2);
            }
          
-
-           
-           
-           
         }
 
         }else{
-        
-         $dptomostrar="no hay";
-        
-
+         $dptomostrar="no hay"; 
         }
     
-
-        
-     
         return view('users.pagos.pagos',compact('viewpagos'), compact('dptomostrar')); 
     }
 
@@ -78,7 +66,7 @@ class userPagos extends Controller
     */
    public function show($ID_pagos)
    {       
-       //
+       $ID_pagos = Crypt::decrypt($ID_pagos);
        $datosVERMAS = pagos::find($ID_pagos); 
        $departamentos = Departamento::all();      
        return view('users.pagos.show', compact('datosVERMAS'),compact('departamentos'));

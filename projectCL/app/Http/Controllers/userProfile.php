@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Propietarios;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Freshwork\ChileanBundle\Rut;
 use App\Models\User;
 
@@ -63,7 +64,7 @@ class userProfile extends Controller
      */
     public function edit($ID_prop)
     {
-        //
+        $ID_prop = Crypt::decrypt($ID_prop);
         $propietario=propietarios::findOrFail($ID_prop);
         $users = User::all();
         return view('users/propietario/edit',compact('propietario'),compact('users'));

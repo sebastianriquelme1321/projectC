@@ -40,7 +40,11 @@
                     <td>{{$datosVERMAS->Nombre}}</td>                    
                     <td>{{$datosVERMAS->Rut_prop}}</td>                    
                     <td>{{$datosVERMAS->Fono}}</td>
-                    <td>{{$datosVERMAS->Correo}}</td>
+                    <td>@foreach ($users as $user)
+                        @if ($user->id == $datosVERMAS->id)
+                            {{$user->email}}
+                        @endif
+                    @endforeach</td>                    
                     <td>{{$datosVERMAS->Razon_Social}}</td>
                    
                    </tr>

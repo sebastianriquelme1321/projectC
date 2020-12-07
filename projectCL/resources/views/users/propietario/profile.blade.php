@@ -3,7 +3,7 @@
 @section('title', 'Mi perfil')
 
 @section('content_header')
-    <h1>Perfil</h1>
+    <h1>Mi Perfil</h1>
 
 @stop
 
@@ -18,12 +18,12 @@
     
     <div class="card">
               <div class="card-header">
-                <h3 class="card-title"></h3>
-
+                <h3 class="card-title"> Mis Datos </h3>
 
               </div>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0" style="height: 700px;">
+
                 <table class="table table-head-fixed text-nowrap">
                   <thead>
                     <tr>
@@ -32,12 +32,10 @@
                         <th>Fono</th>
                         <th>Correo</th>
                         <th>Razon Social</th>      
-
-
                     </tr>
                   </thead>
                   <tbody>
-                   <tr> 
+                   <tr>
                                   
                    @foreach($datosVERMAS as $datos)
                        
@@ -45,10 +43,11 @@
                     <td>{{$datos->Nombre}}</td>                    
                     <td>{{$datos->Rut_prop}}</td>                    
                     <td>{{$datos->Fono}}</td>
-                    <td>{{$datos->Correo}}</td>
+                    <td>{{auth()->user()->email}}</td>
                     <td>{{$datos->Razon_Social}}</td>                
                     <td>
-                        <a href="{{url('/user/profile/'.$datos->ID_prop.'/edit')}}">
+                        <a href="{{url('/user/profile/'.Crypt::encrypt($datos->ID_prop).'/edit')}}">
+                        {{--  <a href="{{url('/user/profile/'.$datos->ID_prop.'/edit')}}">  --}}
                          <button type="submit" class="btn btn-block btn-warning" onclick="return confirm('Editar');">Editar</button>
                         </a>
         
