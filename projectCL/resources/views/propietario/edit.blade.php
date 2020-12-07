@@ -55,15 +55,6 @@
                             {!! $errors->first('Rut_prop','<div class="invalid-feedback"> :message</div>') !!}
                         </div>
 
-
-                        <div class="form-group">
-                            <label for="Correo">{{'Correo'}}</label>
-                            <input type="text" name="Correo" id="Correo" value="{{$propietario->Correo}}"
-                                class="form-control {{$errors->has('Correo')?'is-invalid':''}}">
-                            {!! $errors->first('Correo','<div class="invalid-feedback"> :message</div>') !!}
-                        </div>
-
-
                         <div class="form-group">
                             <label for="Fono">{{'Fono'}}</label>
                             <p style="color:#5a5a5ae7" ;>Formato:912345678</p>
@@ -104,8 +95,7 @@
 @stop
 
 @section('js')
-<script>
-    console.log('Hi!');
-
+<script>    
+   
 </script>
 @stop
