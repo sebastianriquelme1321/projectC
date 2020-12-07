@@ -22,8 +22,7 @@ class CreatePagosTable extends Migration
             $table->integer('Monto')->nullable(true);
             $table->integer('Monto_deuda');
             $table->date('Fecha_de_pago')->nullable(true);
-            $table->date('Mes_de_pago');
-            $table->char('ComprobanteIMG',100)->nullable(true);
+            $table->date('Mes_de_pago');            
             $table->text('Detalle');
             $table->timestamps();
         });

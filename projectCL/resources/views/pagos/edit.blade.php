@@ -80,15 +80,7 @@
                             {!! $errors->first('Mes_de_pago','<div class="invalid-feedback"> :message</div>') !!}
                         </div>
 
-                        <div class="form-group">
-                          <label for="ComprobanteIMG">{{'Comprobante'}}</label>
-                          <img src="{{asset('storage').'/'.$pago->ComprobanteIMG}}" alt="" width="200">
-                          <input type="file" name="ComprobanteIMG"id="ComprobanteIMG" 
-                          value="{{asset('storage').'/'.$pago->ComprobanteIMG}}" 
-                          class="form-control custom-file {{$errors->has('ComprobanteIMG')?'is-invalid':''}}">
-                          {!! $errors->first('ComprobanteIMG','<div class="invalid-feedback"> :message</div>') !!}
-                        </div>
-
+                        
                         <div class="form-group">
                             <label for="Detalle">{{'Detalle'}}</label>
                             <input type="text" name="Detalle" id="Detalle"
