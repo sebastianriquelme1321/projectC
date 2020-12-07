@@ -13,7 +13,7 @@
                 <div class="card card-primary">
 
                     <div class="card-header">
-                        <h3 class="card-title">Propietario {{$propietario->ID_prop}}</h3>
+                        <h3 class="card-title">Editar Perfil de {{$propietario->Nombre}}</h3>
                     </div>
 
                     <div class="card-body" style="display: block;">
@@ -35,15 +35,6 @@
                             {!! $errors->first('Rut_prop','<div class="invalid-feedback"> :message</div>') !!}
                         </div>
 
-
-                        <div class="form-group">
-                            <label for="Correo">{{'Correo'}}</label>
-                            <input type="text" name="Correo" id="Correo" value="{{$propietario->Correo}}"
-                                class="form-control {{$errors->has('Correo')?'is-invalid':''}}">
-                            {!! $errors->first('Correo','<div class="invalid-feedback"> :message</div>') !!}
-                        </div>
-
-
                         <div class="form-group">
                             <label for="Fono">{{'Fono'}}</label>
                             <p style="color:#5a5a5ae7" ;>Formato:912345678</p>
@@ -55,9 +46,7 @@
                         <div class="form-group">
                             <label for="Razon_Social">{{'Razon Social'}}</label>
                             <p style="color:#5a5a5ae7" ;> Opcional </p>
-                            <input type="text" name="Razon_Social" id="Razon_Social"
-                                value="{{isset($propietario->Nombre)?$propietario->Nombre:old('Nombre')}}"
-                                class="form-control">
+                            <input type="text" name="Razon_Social" id="Razon_Social" value="{{$propietario->Razon_Social}}" class="form-control">
                         </div>
 
                     </div>

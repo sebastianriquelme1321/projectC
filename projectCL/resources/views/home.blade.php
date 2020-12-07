@@ -1,20 +1,21 @@
 @extends('adminlte::page')
 
+@section('title', 'Dashboard')
+
+@section('content_header')
+    <h1>Noticias</h1>
+@stop
+
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Noticias') }}</div>
+    <p>Noticias de tu Condominio</p>
 
-                <div class="card-body">
-                   
+    <p>Avisos de tu Condominio</p>
+@stop
 
-                   
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop

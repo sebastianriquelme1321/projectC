@@ -11,8 +11,6 @@
     <div class="row">
       <div class="col-12"> 
         <a href="{{url('user/pagos/')}}" class="btn btn-primary btn-lg " >Volver</a>
-        
-        
       </div>
       
     </div>
