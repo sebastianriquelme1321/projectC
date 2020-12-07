@@ -37,17 +37,22 @@
 
                      @if($muestro->ID_dept==$pago->ID_dept)
                         <tr>
+                          
                           <td>{{$muestro->Numero}} - {{ $muestro->Bloque}}</td>
                           <td>${{$pago->Monto}}</td>
+                          <td>{{$pago->ID_pagos}}</td>
                           <td>{{$pago->Fecha_de_pago}}</td>
                           <td>
-                          <form method="post" action="{{url('user/pagos/'.Crypt::encrypt($pago->ID_pagos))}}">
-                              {{csrf_field() }}
-                              {{method_field('GET')}}
-                            <button type="submit" class="btn btn-block btn-success">Ver mas</button>
-                        </tr>
+                            
+                            <form method="post" action="{{url('user/pagos/'.Crypt::encrypt($pago->ID_pagos))}}">
+                                {{csrf_field() }}
+                                {{method_field('GET')}}
+                              <button type="submit" class="btn btn-block btn-success">Ver mas</button>
+                          </tr>
                       @endif
+                     
                     @endforeach
+                   
                   @endforeach
                   </tbody>
                 @endif

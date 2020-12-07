@@ -50,7 +50,10 @@
                   <td>{{$datosVERMAS->Monto_deuda}}</td>
                   <td>{{$datosVERMAS->Fecha_de_pago}}</td>
                   <td>{{$datosVERMAS->Mes_de_pago}}</td> 
-                  <td><a href="{{url('user/invoice/show')}}" class="btn btn-primary btn-lg " >Descargar Comprobante</a></td>
+                  <td><a href="{{url('/user/invoice/'.$datosVERMAS->ID_pagos)}}">
+                     <button type="submit" class="btn btn-block btn-warning" onclick="return confirm('Editar');">Descargar Comprobante</button>
+                    </a>
+               </td>
         
                   <td>{{$datosVERMAS->Detalle}}</td>                   
                  

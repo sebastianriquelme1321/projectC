@@ -65,9 +65,10 @@ class userPagos extends Controller
     * @return \Illuminate\Http\Response
     */
    public function show($ID_pagos)
-   {       
-       $ID_pagos = Crypt::decrypt($ID_pagos);
-       $datosVERMAS = pagos::find($ID_pagos); 
+   {   
+       
+       $unc= Crypt::decrypt($ID_pagos);
+       $datosVERMAS = pagos::find($unc); 
        $departamentos = Departamento::all();      
        return view('users.pagos.show', compact('datosVERMAS'),compact('departamentos'));
    }
