@@ -50,7 +50,8 @@
                   <td>{{$datosVERMAS->Monto_deuda}}</td>
                   <td>{{$datosVERMAS->Fecha_de_pago}}</td>
                   <td>{{$datosVERMAS->Mes_de_pago}}</td> 
-                  <td><img src="{{asset('storage').'/'.$datosVERMAS->ComprobanteIMG}}" alt="" width="200"></td>
+                  <td><a href="{{url('user/invoice/show')}}" class="btn btn-primary btn-lg " >Descargar Comprobante</a></td>
+        
                   <td>{{$datosVERMAS->Detalle}}</td>                   
                  
                  </tr>

@@ -44,6 +44,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('profile', '\App\Http\Controllers\userProfile');
     Route::resource('pagos', '\App\Http\Controllers\userPagos'); 
     Route::get('contact', function() {return view('users.contact');});
+    Route::resource('invoice', '\App\Http\Controllers\invoiceController');
    
   });
 
