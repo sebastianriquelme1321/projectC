@@ -299,7 +299,6 @@ return [
             ],
         ],
 
-
         [
             'can' => 'user-only',
             'text'    => 'Mi Perfil',
@@ -312,6 +311,13 @@ return [
             'text'    => 'Mis Pagos',
             'icon'    => 'fas fa-money-bill-alt',
             'url'  => 'user/pagos',
+        ],
+
+        [
+            'can' => 'user-only',
+            'text'    => 'Registro de Gastos',
+            'icon'    => 'fas fa-file-invoice-dollar',
+            'url'  => 'user/registro',
         ],
 
         [
