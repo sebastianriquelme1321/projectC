@@ -69,15 +69,7 @@
                                 value="{{isset($pago->Mes_de_pago)?$pago->Mes_de_pago:old('Mes_de_pago')}}"
                                 class="form-control {{$errors->has('Mes_de_pago')?'is-invalid':''}}">
                             {!! $errors->first('Mes_de_pago','<div class="invalid-feedback"> :message</div>') !!}
-                        </div>
-
-                        <div class="form-group">
-                            <label for="ComprobanteIMG">{{'Comprobante'}}</label>
-                            <input type="file" name="ComprobanteIMG" id="ComprobanteIMG"
-                                value="{{isset($pago->ComprobanteIMG)?$pago->ComprobanteIMG:old('ComprobanteIMG')}}"
-                                class="form-control custom-file {{$errors->has('ComprobanteIMG')?'is-invalid':''}}">
-                            {!! $errors->first('ComprobanteIMG','<div class="invalid-feedback"> :message</div>') !!}
-                        </div>
+                        </div>                        
 
                         <div class="form-group">
                             <label for="Detalle">{{'Detalle'}}</label>

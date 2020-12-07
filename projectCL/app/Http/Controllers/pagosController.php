@@ -48,8 +48,7 @@ class pagosController extends Controller
             'Monto'=> 'required|numeric',
             'Monto_deuda'=> 'required|numeric',
             'Fecha_de_pago'   => 'date',
-            'Mes_de_pago' => 'date',
-            'ComprobanteIMG' => 'required|max:10000|mimes:jpeg,png,jpg',
+            'Mes_de_pago' => 'date',            
             'Detalle' => 'required|string|max:100'
         ];
         
@@ -58,7 +57,7 @@ class pagosController extends Controller
             "ID_dept.required"=>'El ID de departamento es requerido',
             "Monto.required"=>'El Monto es requerido',
             "Monto_deuda.required"=>'El Monto Deuda es requerido',
-            "ComprobanteIMG.required"=>'La Imagen del Comprobante es requerida',
+            
             "ID_dept.numeric"=> 'El ID del departamento debe ser un numero',
             "Monto.numeric"=> 'El Monto debe ser un numero',
             "Monto_deuda.numeric"=> 'El Monto Deuda debe ser un numero',
@@ -70,11 +69,6 @@ class pagosController extends Controller
 
         $datospago=$request->except('_token');
 
-        if($request->hasFile('ComprobanteIMG')){
-
-            $datospago['ComprobanteIMG']=$request->file('ComprobanteIMG')->store('uploads','public');
-
-        }
 
         pagos::insert($datospago);
         return redirect('pagos');  
@@ -143,15 +137,7 @@ class pagosController extends Controller
         $this->validate($request,$campos,$Mensaje);
 
         $datospago=$request->except(['_token','_method']);        
-        if($request->hasFile('ComprobanteIMG')){
-
-            $pago=Pagos::findOrFail($ID_pagos); 
-
-            Storage::delete('public/'.$pago->ComprobanteIMG);
-
-            $datospago['ComprobanteIMG']=$request->file('ComprobanteIMG')->store('uploads','public');
-            
-        }
+        
 
         pagos::where('ID_pagos','=',$ID_pagos)->update($datospago);
         
