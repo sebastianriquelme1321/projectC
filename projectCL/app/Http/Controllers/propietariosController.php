@@ -6,6 +6,7 @@ use App\Models\Propietarios;
 use Illuminate\Http\Request;
 use Freshwork\ChileanBundle\Rut;
 use App\Models\User;
+use App\Models\Departamento;
 
 class PropietariosController extends Controller
 {
@@ -76,8 +77,9 @@ class PropietariosController extends Controller
     {       
         //
         $users = User::all();
+        $departamentos = Departamento::all(); 
         $datosVERMAS = propietarios::find($ID_prop);       
-        return view('propietario.show', compact('datosVERMAS'), compact('users'));
+        return view('propietario.show', compact('datosVERMAS','users','departamentos'));
     }
 
     /**

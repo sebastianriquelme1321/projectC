@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Condominio;
 use App\Models\Propietarios;
+use App\Models\JefeDeHogar;
 
 class departamentosController extends Controller
 {
@@ -86,7 +87,8 @@ class departamentosController extends Controller
         //
         $datosVERMAS = departamento::find($ID_dept);       
         $propietarios = Propietarios::all();
-        return view('departamento.show', compact('datosVERMAS'),compact('propietarios'));
+        $jefedehogar = JefeDeHogar::all();
+        return view('departamento.show', compact('datosVERMAS'),compact('propietarios','jefedehogar'));
     }
 
     /**
