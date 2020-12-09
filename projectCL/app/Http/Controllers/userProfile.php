@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Freshwork\ChileanBundle\Rut;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class userProfile extends Controller
 {
@@ -17,8 +18,11 @@ class userProfile extends Controller
      */
     public function index()
     {  
+        $propietariob=propietarios::where("id","=",Auth::user()->id)->get()->toJson();
+        $propietariob=json_decode($propietariob);
+
         $datosVERMAS = propietarios::all();
-        return view('users.propietario.profile', compact('datosVERMAS'));
+        return view('users.propietario.profile', compact('datosVERMAS'), compact('propietariob'));
     }
 
     /**

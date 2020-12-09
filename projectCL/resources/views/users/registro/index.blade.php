@@ -8,7 +8,12 @@
 @stop
 
 @section('content')
-    
+<div class="row">
+  <div class="col-12"> 
+    <a href="{{url('/home/')}}" class="btn btn-primary btn-lg " >Volver</a>
+  </div>
+</div>
+<br>
     <div class="card">
 
               <div class="card-header">
