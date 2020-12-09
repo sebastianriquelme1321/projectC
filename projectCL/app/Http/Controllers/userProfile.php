@@ -76,18 +76,15 @@ class userProfile extends Controller
             'Rut_prop' => 'required|cl_rut',
             'Nombre'   => 'required|string|max:100',
             'Fono'     => 'required|digits:9',
-            'Correo'   => 'required|string|max:60|email',
             'Razon_Social' => 'nullable|string|max:100'
         ];
         $Mensaje=[
             "numeric"=> 'El Fono debe ser un numero',
-            "email"=>'El Correo ingresado es invalido',
             "digits"=>'El Fono debe tener 9 digitos',
             "Rut_prop.cl_rut"=> 'El Rut debe ser valido',
             "Rut_prop.required"=>'El Rut es requerido',
             "Nombre.required"=>'El Nombre es requerido',
             "Fono.required"=>'El Fono es requerido',
-            "Correo.required"=>'El Correo es requerido'   
         ];
         $this->validate($request,$campos,$Mensaje);
 
