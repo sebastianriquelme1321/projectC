@@ -20,12 +20,13 @@ class invoiceController extends Controller
         $propietariob=propietarios::where("id","=",Auth::user()->id)->get()->toJson();
         $propietariob=json_decode($propietariob);
         $pago=Pagos::find($ID_pagos);
-        
+       
 
         $customer = new Buyer([
             'name'          => Auth()->user()->name,
             'custom_fields' => [
                 'email' => auth()->user()->email,
+                'Fecha' => $pago->Monto,
             ],
         ]);
         
