@@ -48,14 +48,17 @@
                                 {{csrf_field() }}
                                 {{method_field('GET')}}
                               <button type="submit" class="btn btn-block btn-success">Ver mas</button>
-                          </tr>
-                      @endif
-                     
-                    @endforeach
-                   
-                  @endforeach
-                  </tbody>
+                            </form>
+                          </td>
+                        </tr>
+                      @endif  
+
+                    @endforeach 
+
+                  @endforeach    
+
                 @endif
+              </tbody>
         </table>
     </div>
 </div>
