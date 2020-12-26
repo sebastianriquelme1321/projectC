@@ -6,6 +6,8 @@ use App\Models\Pagos;
 use App\Models\Departamento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Propietarios;
+use App\Models\User;
 
 class pagosController extends Controller
 {
@@ -85,8 +87,10 @@ class pagosController extends Controller
     {       
         //
         $datosVERMAS = pagos::find($ID_pagos); 
-        $departamentos = Departamento::all();      
-        return view('pagos.show', compact('datosVERMAS'),compact('departamentos'));
+        $departamentos = Departamento::all();
+        $propietarios = Propietarios::all();
+        $users = User::all();     
+        return view('pagos.show', compact('datosVERMAS'),compact('departamentos','propietarios','users'));
     }
 
     /**

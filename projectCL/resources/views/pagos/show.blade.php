@@ -19,11 +19,9 @@
     <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Pagos</h3>
-
-
               </div>
               <!-- /.card-header -->
-              <div class="card-body table-responsive p-0" style="height: 700px;">
+              <div class="card-body table-responsive p-0" style="height: 200px;">
                 <table class="table table-head-fixed text-nowrap">
                   <thead>
                     <tr>
@@ -58,6 +56,56 @@
             </div>
             <!-- /.card-body -->
           </div>
+
+
+          {{--  datos propietario   --}}
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Propietario Asociado</h3>
+
+
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body table-responsive p-0" style="height: 200px;">
+              <table class="table table-head-fixed text-nowrap">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>                        
+                    <th>Rut</th>                        
+                    <th>Fono</th>
+                    <th>Correo</th>
+                    <th>Razon Social</th>                      
+
+                </tr>
+              </thead>
+              <tbody>
+               <tr> 
+                @foreach ($departamentos as $depto)
+                    @if ($depto->ID_dept == $datosVERMAS->ID_dept)
+                      @foreach ($propietarios as $prop)
+                          @if($prop -> ID_prop == $depto->ID_prop)
+
+                          <td>{{$prop->Nombre}}</td>                    
+                          <td>{{$prop->Rut_prop}}</td>                    
+                          <td>{{$prop->Fono}}</td>
+                            @foreach ($users as $user)
+                              @if ($user->id == $prop->id)
+                              <td>{{$user->email}}</td>
+                              @endif
+                            @endforeach 
+                          <td>{{$prop->Razon_Social}}</td>
+
+                          @endif
+                      @endforeach
+                    @endif
+                @endforeach  
+               </tr>
+              </table>
+          </div>
+          <!-- /.card-body -->
+        </div>
+
+
 @stop
 
 @section('css')
