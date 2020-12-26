@@ -40,7 +40,6 @@
                           
                           <td>{{$muestro->Numero}} - {{ $muestro->Bloque}}</td>
                           <td>${{$pago->Monto}}</td>
-                          <td>{{$pago->ID_pagos}}</td>
                           <td>{{$pago->Fecha_de_pago}}</td>
                           <td>
                             

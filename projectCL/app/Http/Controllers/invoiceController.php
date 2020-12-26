@@ -26,18 +26,17 @@ class invoiceController extends Controller
             'name'          => Auth()->user()->name,
             'custom_fields' => [
                 'email' => auth()->user()->email,
-                'Fecha' => $pago->Monto,
+                'Fecha de pago' => $pago->Fecha_de_pago,
             ],
         ]);
         
-        setlocale(LC_ALL, 'es_ES');
-        $fecha = Carbon::parse();
-        $fecha->format("F"); // Inglés.
-        $mes = $fecha->formatLocalized('%B');// mes en idioma español
+        $date = \Carbon\Carbon::now()->locale('es');
+        $date->translatedFormat('g:i a l jS F Y');
+ 
 
     
 
-        $item = (new InvoiceItem())->title($mes)->pricePerUnit($pago->Monto);
+        $item = (new InvoiceItem())->title($date)->pricePerUnit($pago->Monto);
 
         $invoice = Invoice::make()
             ->buyer($customer)
