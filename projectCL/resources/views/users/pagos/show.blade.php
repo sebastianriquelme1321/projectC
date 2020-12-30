@@ -51,7 +51,7 @@
                   <td>{{$datosVERMAS->Fecha_de_pago}}</td>
                   <td>{{$datosVERMAS->Mes_de_pago}}</td> 
                   <td><a href="{{url('/user/invoice/'.$datosVERMAS->ID_pagos)}}">
-                     <button type="submit" class="btn btn-block btn-warning" onclick="return confirm('Editar');">Descargar Comprobante</button>
+                     <button type="submit" class="btn btn-block btn-warning" onclick="return confirm('Descargar');">Descargar Comprobante</button>
                     </a>
                </td>
         
