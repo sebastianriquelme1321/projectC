@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Propietario')
 
 @section('content')
 <h1>Propietario</h1>
@@ -51,7 +51,7 @@
 
                         <div class="form-group">
                             <label for="Rut">{{'Rut'}}</label>
-                            <p style="color:#5a5a5ae7" ;>Formato:12.345.678-9</p>
+                            <p style="color:#5a5a5ae7" ;>Ej: 12.345.678-9</p>
                             <input type="text" name="Rut_prop" id="Rut_prop"
                                 value="{{isset($propietario->Rut_prop)?$propietario->Rut_prop:old('Rut_prop')}}"
                                 class="form-control {{$errors->has('Rut_prop')?'is-invalid':''}}">
@@ -59,8 +59,8 @@
                         </div>                   
 
                         <div class="form-group">
-                            <label for="Fono">{{'Fono'}}</label>
-                            <p style="color:#5a5a5ae7" ;>Formato:912345678</p>
+                            <label for="Fono">{{'Teléfono'}}</label>
+                            <p style="color:#5a5a5ae7" ;>Ej: 912345678</p>
                             <input type="text" name="Fono" id="Fono"
                                 value="{{isset($propietario->Fono)?$propietario->Fono:old('Fono')}}"
                                 class="form-control {{$errors->has('Fono')?'is-invalid':''}}">

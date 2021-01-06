@@ -32,7 +32,7 @@
                         <th>Rut Jefe</th>                        
                         <th>Nombre</th>
                         <th>Apellido</th>
-                        <th>Fono</th>
+                        <th>Teléfono</th>
                         <th>Correo</th>                                      
 
                     </tr>

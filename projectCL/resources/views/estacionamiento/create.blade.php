@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Estacionamiento')
 
 @section('content')
-<h1>Dashboard</h1>
+<h1>Estacionamiento</h1>
 <form action="{{url('/estacionamiento')}}" method="post" enctype="multipart/form-data">
     {{csrf_field()}}
     <section class="content">

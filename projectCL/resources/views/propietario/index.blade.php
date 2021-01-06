@@ -29,7 +29,7 @@
             <thead>
                 <tr>
                     <th>Nombre</th>
-                    <th>Fono</th>
+                    <th>Teléfono</th>
                 </tr>
             </thead>
             <tbody>
@@ -57,7 +57,7 @@
                             {{csrf_field() }}
                             {{method_field('DELETE')}}
                             <button type="submit" class="btn btn-block btn-danger"
-                                onclick="return confirm('Borrar');">Borrar</button>
+                                onclick="return confirm('¿Esta Seguro?');">Borrar</button>
 
                         </form>
                     </td>

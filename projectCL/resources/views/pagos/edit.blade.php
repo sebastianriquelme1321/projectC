@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Pagos')
 
 @section('content')
-<h1>Dashboard</h1>
+<h1>Pagos</h1>
 <form action="{{url('/pagos/'.$pago->ID_pagos)}}" method="post" enctype="multipart/form-data">
     {{csrf_field()}}
     {{method_field('PATCH')}}
@@ -48,6 +48,8 @@
                             {!! $errors->first('ID_dept','<div class="invalid-feedback"> :message</div>') !!}
                         </div>  --}}
 
+                        <input type="hidden" name="ID_dept" id="ID_dept" value="{{$pago->ID_dept}}">
+
                         <div class="form-group">
                             <label for="Monto">{{'Monto'}}</label>
                             <input type="text" name="Monto" id="Monto"
@@ -81,11 +83,17 @@
                         </div>
 
                         
-                        <div class="form-group">
+                        {{--  <div class="form-group">
                             <label for="Detalle">{{'Detalle'}}</label>
                             <input type="text" name="Detalle" id="Detalle"
                                 value="{{$pago->Detalle}}"
                                 class="form-control {{$errors->has('Detalle')?'is-invalid':''}}">
+                            {!! $errors->first('Detalle','<div class="invalid-feedback"> :message</div>') !!}
+                        </div>  --}}
+
+                        <div class="form-group">
+                            <label for="Detalle">{{'Detalle'}}</label>
+                            <p><textarea name="Detalle" id="Detalle" rows="5" cols="30" class="form-control">{{$pago->Detalle}}</textarea></p>
                             {!! $errors->first('Detalle','<div class="invalid-feedback"> :message</div>') !!}
                         </div>
 

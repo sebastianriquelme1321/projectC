@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Jefe de Hogar')
 
 @section('content')
-<h1>Dashboard</h1>
+<h1>Jefe de Hogar</h1>
 <form action="{{url('/jefe_de_hogar')}}" method="post" enctype="multipart/form-data">
     {{csrf_field()}}
     <section class="content">
@@ -43,7 +43,7 @@
 
                         <div class="form-group">
                             <label for="Rut_jefe">{{'Rut jefe'}}</label>
-                            <p style="color:#5a5a5ae7" ;>Formato:12.345.678-9</p>
+                            <p style="color:#5a5a5ae7" ;>Ej: 12.345.678-9</p>
                             <input type="text" name="Rut_jefe" id="Rut_jefe"
                                 value="{{isset($jefe_de_hogar->Rut_jefe)?$jefe_de_hogar->Rut_jefe:old('Rut_jefe')}}"
                                 class="form-control {{$errors->has('Rut_jefe')?'is-invalid':''}}">
@@ -67,8 +67,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="Fono">{{'Fono'}}</label>
-                            <p style="color:#5a5a5ae7" ;>Formato:912345678</p>
+                            <label for="Fono">{{'Teléfono'}}</label>
+                            <p style="color:#5a5a5ae7" ;>Ej: 912345678</p>
                             <input type="text" name="Fono" id="Fono"
                                 value="{{isset($jefe_de_hogar->Fono)?$jefe_de_hogar->Fono:old('Fono')}}"
                                 class="form-control {{$errors->has('Fono')?'is-invalid':''}}">

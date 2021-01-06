@@ -63,7 +63,7 @@
                         <form method="post" action="{{url('/registro/'.$registro->ID_registro)}}">
                         {{csrf_field() }}
                         {{method_field('DELETE')}}
-                        <button type="submit" class="btn btn-block btn-danger" onclick="return confirm('Borrar');">Borrar</button>
+                        <button type="submit" class="btn btn-block btn-danger" onclick="return confirm('¿Esta Seguro?');">Borrar</button>
             
                         </form>
                     </td>

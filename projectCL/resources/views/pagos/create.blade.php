@@ -71,11 +71,17 @@
                             {!! $errors->first('Mes_de_pago','<div class="invalid-feedback"> :message</div>') !!}
                         </div>                        
 
-                        <div class="form-group">
+                        {{--  <div class="form-group">
                             <label for="Detalle">{{'Detalle'}}</label>
                             <input type="text" name="Detalle" id="Detalle"
                                 value="{{isset($pago->Detalle)?$pago->Detalle:old('Detalle')}}"
                                 class="form-control {{$errors->has('Detalle')?'is-invalid':''}}">
+                            {!! $errors->first('Detalle','<div class="invalid-feedback"> :message</div>') !!}
+                        </div>  --}}
+
+                        <div class="form-group">
+                            <label for="Detalle">{{'Detalle'}}</label>
+                            <p><textarea name="Detalle" id="Detalle" rows="5" cols="30" class="form-control"></textarea></p>
                             {!! $errors->first('Detalle','<div class="invalid-feedback"> :message</div>') !!}
                         </div>
 

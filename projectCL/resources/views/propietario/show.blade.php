@@ -29,7 +29,7 @@
                     <tr>
                         <th>Nombre</th>                        
                         <th>Rut</th>                        
-                        <th>Fono</th>
+                        <th>Teléfono</th>
                         <th>Correo</th>
                         <th>Razon Social</th>                      
 

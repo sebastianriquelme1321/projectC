@@ -50,7 +50,7 @@
                     <td>
                         <a href="{{url('/jefe_de_hogar/'.$jefe_de_hogar->ID_jefe.'/edit')}}">
                             <button type="submit" class="btn btn-block btn-warning"
-                                onclick="return confirm('Editar');">Editar</button>
+                                onclick="return confirm('EdBorraritar');">Editar</button>
                         </a>
                     </td>
                     <td>
@@ -58,7 +58,7 @@
                             {{csrf_field() }}
                             {{method_field('DELETE')}}
                             <button type="submit" class="btn btn-block btn-danger"
-                                onclick="return confirm('Borrar');">Borrar</button>
+                                onclick="return confirm('¿Esta Seguro?');">Borrar</button>
 
                         </form>
                     </td>
