@@ -2,13 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use LaravelDaily\Invoices\Invoice;
 use LaravelDaily\Invoices\Classes\Buyer;
 use LaravelDaily\Invoices\Classes\InvoiceItem;
-
-use Carbon\Carbon;
-
 use App\Models\Propietarios;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Pagos;
@@ -37,8 +33,10 @@ class invoiceController extends Controller
     
 
         $item = (new InvoiceItem())->title($date)->pricePerUnit($pago->Monto);
+        $item_deuda = (new InvoiceItem())->title($date)->pricePerUnit($pago->Monto_deuda);
+        
 
-        $invoice = Invoice::make()
+        $invoice=Invoice::make()
             ->buyer($customer)
             ->addItem($item)
             ->sequence($ID_pagos)
