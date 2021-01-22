@@ -62,7 +62,7 @@
                         </div>
                         @error('email')
                         <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
+                            <strong>El correo ya esta siendo utilizado</strong>
                         </span>
                         @enderror
 
@@ -72,7 +72,7 @@
 
                         <input id="password" type="password"
                             class="form-control @error('password') is-invalid @enderror" name="password"
-                            placeholder="Constraseña" required autocomplete="new-password">
+                            placeholder="Contraseña" required autocomplete="new-password">
 
                         <div class="input-group-append">
                             <div class="input-group-text">
@@ -81,7 +81,7 @@
                         </div>
                         @error('password')
                         <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
+                            <strong>Contraseña incorrecta o menor a 8 caracteres </strong>
                         </span>
                         @enderror
 
@@ -89,7 +89,7 @@
 
                     <div class="input-group mb-3">
                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
-                            required autocomplete="new-password" placeholder="Confirmar constraseña">
+                            required autocomplete="new-password" placeholder="Confirmar contraseña">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
