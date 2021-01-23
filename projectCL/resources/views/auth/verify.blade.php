@@ -21,25 +21,30 @@
 </head>
 
 <body class="hold-transition login-page">
+    
+    <div class="login-logo">
+        <img class="Logo" style="border-radius:20px"  src="/vendor/adminlte/dist/img/LogoProyecto2.png" alt="" width='150' height="150">
+    </div>
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Verify Your Email Address') }}</div>
+                    <div class="card-header">{{ __('Verifica tu dirección de correo') }}</div>
 
                     <div class="card-body">
                         @if (session('resent'))
                         <div class="alert alert-success" role="alert">
-                            {{ __('A fresh verification link has been sent to your email address.') }}
+                            {{ __('Se a enviado un nuevo link de verificación a su correo') }}
                         </div>
                         @endif
 
-                        {{ __('Before proceeding, please check your email for a verification link.') }}
-                        {{ __('If you did not receive the email') }},
+                        {{ __('Antes de continuar, revisa tu correo por un link de verificación nuevo.') }}
+                        {{ __(' Si no recibes el correo.') }}
                         <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
                             @csrf
                             <button type="submit"
-                                class="btn btn-link p-0 m-0 align-baseline">{{ __('click here to request another') }}</button>.
+                                class="btn btn-link p-0 m-0 align-baseline">{{ __('Haz click aqui para reenviar el link') }}</button>.
                         </form>
                     </div>
                 </div>
