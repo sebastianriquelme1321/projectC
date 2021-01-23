@@ -33,9 +33,11 @@ Route::view('/usuariosinprop','usuariosinprop')->name('usuariosinprop');
 
 Auth::routes(['verify' => true]);
 
+
+
 Route::group(['middleware' => 'auth'], function() {
-    
-  Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
+  Route::group(['middleware' => 'verified'], function() {
+  Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
   Route::get('/', function() {return view('home');});
 
 
@@ -50,5 +52,5 @@ Route::group(['middleware' => 'auth'], function() {
     
     
   });
-
+  });
 });

@@ -23,6 +23,10 @@
 <body class="hold-transition register-page">
     <div class="register-box">
         
+        <div class="login-logo">
+            <img class="Logo" style="border-radius:20px" src="/vendor/adminlte/dist/img/LogoProyecto2.png" alt=""
+                width='150' height="150">
+        </div>
 
         <div class="row align-items-center ">
             <div class="col-md-8">
