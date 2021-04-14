@@ -22,6 +22,9 @@ class userProfile extends Controller
         $propietariob=json_decode($propietariob);
 
         $datosVERMAS = propietarios::all();
+        if(count($propietariob)==0){
+            $propietariob=null;
+        }
         return view('users.propietario.profile', compact('datosVERMAS'), compact('propietariob'));
     }
 

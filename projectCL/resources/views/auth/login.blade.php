@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -46,7 +45,7 @@
                             </div>
                             @error('email')
                             <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong> //Cambiar los mensajes a espa;ol 
+                                <strong>Usuario o Contraseña incorrecta</strong> 
                             </span>
                             @enderror
                             

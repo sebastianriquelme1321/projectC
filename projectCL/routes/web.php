@@ -28,16 +28,20 @@ Route::group(['middleware' => 'admin'], function() {
 
 
 
-Auth::routes();
+
+Route::view('/usuariosinprop','usuariosinprop')->name('usuariosinprop');
+
+Auth::routes(['verify' => true]);
 
 
 
 Route::group(['middleware' => 'auth'], function() {
-    
+  Route::group(['middleware' => 'verified'], function() {
   Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
   Route::get('/', function() {return view('home');});
 
 
+  
    Route::group(['prefix' => 'user'], function() {
     //
     Route::resource('registro', '\App\Http\Controllers\userRegistro');
@@ -45,7 +49,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('pagos', '\App\Http\Controllers\userPagos'); 
     Route::get('contact', function() {return view('users.contact');});
     Route::resource('invoice', '\App\Http\Controllers\invoiceController');
-   
+    
+    
   });
-
+  });
 });

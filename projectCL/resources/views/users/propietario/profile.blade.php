@@ -8,6 +8,15 @@
 @stop
 
 @section('content')
+    @php
+      
+      if($propietariob==null){
+        header("Location: " . URL::to('usuariosinprop'), true, 302);
+        exit();
+      }
+    @endphp
+
+
     <div class="row">
       <div class="col-12"> 
         <a href="{{url('/home/')}}" class="btn btn-primary btn-lg" >Volver</a>

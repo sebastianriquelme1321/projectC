@@ -40,18 +40,55 @@
                         </form>
                     </td>
                     <td>
-                        <a href="{{url('/departamento/'.$departamento->ID_dept.'/edit')}}">
-                            <button type="submit" class="btn btn-block btn-warning"
-                                onclick="return confirm('Editar');">Editar</button>
-                        </a>
+
+                        <input type="button" class="btn btn-block btn-warning" name="btn" value="Editar" id="submitBtn"
+                            data-toggle="modal" data-target="#edit-modal" class="btn btn-default" />
+
+                        <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog"
+                            aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">¿Editar?</h5>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default"
+                                            data-dismiss="modal">Cancelar</button>
+
+                                        <a href="{{url('/departamento/'.$departamento->ID_dept.'/edit')}}">
+                                            <button type="submit" class="btn btn-primary">Aceptar</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </td>
+
                     <td>
-                        <form method="post" action="{{url('/departamento/'.$departamento->ID_dept)}}">
-                            {{csrf_field() }}
-                            {{method_field('DELETE')}}
-                            <button type="submit" class="btn btn-block btn-danger"
-                                onclick="return confirm('¿Esta Seguro?');">Borrar</button>
-                        </form>
+                        <input type="button" class="btn btn-block btn-danger" name="btn" value="Eliminar" id="submitBtn"
+                            data-toggle="modal" data-target="#delete-modal" class="btn btn-default" />
+                        <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog"
+                            aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">¿Borrar?</h5>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default"
+                                            data-dismiss="modal">Cancelar</button>
+                                        <form method="post" action="{{url('/departamento/'.$departamento->ID_dept)}}">
+                                            {{csrf_field() }}
+                                            {{method_field('DELETE')}}
+                                            <button type="submit" class="btn btn-primary">Aceptar</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </td>
                 </tr>
                 @endforeach
@@ -60,6 +97,9 @@
     </div>
     <!-- /.card-body -->
 </div>
+
+
+
 @stop
 
 @section('css')
@@ -72,6 +112,7 @@
         $('#search').keyup(function () {
             search_table($(this).val());
         });
+
         function search_table(value) {
             $('#tabla1 tbody tr').each(function () {
                 var found = 'false';

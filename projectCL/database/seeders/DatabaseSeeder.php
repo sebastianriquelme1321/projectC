@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
 
         DB::table('users')->insert([
             'name' => 'Admin',
-            'email' => 'admin@admin.com',
+            'email' => 'nuevocollao1585@gmail.com',
+            'email_verified_at' => '2021-01-01 00:00:01',
             'password' => Hash::make('admin'),
             'EsAdmin' => true,
         ]);
@@ -38,5 +39,50 @@ class DatabaseSeeder extends Seeder
             'Fono' =>  '912345678',
             'id' => '1',           
         ]);
+
+        DB::table('users')->insert([
+            'name' => 'Demo',
+            'email' => 'demo@demo.com',
+            'email_verified_at' => '2021-01-01 00:00:01',
+            'password' => Hash::make('demo'),
+        ]);
+
+        DB::table('propietarios')->insert([
+            'Rut_prop' => '99.999.999-9',
+            'Nombre' => 'Propietario Demo',
+            'Fono' =>  '999999999',
+            'id' => '2',           
+        ]);
+
+        DB::table('departamentos')->insert([
+            'ID_prop' => '2',
+            'Numero' => '99999',
+            'Bloque' => 'Z',
+        ]);
+
+        DB::table('estacionamientos')->insert([
+            'ID_prop' => '2',
+            'Numero' => '99999',
+        ]);
+        
+        DB::table('jefe_de_hogars')->insert([
+            'ID_dept' => '1',
+            'Rut_jefe' => '99.999.999-9',
+            'Nombre' => 'Demo',
+            'Apellido' => 'Demo',
+            'Fono' => '999999999',
+            'Correo' => 'demo@demo.com',
+        ]);
+
+        DB::table('pagos')->insert([
+            'ID_dept' => '1',
+            'Monto' => '999999',
+            'Monto_deuda' => '999999',
+            'Fecha_de_pago' => '2021-01-01',
+            'Mes_de_pago' => '2021-01-01',
+            'Detalle' => 'Pago Demo',
+        ]);
+
+
     }
 }
